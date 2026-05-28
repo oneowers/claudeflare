@@ -14,9 +14,12 @@ import { useCreatePortfolio } from '../hooks/useCreatePortfolio';
 import { useUpdatePortfolio } from '../hooks/useUpdatePortfolio';
 import type { PortfolioItem } from '../types';
 import { TagInput } from './TagInput';
+import { toast } from 'sonner';
 import { useLocalizedNavigate } from '@/i18n/hooks';
 import { LocaleTabs } from '@/i18n/LocaleTabs';
-import { SUPPORTED_LANGUAGES, type Language } from '@/i18n/config';
+import { LANGUAGE_SHORT, SUPPORTED_LANGUAGES, type Language } from '@/i18n/config';
+import { useAutoTranslate } from '@/features/translation/useAutoTranslate';
+import { AutoTranslateButton } from '@/features/translation/AutoTranslateButton';
 
 interface PortfolioFormProps {
   item?: PortfolioItem;
@@ -31,6 +34,7 @@ export function PortfolioForm({ item }: PortfolioFormProps) {
   const isEdit = Boolean(item);
   const create = useCreatePortfolio();
   const update = useUpdatePortfolio(item?.id ?? '');
+  const autoTranslate = useAutoTranslate();
 
   const form = useForm<PortfolioFormValues>({
     resolver: zodResolver(portfolioSchema),
@@ -64,6 +68,46 @@ export function PortfolioForm({ item }: PortfolioFormProps) {
 
   const err = (msg?: string) => (msg ? t(msg) : '');
 
+  const handleAutoTranslate = () => {
+    const source = activeLang;
+    const targets = SUPPORTED_LANGUAGES.filter((l) => l !== source);
+    autoTranslate.mutate(
+      {
+        source,
+        targets,
+        strings: {
+          title: form.getValues(`title.${source}`) ?? '',
+          description: form.getValues(`description.${source}`) ?? '',
+        },
+      },
+      {
+        onSuccess: ({ results, failedLangs }) => {
+          for (const lang of targets) {
+            const payload = results[lang];
+            if (!payload) continue;
+            form.setValue(`title.${lang}`, payload.strings.title, {
+              shouldValidate: true,
+            });
+            form.setValue(`description.${lang}`, payload.strings.description);
+          }
+          if (failedLangs.length) {
+            toast.warning(
+              t('translate.partial', {
+                langs: failedLangs.map((l) => LANGUAGE_SHORT[l]).join(', '),
+              }),
+            );
+          } else {
+            toast.success(t('translate.done'));
+          }
+        },
+      },
+    );
+  };
+
+  const watchedTitle = form.watch(`title.${activeLang}`);
+  const watchedDesc = form.watch(`description.${activeLang}`);
+  const hasSource = Boolean(watchedTitle?.trim() || watchedDesc?.trim());
+
   const invalid: Partial<Record<Language, boolean>> = {};
   for (const lang of SUPPORTED_LANGUAGES) {
     invalid[lang] = Boolean(
@@ -77,14 +121,16 @@ export function PortfolioForm({ item }: PortfolioFormProps) {
   return (
     <form onSubmit={form.handleSubmit(onSubmit)} className="max-w-2xl space-y-6">
       <div className="space-y-3 rounded-lg border border-border/60 bg-muted/20 p-4">
-        <div className="flex items-center justify-between">
-          <p className="text-xs font-medium uppercase tracking-wider text-muted-foreground">
-            {t('common.languageSwitcher')}
-          </p>
+        <div className="flex flex-wrap items-center justify-between gap-2">
           <LocaleTabs
             active={activeLang}
             onChange={setActiveLang}
             invalid={invalid}
+          />
+          <AutoTranslateButton
+            onClick={handleAutoTranslate}
+            pending={autoTranslate.isPending}
+            hasSource={hasSource}
           />
         </div>
 

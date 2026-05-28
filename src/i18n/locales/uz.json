@@ -269,6 +269,15 @@
     "confirm": "Tasdiqlash",
     "cancel": "Bekor qilish"
   },
+  "translate": {
+    "button": "Avto-tarjima",
+    "translating": "Tarjima qilinmoqda…",
+    "done": "Boshqa tillarga tarjima qilindi",
+    "partial": "Qisman tarjima qilindi. Qo‘llab-quvvatlanmaydi: {{langs}}",
+    "error": "Tarjima qilinmadi",
+    "notConfigured": "Avto-tarjima mavjud emas",
+    "sourceEmpty": "Avval joriy tildagi maydonlarni to‘ldiring"
+  },
   "validation": {
     "minLength": "Kamida {{count}} ta belgi",
     "maxLength": "Ko‘pi bilan {{count}} ta belgi",

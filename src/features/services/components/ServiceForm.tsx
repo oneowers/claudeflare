@@ -14,9 +14,12 @@ import { useCreateService } from '../hooks/useCreateService';
 import { useUpdateService } from '../hooks/useUpdateService';
 import type { Service } from '../types';
 import { FeaturesInput } from './FeaturesInput';
+import { toast } from 'sonner';
 import { useLocalizedNavigate } from '@/i18n/hooks';
 import { LocaleTabs } from '@/i18n/LocaleTabs';
-import { SUPPORTED_LANGUAGES, type Language } from '@/i18n/config';
+import { LANGUAGE_SHORT, SUPPORTED_LANGUAGES, type Language } from '@/i18n/config';
+import { useAutoTranslate } from '@/features/translation/useAutoTranslate';
+import { AutoTranslateButton } from '@/features/translation/AutoTranslateButton';
 
 interface ServiceFormProps {
   service?: Service;
@@ -31,6 +34,7 @@ export function ServiceForm({ service }: ServiceFormProps) {
   const isEdit = Boolean(service);
   const create = useCreateService();
   const update = useUpdateService(service?.id ?? '');
+  const autoTranslate = useAutoTranslate();
 
   const form = useForm<ServiceFormValues>({
     resolver: zodResolver(serviceSchema),
@@ -69,6 +73,55 @@ export function ServiceForm({ service }: ServiceFormProps) {
 
   const err = (msg?: string) => (msg ? t(msg) : '');
 
+  const handleAutoTranslate = () => {
+    const source = activeLang;
+    const targets = SUPPORTED_LANGUAGES.filter((l) => l !== source);
+    autoTranslate.mutate(
+      {
+        source,
+        targets,
+        strings: {
+          name: form.getValues(`name.${source}`) ?? '',
+          short_description: form.getValues(`short_description.${source}`) ?? '',
+          description: form.getValues(`description.${source}`) ?? '',
+        },
+        arrays: {
+          features: form.getValues(`features.${source}`) ?? [],
+        },
+      },
+      {
+        onSuccess: ({ results, failedLangs }) => {
+          for (const lang of targets) {
+            const payload = results[lang];
+            if (!payload) continue;
+            form.setValue(`name.${lang}`, payload.strings.name, {
+              shouldValidate: true,
+            });
+            form.setValue(
+              `short_description.${lang}`,
+              payload.strings.short_description,
+            );
+            form.setValue(`description.${lang}`, payload.strings.description);
+            form.setValue(`features.${lang}`, payload.arrays.features);
+          }
+          if (failedLangs.length) {
+            toast.warning(
+              t('translate.partial', {
+                langs: failedLangs.map((l) => LANGUAGE_SHORT[l]).join(', '),
+              }),
+            );
+          } else {
+            toast.success(t('translate.done'));
+          }
+        },
+      },
+    );
+  };
+
+  const watchedName = form.watch(`name.${activeLang}`);
+  const watchedShort = form.watch(`short_description.${activeLang}`);
+  const hasSource = Boolean(watchedName?.trim() || watchedShort?.trim());
+
   const invalid: Partial<Record<Language, boolean>> = {};
   for (const lang of SUPPORTED_LANGUAGES) {
     invalid[lang] = Boolean(
@@ -83,14 +136,16 @@ export function ServiceForm({ service }: ServiceFormProps) {
   return (
     <form onSubmit={form.handleSubmit(onSubmit)} className="max-w-2xl space-y-6">
       <div className="space-y-3 rounded-lg border border-border/60 bg-muted/20 p-4">
-        <div className="flex items-center justify-between">
-          <p className="text-xs font-medium uppercase tracking-wider text-muted-foreground">
-            {t('common.languageSwitcher')}
-          </p>
+        <div className="flex flex-wrap items-center justify-between gap-2">
           <LocaleTabs
             active={activeLang}
             onChange={setActiveLang}
             invalid={invalid}
+          />
+          <AutoTranslateButton
+            onClick={handleAutoTranslate}
+            pending={autoTranslate.isPending}
+            hasSource={hasSource}
           />
         </div>
 

@@ -1,11 +1,13 @@
-import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { ArrowRight } from 'lucide-react';
 import { useServices } from '@/features/services/hooks/useServices';
 import { usePortfolio } from '@/features/portfolio/hooks/usePortfolio';
 import { ServiceCard } from '@/features/services/components/ServiceCard';
 import { PortfolioCard } from '@/features/portfolio/components/PortfolioCard';
+import { LocalizedLink } from '@/i18n/hooks';
 
 export function HomePage() {
+  const { t } = useTranslation();
   const services = useServices(true);
   const portfolio = usePortfolio(true);
 
@@ -13,46 +15,47 @@ export function HomePage() {
     <>
       <section className="container py-24 md:py-32">
         <p className="text-sm font-medium text-muted-foreground">
-          Студия веб-разработки
+          {t('home.kicker')}
         </p>
         <h1 className="mt-4 max-w-3xl text-5xl font-bold leading-[1.05] tracking-tight md:text-7xl">
-          Делаем сайты, которые работают на цели бизнеса.
+          {t('home.title')}
         </h1>
         <p className="mt-6 max-w-xl text-lg text-muted-foreground">
-          От лендинга до сложного веб-приложения. Дизайн, разработка,
-          поддержка — в одной команде.
+          {t('home.subtitle')}
         </p>
         <div className="mt-10 flex flex-wrap gap-3">
-          <Link
+          <LocalizedLink
             to="/contact"
             className="inline-flex h-12 items-center gap-2 rounded-md bg-primary px-6 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
           >
-            Обсудить проект
+            {t('home.ctaDiscuss')}
             <ArrowRight className="h-4 w-4" />
-          </Link>
-          <Link
+          </LocalizedLink>
+          <LocalizedLink
             to="/portfolio"
             className="inline-flex h-12 items-center rounded-md border border-input bg-background px-6 text-sm font-medium transition-colors hover:bg-accent"
           >
-            Смотреть работы
-          </Link>
+            {t('home.ctaPortfolio')}
+          </LocalizedLink>
         </div>
       </section>
 
       <section className="container border-t border-border/60 py-20">
         <div className="flex items-end justify-between gap-4">
           <div>
-            <p className="text-sm font-medium text-muted-foreground">Услуги</p>
+            <p className="text-sm font-medium text-muted-foreground">
+              {t('home.servicesKicker')}
+            </p>
             <h2 className="mt-2 text-3xl font-bold tracking-tight md:text-4xl">
-              Что мы делаем
+              {t('home.servicesTitle')}
             </h2>
           </div>
-          <Link
+          <LocalizedLink
             to="/services"
             className="hidden text-sm font-medium text-muted-foreground hover:text-foreground sm:inline-flex"
           >
-            Все услуги →
-          </Link>
+            {t('home.allServices')}
+          </LocalizedLink>
         </div>
 
         <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
@@ -72,17 +75,19 @@ export function HomePage() {
       <section className="container border-t border-border/60 py-20">
         <div className="flex items-end justify-between gap-4">
           <div>
-            <p className="text-sm font-medium text-muted-foreground">Кейсы</p>
+            <p className="text-sm font-medium text-muted-foreground">
+              {t('home.casesKicker')}
+            </p>
             <h2 className="mt-2 text-3xl font-bold tracking-tight md:text-4xl">
-              Недавние работы
+              {t('home.casesTitle')}
             </h2>
           </div>
-          <Link
+          <LocalizedLink
             to="/portfolio"
             className="hidden text-sm font-medium text-muted-foreground hover:text-foreground sm:inline-flex"
           >
-            Всё портфолио →
-          </Link>
+            {t('home.allCases')}
+          </LocalizedLink>
         </div>
 
         <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
@@ -99,18 +104,18 @@ export function HomePage() {
       <section className="container border-t border-border/60 py-20">
         <div className="rounded-lg bg-primary px-8 py-16 text-center text-primary-foreground md:px-16 md:py-20">
           <h2 className="mx-auto max-w-2xl text-3xl font-bold tracking-tight md:text-4xl">
-            Готовы начать проект?
+            {t('home.ctaBannerTitle')}
           </h2>
           <p className="mx-auto mt-4 max-w-lg text-primary-foreground/80">
-            Опишите задачу — пришлём предварительную оценку и план.
+            {t('home.ctaBannerSubtitle')}
           </p>
-          <Link
+          <LocalizedLink
             to="/contact"
             className="mt-8 inline-flex h-12 items-center gap-2 rounded-md bg-background px-6 text-sm font-medium text-foreground transition-colors hover:bg-background/90"
           >
-            Написать
+            {t('home.ctaBannerButton')}
             <ArrowRight className="h-4 w-4" />
-          </Link>
+          </LocalizedLink>
         </div>
       </section>
     </>

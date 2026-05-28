@@ -269,6 +269,15 @@
     "confirm": "Confirm",
     "cancel": "Cancel"
   },
+  "translate": {
+    "button": "Auto-translate",
+    "translating": "Translating…",
+    "done": "Translated into other languages",
+    "partial": "Partially translated. Unsupported: {{langs}}",
+    "error": "Translation failed",
+    "notConfigured": "Auto-translate unavailable",
+    "sourceEmpty": "Fill in the current-language fields first"
+  },
   "validation": {
     "minLength": "At least {{count}} characters",
     "maxLength": "At most {{count}} characters",
