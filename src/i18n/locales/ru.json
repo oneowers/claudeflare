@@ -1,0 +1,283 @@
+{
+  "common": {
+    "save": "Сохранить",
+    "cancel": "Отмена",
+    "delete": "Удалить",
+    "edit": "Редактировать",
+    "create": "Создать",
+    "back": "Назад",
+    "loading": "Загрузка…",
+    "saving": "Сохраняем…",
+    "submitting": "Отправляем…",
+    "from": "от",
+    "actions": "Действия",
+    "yes": "Да",
+    "no": "Нет",
+    "tryAgain": "Попробовать ещё раз",
+    "languageSwitcher": "Сменить язык"
+  },
+  "nav": {
+    "home": "Главная",
+    "services": "Услуги",
+    "portfolio": "Портфолио",
+    "about": "О студии",
+    "contact": "Контакты",
+    "discussProject": "Обсудить проект"
+  },
+  "footer": {
+    "tagline": "Делаем сайты и веб-приложения, которые работают на цели бизнеса.",
+    "studio": "Студия",
+    "aboutUs": "О нас",
+    "works": "Работы",
+    "contacts": "Контакты",
+    "write": "Написать",
+    "legal": "Правовое",
+    "privacy": "Политика конфиденциальности",
+    "madeBy": "Сделано в студии",
+    "copyright": "© {{year}} WebStudio"
+  },
+  "home": {
+    "kicker": "Студия веб-разработки",
+    "title": "Делаем сайты, которые работают на цели бизнеса.",
+    "subtitle": "От лендинга до сложного веб-приложения. Дизайн, разработка, поддержка — в одной команде.",
+    "ctaDiscuss": "Обсудить проект",
+    "ctaPortfolio": "Смотреть работы",
+    "servicesKicker": "Услуги",
+    "servicesTitle": "Что мы делаем",
+    "allServices": "Все услуги →",
+    "casesKicker": "Кейсы",
+    "casesTitle": "Недавние работы",
+    "allCases": "Всё портфолио →",
+    "ctaBannerTitle": "Готовы начать проект?",
+    "ctaBannerSubtitle": "Опишите задачу — пришлём предварительную оценку и план.",
+    "ctaBannerButton": "Написать"
+  },
+  "services": {
+    "kicker": "Услуги",
+    "title": "Что мы делаем",
+    "subtitle": "От посадочной страницы до сложной админки. Фиксируем результат в смете, не растягиваем сроки.",
+    "empty": "Список услуг пока пуст.",
+    "loadError": "Не удалось загрузить услуги.",
+    "detail": {
+      "kicker": "Услуга",
+      "notFound": "Услуга не найдена",
+      "back": "← К списку услуг",
+      "whatIncluded": "Что входит",
+      "priceFrom": "Цена от",
+      "priceNote": "Финальная цена зависит от объёма работ. Обсудим на созвоне.",
+      "discuss": "Обсудить проект"
+    }
+  },
+  "portfolio": {
+    "kicker": "Портфолио",
+    "title": "Кейсы и проекты",
+    "all": "Все",
+    "noImage": "нет изображения",
+    "empty": "Кейсов по фильтру нет.",
+    "loadError": "Не удалось загрузить кейсы.",
+    "detail": {
+      "notFound": "Кейс не найден",
+      "back": "← К портфолио",
+      "openProject": "Открыть проект"
+    }
+  },
+  "about": {
+    "title": "О студии",
+    "subtitle": "Команда, процесс, ценности."
+  },
+  "contact": {
+    "kicker": "Контакты",
+    "title": "Расскажите о проекте",
+    "subtitle": "Опишите идею, цели и желаемые сроки. Свяжемся в течение рабочего дня и предложим следующий шаг.",
+    "replyTime": "Ответ обычно — в течение нескольких часов.",
+    "form": {
+      "name": "Имя",
+      "namePlaceholder": "Иван",
+      "email": "Email",
+      "emailPlaceholder": "ivan@example.com",
+      "phone": "Телефон",
+      "phonePlaceholder": "+998 90 123 4567",
+      "service": "Интересующая услуга",
+      "serviceEmpty": "Не выбрано",
+      "message": "Сообщение",
+      "messagePlaceholder": "Расскажите коротко о проекте, целях, сроках, бюджете.",
+      "submit": "Отправить заявку",
+      "submitting": "Отправляем…",
+      "successTitle": "Заявка отправлена",
+      "successMessage": "Спасибо. Свяжемся с вами в течение рабочего дня.",
+      "sendAnother": "Отправить ещё",
+      "sendError": "Не удалось отправить. Попробуйте ещё раз или напишите на почту.",
+      "sendSuccess": "Заявка отправлена. Свяжемся в течение рабочего дня."
+    }
+  },
+  "notFound": {
+    "code": "404",
+    "title": "Страница не найдена",
+    "home": "На главную"
+  },
+  "admin": {
+    "header": "Админка",
+    "logout": "Выйти",
+    "nav": {
+      "dashboard": "Дашборд",
+      "services": "Услуги",
+      "portfolio": "Портфолио",
+      "leads": "Заявки"
+    },
+    "login": {
+      "title": "Вход в админку",
+      "subtitle": "Используйте корпоративный email.",
+      "email": "Email",
+      "password": "Пароль",
+      "submit": "Войти",
+      "submitting": "Входим…"
+    },
+    "dashboard": {
+      "title": "Дашборд",
+      "subtitle": "Сводка по состоянию проекта.",
+      "servicesCount": "Услуги в каталоге",
+      "portfolioCount": "Кейсы в портфолио",
+      "newLeadsTitle": "Новые заявки",
+      "allLeads": "Все заявки →",
+      "noNewLeads": "Новых заявок нет."
+    },
+    "services": {
+      "title": "Услуги",
+      "subtitle": "Управляйте каталогом услуг студии.",
+      "create": "Новая услуга",
+      "empty": "Пока нет услуг. Создайте первую.",
+      "loadError": "Не удалось загрузить услуги.",
+      "deleteTitle": "Удалить услугу?",
+      "deleteDescription": "«{{name}}» будет удалена без возможности восстановления.",
+      "table": {
+        "name": "Название",
+        "price": "Цена",
+        "published": "Опубликовано"
+      },
+      "form": {
+        "backToList": "К списку",
+        "newTitle": "Новая услуга",
+        "editTitle": "Редактирование услуги",
+        "loadError": "Не удалось загрузить услугу.",
+        "fields": {
+          "name": "Название",
+          "slug": "Slug",
+          "slugPlaceholder": "kak-eto-budet-v-url",
+          "shortDescription": "Короткое описание",
+          "description": "Полное описание",
+          "priceFrom": "Цена от",
+          "currency": "Валюта",
+          "sortOrder": "Порядок",
+          "features": "Что входит",
+          "featuresPlaceholder": "Дизайн, адаптив, SEO…",
+          "image": "Картинка"
+        },
+        "publishToggle": "Опубликовано",
+        "publishHint": "Только опубликованные услуги видны на сайте.",
+        "submitCreate": "Создать услугу",
+        "submitEdit": "Сохранить",
+        "createSuccess": "Услуга создана",
+        "updateSuccess": "Изменения сохранены",
+        "deleteSuccess": "Услуга удалена"
+      }
+    },
+    "portfolio": {
+      "title": "Портфолио",
+      "subtitle": "Управляйте кейсами и проектами.",
+      "create": "Новый кейс",
+      "empty": "Пока нет кейсов.",
+      "loadError": "Не удалось загрузить.",
+      "deleteTitle": "Удалить кейс?",
+      "deleteDescription": "«{{title}}» будет удалён.",
+      "table": {
+        "case": "Кейс",
+        "client": "Клиент",
+        "published": "Опубликовано"
+      },
+      "form": {
+        "backToList": "К списку",
+        "newTitle": "Новый кейс",
+        "editTitle": "Редактирование кейса",
+        "loadError": "Не удалось загрузить кейс.",
+        "fields": {
+          "title": "Название",
+          "slug": "Slug",
+          "client": "Клиент",
+          "projectUrl": "Ссылка на проект",
+          "description": "Описание",
+          "technologies": "Технологии",
+          "technologiesPlaceholder": "React, TypeScript, Postgres…",
+          "image": "Картинка",
+          "sortOrder": "Порядок"
+        },
+        "publishToggle": "Опубликовано",
+        "submitCreate": "Создать кейс",
+        "submitEdit": "Сохранить",
+        "createSuccess": "Кейс создан",
+        "updateSuccess": "Изменения сохранены",
+        "deleteSuccess": "Кейс удалён"
+      }
+    },
+    "leads": {
+      "title": "Заявки",
+      "subtitle": "Лиды с формы контактов.",
+      "loadError": "Не удалось загрузить заявки.",
+      "empty": "Заявок пока нет.",
+      "table": {
+        "from": "От кого",
+        "message": "Сообщение",
+        "status": "Статус",
+        "when": "Когда",
+        "open": "Открыть"
+      },
+      "tabs": {
+        "all": "Все"
+      },
+      "detail": {
+        "backToAll": "Ко всем заявкам",
+        "loadError": "Не удалось загрузить заявку.",
+        "message": "Сообщение",
+        "noteStatus": "Статус",
+        "notes": "Заметки",
+        "save": "Сохранить",
+        "saving": "Сохраняем…",
+        "deleteTitle": "Удалить заявку?",
+        "deleteDescription": "Действие нельзя отменить.",
+        "updateSuccess": "Обновлено",
+        "deleteSuccess": "Заявка удалена"
+      }
+    }
+  },
+  "leadStatus": {
+    "new": "Новая",
+    "in_progress": "В работе",
+    "closed": "Закрыта",
+    "spam": "Спам"
+  },
+  "currency": {
+    "USD": "USD",
+    "EUR": "EUR",
+    "UZS": "UZS",
+    "RUB": "RUB"
+  },
+  "dropzone": {
+    "prompt": "Перетащите картинку сюда или кликните",
+    "hint": "PNG / JPG / WEBP, до 5 МБ"
+  },
+  "confirm": {
+    "defaultTitle": "Подтвердите действие",
+    "confirm": "Подтвердить",
+    "cancel": "Отмена"
+  },
+  "validation": {
+    "minLength": "Минимум {{count}} символов",
+    "maxLength": "Максимум {{count}} символов",
+    "required": "Обязательное поле",
+    "invalidEmail": "Некорректный email",
+    "invalidUrl": "Должен быть валидный URL",
+    "invalidSlug": "Только латиница, цифры и дефис",
+    "invalidPhone": "Только цифры и +()-",
+    "pricePositive": "Цена должна быть > 0",
+    "messageTooShort": "Расскажите чуть подробнее (минимум 10 символов)"
+  }
+}

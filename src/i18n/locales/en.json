@@ -1,0 +1,283 @@
+{
+  "common": {
+    "save": "Save",
+    "cancel": "Cancel",
+    "delete": "Delete",
+    "edit": "Edit",
+    "create": "Create",
+    "back": "Back",
+    "loading": "Loading…",
+    "saving": "Saving…",
+    "submitting": "Submitting…",
+    "from": "from",
+    "actions": "Actions",
+    "yes": "Yes",
+    "no": "No",
+    "tryAgain": "Try again",
+    "languageSwitcher": "Change language"
+  },
+  "nav": {
+    "home": "Home",
+    "services": "Services",
+    "portfolio": "Portfolio",
+    "about": "About",
+    "contact": "Contact",
+    "discussProject": "Start a project"
+  },
+  "footer": {
+    "tagline": "We build websites and web apps that move business goals.",
+    "studio": "Studio",
+    "aboutUs": "About us",
+    "works": "Work",
+    "contacts": "Contact",
+    "write": "Write to us",
+    "legal": "Legal",
+    "privacy": "Privacy policy",
+    "madeBy": "Made in-studio",
+    "copyright": "© {{year}} WebStudio"
+  },
+  "home": {
+    "kicker": "Web development studio",
+    "title": "Websites that move business goals.",
+    "subtitle": "From a landing page to a complex web app. Design, development, and support — one team.",
+    "ctaDiscuss": "Start a project",
+    "ctaPortfolio": "See our work",
+    "servicesKicker": "Services",
+    "servicesTitle": "What we do",
+    "allServices": "All services →",
+    "casesKicker": "Cases",
+    "casesTitle": "Recent work",
+    "allCases": "Full portfolio →",
+    "ctaBannerTitle": "Ready to start?",
+    "ctaBannerSubtitle": "Tell us about the task — we'll come back with an estimate and a plan.",
+    "ctaBannerButton": "Get in touch"
+  },
+  "services": {
+    "kicker": "Services",
+    "title": "What we do",
+    "subtitle": "From a landing page to a complex admin panel. We commit to a fixed scope and don't drag deadlines.",
+    "empty": "No services yet.",
+    "loadError": "Could not load services.",
+    "detail": {
+      "kicker": "Service",
+      "notFound": "Service not found",
+      "back": "← Back to services",
+      "whatIncluded": "What's included",
+      "priceFrom": "Price from",
+      "priceNote": "Final price depends on scope. We'll discuss it on a call.",
+      "discuss": "Start a project"
+    }
+  },
+  "portfolio": {
+    "kicker": "Portfolio",
+    "title": "Cases and projects",
+    "all": "All",
+    "noImage": "no image",
+    "empty": "No cases match the filter.",
+    "loadError": "Could not load cases.",
+    "detail": {
+      "notFound": "Case not found",
+      "back": "← Back to portfolio",
+      "openProject": "Open project"
+    }
+  },
+  "about": {
+    "title": "About the studio",
+    "subtitle": "Team, process, values."
+  },
+  "contact": {
+    "kicker": "Contact",
+    "title": "Tell us about your project",
+    "subtitle": "Describe the idea, goals and timeline. We'll get back within a business day with the next step.",
+    "replyTime": "We usually reply within a few hours.",
+    "form": {
+      "name": "Name",
+      "namePlaceholder": "Jane",
+      "email": "Email",
+      "emailPlaceholder": "jane@example.com",
+      "phone": "Phone",
+      "phonePlaceholder": "+998 90 123 4567",
+      "service": "Service you're interested in",
+      "serviceEmpty": "Not selected",
+      "message": "Message",
+      "messagePlaceholder": "Briefly describe the project, goals, timeline, budget.",
+      "submit": "Send request",
+      "submitting": "Sending…",
+      "successTitle": "Request sent",
+      "successMessage": "Thanks. We'll be in touch within a business day.",
+      "sendAnother": "Send another",
+      "sendError": "Couldn't send. Please try again or email us directly.",
+      "sendSuccess": "Request sent. We'll reply within a business day."
+    }
+  },
+  "notFound": {
+    "code": "404",
+    "title": "Page not found",
+    "home": "Go home"
+  },
+  "admin": {
+    "header": "Admin",
+    "logout": "Sign out",
+    "nav": {
+      "dashboard": "Dashboard",
+      "services": "Services",
+      "portfolio": "Portfolio",
+      "leads": "Leads"
+    },
+    "login": {
+      "title": "Admin sign-in",
+      "subtitle": "Use your corporate email.",
+      "email": "Email",
+      "password": "Password",
+      "submit": "Sign in",
+      "submitting": "Signing in…"
+    },
+    "dashboard": {
+      "title": "Dashboard",
+      "subtitle": "Project overview.",
+      "servicesCount": "Services in catalogue",
+      "portfolioCount": "Portfolio cases",
+      "newLeadsTitle": "New leads",
+      "allLeads": "All leads →",
+      "noNewLeads": "No new leads."
+    },
+    "services": {
+      "title": "Services",
+      "subtitle": "Manage the studio's service catalogue.",
+      "create": "New service",
+      "empty": "No services yet. Create the first one.",
+      "loadError": "Could not load services.",
+      "deleteTitle": "Delete service?",
+      "deleteDescription": "\"{{name}}\" will be permanently removed.",
+      "table": {
+        "name": "Name",
+        "price": "Price",
+        "published": "Published"
+      },
+      "form": {
+        "backToList": "Back to list",
+        "newTitle": "New service",
+        "editTitle": "Edit service",
+        "loadError": "Could not load service.",
+        "fields": {
+          "name": "Name",
+          "slug": "Slug",
+          "slugPlaceholder": "what-it-looks-like-in-url",
+          "shortDescription": "Short description",
+          "description": "Full description",
+          "priceFrom": "Price from",
+          "currency": "Currency",
+          "sortOrder": "Order",
+          "features": "What's included",
+          "featuresPlaceholder": "Design, responsive, SEO…",
+          "image": "Image"
+        },
+        "publishToggle": "Published",
+        "publishHint": "Only published services are visible on the site.",
+        "submitCreate": "Create service",
+        "submitEdit": "Save",
+        "createSuccess": "Service created",
+        "updateSuccess": "Changes saved",
+        "deleteSuccess": "Service deleted"
+      }
+    },
+    "portfolio": {
+      "title": "Portfolio",
+      "subtitle": "Manage cases and projects.",
+      "create": "New case",
+      "empty": "No cases yet.",
+      "loadError": "Could not load.",
+      "deleteTitle": "Delete case?",
+      "deleteDescription": "\"{{title}}\" will be removed.",
+      "table": {
+        "case": "Case",
+        "client": "Client",
+        "published": "Published"
+      },
+      "form": {
+        "backToList": "Back to list",
+        "newTitle": "New case",
+        "editTitle": "Edit case",
+        "loadError": "Could not load case.",
+        "fields": {
+          "title": "Title",
+          "slug": "Slug",
+          "client": "Client",
+          "projectUrl": "Project URL",
+          "description": "Description",
+          "technologies": "Technologies",
+          "technologiesPlaceholder": "React, TypeScript, Postgres…",
+          "image": "Image",
+          "sortOrder": "Order"
+        },
+        "publishToggle": "Published",
+        "submitCreate": "Create case",
+        "submitEdit": "Save",
+        "createSuccess": "Case created",
+        "updateSuccess": "Changes saved",
+        "deleteSuccess": "Case deleted"
+      }
+    },
+    "leads": {
+      "title": "Leads",
+      "subtitle": "Submissions from the contact form.",
+      "loadError": "Could not load leads.",
+      "empty": "No leads yet.",
+      "table": {
+        "from": "From",
+        "message": "Message",
+        "status": "Status",
+        "when": "When",
+        "open": "Open"
+      },
+      "tabs": {
+        "all": "All"
+      },
+      "detail": {
+        "backToAll": "Back to all leads",
+        "loadError": "Could not load lead.",
+        "message": "Message",
+        "noteStatus": "Status",
+        "notes": "Notes",
+        "save": "Save",
+        "saving": "Saving…",
+        "deleteTitle": "Delete lead?",
+        "deleteDescription": "This cannot be undone.",
+        "updateSuccess": "Updated",
+        "deleteSuccess": "Lead deleted"
+      }
+    }
+  },
+  "leadStatus": {
+    "new": "New",
+    "in_progress": "In progress",
+    "closed": "Closed",
+    "spam": "Spam"
+  },
+  "currency": {
+    "USD": "USD",
+    "EUR": "EUR",
+    "UZS": "UZS",
+    "RUB": "RUB"
+  },
+  "dropzone": {
+    "prompt": "Drop an image here or click to upload",
+    "hint": "PNG / JPG / WEBP, up to 5 MB"
+  },
+  "confirm": {
+    "defaultTitle": "Confirm action",
+    "confirm": "Confirm",
+    "cancel": "Cancel"
+  },
+  "validation": {
+    "minLength": "At least {{count}} characters",
+    "maxLength": "At most {{count}} characters",
+    "required": "Required field",
+    "invalidEmail": "Invalid email",
+    "invalidUrl": "Must be a valid URL",
+    "invalidSlug": "Latin letters, digits and dashes only",
+    "invalidPhone": "Digits and +()- only",
+    "pricePositive": "Price must be > 0",
+    "messageTooShort": "Please share a few more details (at least 10 characters)"
+  }
+}

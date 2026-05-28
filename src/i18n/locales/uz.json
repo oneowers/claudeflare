@@ -1,0 +1,283 @@
+{
+  "common": {
+    "save": "Saqlash",
+    "cancel": "Bekor qilish",
+    "delete": "O‘chirish",
+    "edit": "Tahrirlash",
+    "create": "Yaratish",
+    "back": "Orqaga",
+    "loading": "Yuklanmoqda…",
+    "saving": "Saqlanmoqda…",
+    "submitting": "Yuborilmoqda…",
+    "from": "dan",
+    "actions": "Amallar",
+    "yes": "Ha",
+    "no": "Yo‘q",
+    "tryAgain": "Qayta urinib ko‘ring",
+    "languageSwitcher": "Tilni o‘zgartirish"
+  },
+  "nav": {
+    "home": "Bosh sahifa",
+    "services": "Xizmatlar",
+    "portfolio": "Portfolio",
+    "about": "Studiya haqida",
+    "contact": "Aloqa",
+    "discussProject": "Loyihani muhokama qilish"
+  },
+  "footer": {
+    "tagline": "Biznesingiz maqsadlariga xizmat qiladigan sayt va veb-ilovalar yaratamiz.",
+    "studio": "Studiya",
+    "aboutUs": "Biz haqimizda",
+    "works": "Ishlarimiz",
+    "contacts": "Aloqa",
+    "write": "Yozish",
+    "legal": "Huquqiy",
+    "privacy": "Maxfiylik siyosati",
+    "madeBy": "Studiyada yaratilgan",
+    "copyright": "© {{year}} WebStudio"
+  },
+  "home": {
+    "kicker": "Veb-ishlab chiqish studiyasi",
+    "title": "Biznes maqsadlarini ishga soluvchi saytlar.",
+    "subtitle": "Lendingdan murakkab veb-ilovaga qadar. Dizayn, ishlab chiqish, qo‘llab-quvvatlash — bir jamoada.",
+    "ctaDiscuss": "Loyihani muhokama qilish",
+    "ctaPortfolio": "Ishlarni ko‘rish",
+    "servicesKicker": "Xizmatlar",
+    "servicesTitle": "Biz nima qilamiz",
+    "allServices": "Barcha xizmatlar →",
+    "casesKicker": "Keyslar",
+    "casesTitle": "So‘nggi ishlar",
+    "allCases": "Butun portfolio →",
+    "ctaBannerTitle": "Loyihani boshlashga tayyormisiz?",
+    "ctaBannerSubtitle": "Vazifani tasvirlab bering — taxminiy baho va reja yuboramiz.",
+    "ctaBannerButton": "Yozish"
+  },
+  "services": {
+    "kicker": "Xizmatlar",
+    "title": "Biz nima qilamiz",
+    "subtitle": "Lendingdan murakkab admin panelgacha. Smetada natijani aniq belgilaymiz, muddatlarni cho‘zmaymiz.",
+    "empty": "Hozircha xizmatlar yo‘q.",
+    "loadError": "Xizmatlarni yuklab bo‘lmadi.",
+    "detail": {
+      "kicker": "Xizmat",
+      "notFound": "Xizmat topilmadi",
+      "back": "← Xizmatlarga qaytish",
+      "whatIncluded": "Nimalar kiradi",
+      "priceFrom": "Narx",
+      "priceNote": "Yakuniy narx ish hajmiga bog‘liq. Qo‘ng‘iroqda muhokama qilamiz.",
+      "discuss": "Loyihani muhokama qilish"
+    }
+  },
+  "portfolio": {
+    "kicker": "Portfolio",
+    "title": "Keyslar va loyihalar",
+    "all": "Barchasi",
+    "noImage": "rasm yo‘q",
+    "empty": "Filtr bo‘yicha keyslar yo‘q.",
+    "loadError": "Keyslarni yuklab bo‘lmadi.",
+    "detail": {
+      "notFound": "Keys topilmadi",
+      "back": "← Portfolioga qaytish",
+      "openProject": "Loyihani ochish"
+    }
+  },
+  "about": {
+    "title": "Studiya haqida",
+    "subtitle": "Jamoa, jarayon, qadriyatlar."
+  },
+  "contact": {
+    "kicker": "Aloqa",
+    "title": "Loyihangiz haqida gapirib bering",
+    "subtitle": "G‘oyani, maqsadlarni va muddatlarni tavsiflang. Ish kuni davomida bog‘lanib, keyingi qadamni taklif qilamiz.",
+    "replyTime": "Odatda bir necha soat ichida javob beramiz.",
+    "form": {
+      "name": "Ism",
+      "namePlaceholder": "Akmal",
+      "email": "Email",
+      "emailPlaceholder": "akmal@example.com",
+      "phone": "Telefon",
+      "phonePlaceholder": "+998 90 123 4567",
+      "service": "Qiziqtirgan xizmat",
+      "serviceEmpty": "Tanlanmagan",
+      "message": "Xabar",
+      "messagePlaceholder": "Loyiha, maqsadlar, muddatlar va byudjet haqida qisqacha yozing.",
+      "submit": "Arizani yuborish",
+      "submitting": "Yuborilmoqda…",
+      "successTitle": "Ariza yuborildi",
+      "successMessage": "Rahmat. Ish kuni davomida siz bilan bog‘lanamiz.",
+      "sendAnother": "Yana yuborish",
+      "sendError": "Yuborilmadi. Qaytadan urinib ko‘ring yoki pochtaga yozing.",
+      "sendSuccess": "Ariza yuborildi. Ish kuni davomida bog‘lanamiz."
+    }
+  },
+  "notFound": {
+    "code": "404",
+    "title": "Sahifa topilmadi",
+    "home": "Bosh sahifaga"
+  },
+  "admin": {
+    "header": "Admin",
+    "logout": "Chiqish",
+    "nav": {
+      "dashboard": "Boshqaruv paneli",
+      "services": "Xizmatlar",
+      "portfolio": "Portfolio",
+      "leads": "Arizalar"
+    },
+    "login": {
+      "title": "Adminga kirish",
+      "subtitle": "Korporativ email’dan foydalaning.",
+      "email": "Email",
+      "password": "Parol",
+      "submit": "Kirish",
+      "submitting": "Kirilmoqda…"
+    },
+    "dashboard": {
+      "title": "Boshqaruv paneli",
+      "subtitle": "Loyiha holati bo‘yicha qisqacha ma’lumot.",
+      "servicesCount": "Katalogdagi xizmatlar",
+      "portfolioCount": "Portfoliodagi keyslar",
+      "newLeadsTitle": "Yangi arizalar",
+      "allLeads": "Barcha arizalar →",
+      "noNewLeads": "Yangi arizalar yo‘q."
+    },
+    "services": {
+      "title": "Xizmatlar",
+      "subtitle": "Studiya xizmatlari katalogini boshqaring.",
+      "create": "Yangi xizmat",
+      "empty": "Hozircha xizmatlar yo‘q. Birinchisini yarating.",
+      "loadError": "Xizmatlarni yuklab bo‘lmadi.",
+      "deleteTitle": "Xizmatni o‘chirish?",
+      "deleteDescription": "«{{name}}» qaytarib bo‘lmaydigan tarzda o‘chiriladi.",
+      "table": {
+        "name": "Nomi",
+        "price": "Narxi",
+        "published": "Chop etilgan"
+      },
+      "form": {
+        "backToList": "Ro‘yxatga qaytish",
+        "newTitle": "Yangi xizmat",
+        "editTitle": "Xizmatni tahrirlash",
+        "loadError": "Xizmatni yuklab bo‘lmadi.",
+        "fields": {
+          "name": "Nomi",
+          "slug": "Slug",
+          "slugPlaceholder": "url-ko-rinishi",
+          "shortDescription": "Qisqa tavsif",
+          "description": "To‘liq tavsif",
+          "priceFrom": "Narx",
+          "currency": "Valyuta",
+          "sortOrder": "Tartib",
+          "features": "Nimalar kiradi",
+          "featuresPlaceholder": "Dizayn, moslashuvchanlik, SEO…",
+          "image": "Rasm"
+        },
+        "publishToggle": "Chop etilgan",
+        "publishHint": "Saytda faqat chop etilgan xizmatlar ko‘rinadi.",
+        "submitCreate": "Xizmatni yaratish",
+        "submitEdit": "Saqlash",
+        "createSuccess": "Xizmat yaratildi",
+        "updateSuccess": "O‘zgarishlar saqlandi",
+        "deleteSuccess": "Xizmat o‘chirildi"
+      }
+    },
+    "portfolio": {
+      "title": "Portfolio",
+      "subtitle": "Keyslar va loyihalarni boshqaring.",
+      "create": "Yangi keys",
+      "empty": "Hozircha keyslar yo‘q.",
+      "loadError": "Yuklab bo‘lmadi.",
+      "deleteTitle": "Keysni o‘chirish?",
+      "deleteDescription": "«{{title}}» o‘chiriladi.",
+      "table": {
+        "case": "Keys",
+        "client": "Mijoz",
+        "published": "Chop etilgan"
+      },
+      "form": {
+        "backToList": "Ro‘yxatga qaytish",
+        "newTitle": "Yangi keys",
+        "editTitle": "Keysni tahrirlash",
+        "loadError": "Keysni yuklab bo‘lmadi.",
+        "fields": {
+          "title": "Sarlavha",
+          "slug": "Slug",
+          "client": "Mijoz",
+          "projectUrl": "Loyiha havolasi",
+          "description": "Tavsif",
+          "technologies": "Texnologiyalar",
+          "technologiesPlaceholder": "React, TypeScript, Postgres…",
+          "image": "Rasm",
+          "sortOrder": "Tartib"
+        },
+        "publishToggle": "Chop etilgan",
+        "submitCreate": "Keysni yaratish",
+        "submitEdit": "Saqlash",
+        "createSuccess": "Keys yaratildi",
+        "updateSuccess": "O‘zgarishlar saqlandi",
+        "deleteSuccess": "Keys o‘chirildi"
+      }
+    },
+    "leads": {
+      "title": "Arizalar",
+      "subtitle": "Kontakt shaklidan kelgan lidlar.",
+      "loadError": "Arizalarni yuklab bo‘lmadi.",
+      "empty": "Hozircha arizalar yo‘q.",
+      "table": {
+        "from": "Kimdan",
+        "message": "Xabar",
+        "status": "Status",
+        "when": "Qachon",
+        "open": "Ochish"
+      },
+      "tabs": {
+        "all": "Barchasi"
+      },
+      "detail": {
+        "backToAll": "Barcha arizalarga",
+        "loadError": "Arizani yuklab bo‘lmadi.",
+        "message": "Xabar",
+        "noteStatus": "Status",
+        "notes": "Eslatmalar",
+        "save": "Saqlash",
+        "saving": "Saqlanmoqda…",
+        "deleteTitle": "Arizani o‘chirish?",
+        "deleteDescription": "Buni qaytarib bo‘lmaydi.",
+        "updateSuccess": "Yangilandi",
+        "deleteSuccess": "Ariza o‘chirildi"
+      }
+    }
+  },
+  "leadStatus": {
+    "new": "Yangi",
+    "in_progress": "Ishlanmoqda",
+    "closed": "Yopilgan",
+    "spam": "Spam"
+  },
+  "currency": {
+    "USD": "USD",
+    "EUR": "EUR",
+    "UZS": "UZS",
+    "RUB": "RUB"
+  },
+  "dropzone": {
+    "prompt": "Rasmni shu yerga tashlang yoki bosing",
+    "hint": "PNG / JPG / WEBP, 5 MB gacha"
+  },
+  "confirm": {
+    "defaultTitle": "Amalni tasdiqlang",
+    "confirm": "Tasdiqlash",
+    "cancel": "Bekor qilish"
+  },
+  "validation": {
+    "minLength": "Kamida {{count}} ta belgi",
+    "maxLength": "Ko‘pi bilan {{count}} ta belgi",
+    "required": "Majburiy maydon",
+    "invalidEmail": "Email noto‘g‘ri",
+    "invalidUrl": "To‘g‘ri URL bo‘lishi kerak",
+    "invalidSlug": "Faqat lotin harflari, raqamlar va chiziqcha",
+    "invalidPhone": "Faqat raqamlar va +()-",
+    "pricePositive": "Narx > 0 bo‘lishi kerak",
+    "messageTooShort": "Iltimos, batafsilroq yozing (kamida 10 ta belgi)"
+  }
+}

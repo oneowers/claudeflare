@@ -1,0 +1,226 @@
+{
+  "main": {
+    "id": "50919d50f52597de",
+    "type": "split",
+    "children": [
+      {
+        "id": "da77305fc14e9de8",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "ab8b07d023794223",
+            "type": "leaf",
+            "state": {
+              "type": "graph",
+              "state": {},
+              "icon": "lucide-git-fork",
+              "title": "Graph view"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "b4d0a5366495154b",
+    "type": "split",
+    "children": [
+      {
+        "id": "d33eef2f7d9cf06f",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "f4973f634bb1be6d",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Files"
+            }
+          },
+          {
+            "id": "d06451cc33b82cc2",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Search"
+            }
+          },
+          {
+            "id": "f17e1e697c7c2baf",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "54027c9e145aba94",
+    "type": "split",
+    "children": [
+      {
+        "id": "17e599b2a67badf9",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "67e19767b375e95d",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks"
+            }
+          },
+          {
+            "id": "895860f78af92af7",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links"
+            }
+          },
+          {
+            "id": "82e157221db64f82",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
+            }
+          },
+          {
+            "id": "f17f228f481debbe",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-archive",
+              "title": "All properties"
+            }
+          },
+          {
+            "id": "23842042f093e886",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "Outline"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false,
+      "bases:Create new base": false,
+      "obsidian-regex-pipeline:Regex Rulesets": false,
+      "code-files:Create Code File": false
+    }
+  },
+  "active": "ab8b07d023794223",
+  "lastOpenFiles": [
+    "dist/assets/index-C3yluIVQ.js",
+    "dist/assets/index-atE5dB52.css",
+    "dist/assets",
+    "src/i18n/LocaleTabs.tsx",
+    "src/i18n/localized.ts",
+    "supabase/migrations/0004_content_i18n.sql",
+    "dist/assets/index-dGKeIwHj.css",
+    "dist/assets/index--TXev9la.js",
+    "src/i18n/hooks.tsx",
+    "src/i18n/zodErrorMap.ts",
+    "src/i18n/LanguageSwitcher.tsx",
+    "node_modules/i18next/README.md",
+    "node_modules/void-elements/README.md",
+    "node_modules/use-sync-external-store/README.md",
+    "node_modules/html-parse-stringify/README.md",
+    "node_modules/react-i18next/README.md",
+    "node_modules/react-i18next/CHANGELOG.md",
+    "node_modules/i18next-browser-languagedetector/README.md",
+    "node_modules/i18next-browser-languagedetector/CHANGELOG.md",
+    "node_modules/supabase/README.md",
+    "dist/favicon.svg",
+    "public/favicon.svg",
+    "node_modules/@eslint/eslintrc/node_modules/globals/readme.md",
+    "node_modules/fsevents/README.md",
+    "node_modules/lucide-react/README.md",
+    "node_modules/typescript/SECURITY.md",
+    "node_modules/typescript/README.md",
+    "node_modules/react-dom/README.md",
+    "node_modules/caniuse-lite/README.md",
+    "node_modules/jsdom/README.md",
+    "node_modules/eslint/README.md",
+    "node_modules/@esbuild/darwin-arm64/README.md",
+    "node_modules/tailwindcss/README.md",
+    "node_modules/tailwindcss/lib/value-parser/README.md",
+    "node_modules/@tanstack/react-query/README.md",
+    "node_modules/@testing-library/user-event/README.md",
+    "node_modules/@typescript-eslint/eslint-plugin/README.md",
+    "node_modules/zod/README.md",
+    "node_modules/@vitest/ui/dist/client/favicon.svg",
+    "node_modules/@vitest/ui/dist/client/bg.png",
+    "node_modules/@supabase/phoenix/priv/static/phoenix.png",
+    "node_modules/@supabase/phoenix/priv/static/phoenix-orange.png"
+  ]
+}
