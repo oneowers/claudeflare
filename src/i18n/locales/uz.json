@@ -14,7 +14,8 @@
     "yes": "Ha",
     "no": "Yo‘q",
     "tryAgain": "Qayta urinib ko‘ring",
-    "languageSwitcher": "Tilni o‘zgartirish"
+    "languageSwitcher": "Tilni o‘zgartirish",
+    "toggleTheme": "Mavzuni almashtirish"
   },
   "nav": {
     "home": "Bosh sahifa",
@@ -34,7 +35,11 @@
     "legal": "Huquqiy",
     "privacy": "Maxfiylik siyosati",
     "madeBy": "Studiyada yaratilgan",
-    "copyright": "© {{year}} WebStudio"
+    "copyright": "© {{year}} WebStudio",
+    "payments": "To'lovni qabul qilamiz"
+  },
+  "trustedBy": {
+    "title": "Bizga ishonadilar"
   },
   "home": {
     "kicker": "Veb-ishlab chiqish studiyasi",
@@ -50,7 +55,15 @@
     "allCases": "Butun portfolio →",
     "ctaBannerTitle": "Loyihani boshlashga tayyormisiz?",
     "ctaBannerSubtitle": "Vazifani tasvirlab bering — taxminiy baho va reja yuboramiz.",
-    "ctaBannerButton": "Yozish"
+    "ctaBannerButton": "Yozish",
+    "marquee": [
+      "Dizayn",
+      "Dasturlash",
+      "Brending",
+      "SEO",
+      "Qoʻllab-quvvatlash",
+      "Tahlil"
+    ]
   },
   "services": {
     "kicker": "Xizmatlar",
@@ -115,6 +128,27 @@
     "title": "Sahifa topilmadi",
     "home": "Bosh sahifaga"
   },
+  "errorPage": {
+    "title": "Nimadir xato ketdi",
+    "description": "Sahifani yuklab bo‘lmadi. Ulanishni tekshiring va qayta urinib ko‘ring."
+  },
+  "categories": {
+    "all": "Barcha kategoriyalar"
+  },
+  "testType": {
+    "unit": "Yuнит testlar",
+    "load": "Yuklanish testlari"
+  },
+  "testStatus": {
+    "passed": "O'tdi",
+    "failed": "Muvaffaqiyatsiz",
+    "in_progress": "Jarayonda",
+    "error": "Xatolik"
+  },
+  "testReports": {
+    "allTypes": "Barcha turlar",
+    "allStatuses": "Barcha statuslar"
+  },
   "admin": {
     "header": "Admin",
     "logout": "Chiqish",
@@ -122,7 +156,14 @@
       "dashboard": "Boshqaruv paneli",
       "services": "Xizmatlar",
       "portfolio": "Portfolio",
-      "leads": "Arizalar"
+      "leads": "Arizalar",
+      "categories": "Kategoriyalar",
+      "testReports": "Test hisobotlari",
+      "partners": "Bizga ishonadilar",
+      "settings": "Sozlamalar"
+    },
+    "common": {
+      "categoryNone": "Kategoriyasiz"
     },
     "login": {
       "title": "Adminga kirish",
@@ -170,10 +211,11 @@
           "sortOrder": "Tartib",
           "features": "Nimalar kiradi",
           "featuresPlaceholder": "Dizayn, moslashuvchanlik, SEO…",
-          "image": "Rasm"
+          "image": "Rasm",
+          "category": "Kategoriya"
         },
         "publishToggle": "Chop etilgan",
-        "publishHint": "Saytda faqat chop etilgan xizmatlar ko‘rinadi.",
+        "publishHint": "Saytda faqat chop etilgan xizmatlar ko’rinadi.",
         "submitCreate": "Xizmatni yaratish",
         "submitEdit": "Saqlash",
         "createSuccess": "Xizmat yaratildi",
@@ -208,7 +250,8 @@
           "technologies": "Texnologiyalar",
           "technologiesPlaceholder": "React, TypeScript, Postgres…",
           "image": "Rasm",
-          "sortOrder": "Tartib"
+          "sortOrder": "Tartib",
+          "category": "Kategoriya"
         },
         "publishToggle": "Chop etilgan",
         "submitCreate": "Keysni yaratish",
@@ -216,6 +259,156 @@
         "createSuccess": "Keys yaratildi",
         "updateSuccess": "O‘zgarishlar saqlandi",
         "deleteSuccess": "Keys o‘chirildi"
+      }
+    },
+    "categories": {
+      "title": "Kategoriyalar",
+      "subtitle": "Xizmatlar va portfolio taksonomiyasini boshqaring.",
+      "create": "Yangi kategoriya",
+      "empty": "Hozircha kategoriyalar yo'q. Birinchisini yarating.",
+      "loadError": "Kategoriyalarni yuklab bo'lmadi.",
+      "deleteTitle": "Kategoriyani o'chirish?",
+      "deleteDescription": "«{{name}}» o'chiriladi. Xizmatlar va keyslar bu kategoriyadan ajraladi.",
+      "table": {
+        "name": "Nomi",
+        "sortOrder": "Tartib"
+      },
+      "form": {
+        "backToList": "Ro'yxatga qaytish",
+        "newTitle": "Yangi kategoriya",
+        "editTitle": "Kategoriyani tahrirlash",
+        "loadError": "Kategoriyani yuklab bo'lmadi.",
+        "fields": {
+          "name": "Nomi",
+          "slug": "Slug",
+          "slugPlaceholder": "kategoriya-nomi",
+          "sortOrder": "Tartib"
+        },
+        "submitCreate": "Kategoriyani yaratish",
+        "submitEdit": "Saqlash",
+        "createSuccess": "Kategoriya yaratildi",
+        "updateSuccess": "O'zgarishlar saqlandi",
+        "deleteSuccess": "Kategoriya o'chirildi"
+      }
+    },
+    "testReports": {
+      "title": "Test hisobotlari",
+      "subtitle": "Yuнit va yuklanish testlari natijalari.",
+      "create": "Yangi hisobot",
+      "run": {
+        "button": "Testni ishga tushirish",
+        "title": "Testni ishga tushirish",
+        "description": "Test brauzerda bajariladi, natija avtomatik saqlanadi.",
+        "start": "Ishga tushirish",
+        "running": "Bajarilmoqda…",
+        "unitTitle": "Unit tekshiruvlar",
+        "loadTitle": "Yuklanish testi",
+        "unitHint": "{{count}} ta tekshiruv bajariladi (Zod sxemalar, utilitalar).",
+        "targetUrl": "Manzil URL",
+        "totalRequests": "So'rovlar",
+        "concurrency": "Parallel",
+        "successPassed": "Test o'tdi, natija saqlandi",
+        "successFailed": "Test xatolar bilan tugadi, natija saqlandi"
+      },
+      "empty": "Hozircha hisobotlar yo'q.",
+      "loadError": "Hisobotlarni yuklab bo'lmadi.",
+      "deleteTitle": "Hisobotni o'chirish?",
+      "deleteDescription": "«{{title}}» qaytarib bo'lmaydigan tarzda o'chiriladi.",
+      "table": {
+        "title": "Sarlavha",
+        "type": "Tur",
+        "status": "Status",
+        "metrics": "Ko'rsatkichlar",
+        "runAt": "Ishga tushirish sanasi",
+        "tests": "test"
+      },
+      "form": {
+        "backToList": "Ro'yxatga qaytish",
+        "newTitle": "Yangi test hisoboti",
+        "editTitle": "Hisobotni tahrirlash",
+        "loadError": "Hisobotni yuklab bo'lmadi.",
+        "unitMetrics": "Yuнit test ko'rsatkichlari",
+        "loadMetrics": "Yuklanish testi ko'rsatkichlari",
+        "fields": {
+          "title": "Sarlavha / Suite",
+          "project": "Loyiha / Mijoz",
+          "projectPlaceholder": "my-app v2.1",
+          "type": "Test turi",
+          "status": "Status",
+          "runAt": "Ishga tushirish vaqti",
+          "totalTests": "Jami testlar",
+          "passedTests": "O'tdi",
+          "coveragePct": "Qamrov",
+          "requestsPerSec": "So'rov/sek",
+          "totalRequests": "Jami so'rovlar",
+          "errorRate": "Xato ulushi",
+          "durationMs": "Davomiylik",
+          "notes": "Eslatmalar"
+        },
+        "submitCreate": "Hisobotni saqlash",
+        "submitEdit": "Saqlash",
+        "createSuccess": "Hisobot yaratildi",
+        "updateSuccess": "O'zgarishlar saqlandi",
+        "deleteSuccess": "Hisobot o'chirildi"
+      }
+    },
+    "partners": {
+      "title": "Bizga ishonadilar",
+      "subtitle": "Mijoz kompaniyalar logotiplari futer ustida ko'rsatiladi.",
+      "create": "Yangi kompaniya",
+      "empty": "Hozircha kompaniyalar yo'q.",
+      "loadError": "Yuklab bo'lmadi.",
+      "deleteTitle": "Kompaniyani o'chirish?",
+      "deleteDescription": "«{{name}}» o'chiriladi.",
+      "table": {
+        "company": "Kompaniya",
+        "published": "Ko'rsatish"
+      },
+      "form": {
+        "backToList": "Ro'yxatga qaytish",
+        "newTitle": "Yangi kompaniya",
+        "editTitle": "Tahrirlash",
+        "loadError": "Yuklab bo'lmadi.",
+        "fields": {
+          "name": "Nomi",
+          "websiteUrl": "Sayt",
+          "logo": "Logotip",
+          "sortOrder": "Tartib"
+        },
+        "publishToggle": "Saytda ko'rsatish",
+        "submitCreate": "Yaratish",
+        "submitEdit": "Saqlash",
+        "createSuccess": "Kompaniya qo'shildi",
+        "updateSuccess": "O'zgarishlar saqlandi",
+        "deleteSuccess": "Kompaniya o'chirildi"
+      }
+    },
+    "settings": {
+      "title": "Sayt sozlamalari",
+      "subtitle": "Futer tarkibi, kontaktlar, to'lov usullari.",
+      "loadError": "Sozlamalarni yuklab bo'lmadi.",
+      "save": "Sozlamalarni saqlash",
+      "saveSuccess": "Sozlamalar saqlandi",
+      "footer": {
+        "brand": "Brend",
+        "tagline": "Shior",
+        "copyright": "Mualliflik huquqi",
+        "copyrightHint": "{{year}} avtomatik qo'yiladi.",
+        "contacts": "Kontaktlar",
+        "email": "Email",
+        "phone": "Telefon",
+        "address": "Manzil",
+        "columns": "Havola ustunlari",
+        "columnTitle": "Ustun sarlavhasi",
+        "columnTitlePlaceholder": "Studiya",
+        "removeColumn": "Ustunni o'chirish",
+        "linkLabel": "Havola matni",
+        "addLink": "Havola qo'shish",
+        "addColumn": "Ustun qo'shish",
+        "socials": "Ijtimoiy tarmoqlar",
+        "addSocial": "Ijtimoiy tarmoq qo'shish",
+        "payments": "To'lov usullari",
+        "paymentsHint": "Futerda qaysi ikonkalarni ko'rsatishni tanlang."
       }
     },
     "leads": {

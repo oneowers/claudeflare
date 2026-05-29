@@ -20,6 +20,7 @@ import { LocaleTabs } from '@/i18n/LocaleTabs';
 import { LANGUAGE_SHORT, SUPPORTED_LANGUAGES, type Language } from '@/i18n/config';
 import { useAutoTranslate } from '@/features/translation/useAutoTranslate';
 import { AutoTranslateButton } from '@/features/translation/AutoTranslateButton';
+import { CategorySelect } from '@/features/categories/components/CategorySelect';
 
 interface ServiceFormProps {
   service?: Service;
@@ -41,6 +42,7 @@ export function ServiceForm({ service }: ServiceFormProps) {
     defaultValues: {
       name: { ...FALLBACK, ...(service?.name ?? {}) },
       slug: service?.slug ?? '',
+      category_id: service?.category_id ?? '',
       short_description: { ...FALLBACK, ...(service?.short_description ?? {}) },
       description: { ...FALLBACK, ...(service?.description ?? {}) },
       price_from: service?.price_from ?? 0,
@@ -225,6 +227,11 @@ export function ServiceForm({ service }: ServiceFormProps) {
             {err(form.formState.errors.slug.message)}
           </p>
         )}
+      </div>
+
+      <div className="space-y-1.5">
+        <Label htmlFor="category_id">{t('admin.services.form.fields.category')}</Label>
+        <CategorySelect id="category_id" {...form.register('category_id')} />
       </div>
 
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-[1fr_140px_120px]">

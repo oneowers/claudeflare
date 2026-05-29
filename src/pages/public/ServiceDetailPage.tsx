@@ -5,6 +5,7 @@ import { useServiceBySlug } from '@/features/services/hooks/useService';
 import { formatPrice } from '@/lib/utils';
 import { LocalizedLink, useCurrentLanguage } from '@/i18n/hooks';
 import { pickLocale } from '@/i18n/localized';
+import { Seo } from '@/components/shared/Seo';
 
 export function ServiceDetailPage() {
   const { slug } = useParams();
@@ -23,15 +24,18 @@ export function ServiceDetailPage() {
 
   if (error || !service) {
     return (
-      <section className="container py-16">
-        <h1 className="text-3xl font-semibold">{t('services.detail.notFound')}</h1>
-        <LocalizedLink
-          to="/services"
-          className="mt-4 inline-block text-sm text-muted-foreground hover:text-foreground"
-        >
-          {t('services.detail.back')}
-        </LocalizedLink>
-      </section>
+      <>
+        <Seo title={t('services.detail.notFound')} noIndex />
+        <section className="container py-16">
+          <h1 className="text-3xl font-semibold">{t('services.detail.notFound')}</h1>
+          <LocalizedLink
+            to="/services"
+            className="mt-4 inline-block text-sm text-muted-foreground hover:text-foreground"
+          >
+            {t('services.detail.back')}
+          </LocalizedLink>
+        </section>
+      </>
     );
   }
 
@@ -41,7 +45,14 @@ export function ServiceDetailPage() {
   const features = pickLocale(service.features, lang) ?? [];
 
   return (
-    <section className="container py-16">
+    <>
+      <Seo
+        title={name}
+        description={shortDesc || description}
+        image={service.image_url}
+        type="article"
+      />
+      <section className="container py-16">
       <div className="grid gap-12 lg:grid-cols-[1.4fr_1fr]">
         <article>
           <p className="text-sm font-medium text-muted-foreground">
@@ -98,6 +109,7 @@ export function ServiceDetailPage() {
           </div>
         </aside>
       </div>
-    </section>
+      </section>
+    </>
   );
 }

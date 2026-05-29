@@ -19,6 +19,7 @@ export const serviceSchema = z.object({
   price_from: z.coerce.number().positive('validation.pricePositive'),
   currency: currencyEnum.default('USD'),
   features: localizedStringArray(20, 120),
+  category_id: z.string().uuid().optional().or(z.literal('')),
   is_published: z.boolean().default(false),
   sort_order: z.coerce.number().int().min(0).default(0),
   image: z.instanceof(File).optional(),

@@ -14,7 +14,8 @@
     "yes": "Yes",
     "no": "No",
     "tryAgain": "Try again",
-    "languageSwitcher": "Change language"
+    "languageSwitcher": "Change language",
+    "toggleTheme": "Toggle theme"
   },
   "nav": {
     "home": "Home",
@@ -34,7 +35,11 @@
     "legal": "Legal",
     "privacy": "Privacy policy",
     "madeBy": "Made in-studio",
-    "copyright": "© {{year}} WebStudio"
+    "copyright": "© {{year}} WebStudio",
+    "payments": "We accept"
+  },
+  "trustedBy": {
+    "title": "Trusted by"
   },
   "home": {
     "kicker": "Web development studio",
@@ -50,7 +55,15 @@
     "allCases": "Full portfolio →",
     "ctaBannerTitle": "Ready to start?",
     "ctaBannerSubtitle": "Tell us about the task — we'll come back with an estimate and a plan.",
-    "ctaBannerButton": "Get in touch"
+    "ctaBannerButton": "Get in touch",
+    "marquee": [
+      "Design",
+      "Development",
+      "Branding",
+      "SEO",
+      "Support",
+      "Analytics"
+    ]
   },
   "services": {
     "kicker": "Services",
@@ -115,6 +128,27 @@
     "title": "Page not found",
     "home": "Go home"
   },
+  "errorPage": {
+    "title": "Something went wrong",
+    "description": "The page could not be loaded. Check your connection and try again."
+  },
+  "categories": {
+    "all": "All categories"
+  },
+  "testType": {
+    "unit": "Unit tests",
+    "load": "Load tests"
+  },
+  "testStatus": {
+    "passed": "Passed",
+    "failed": "Failed",
+    "in_progress": "In progress",
+    "error": "Error"
+  },
+  "testReports": {
+    "allTypes": "All types",
+    "allStatuses": "All statuses"
+  },
   "admin": {
     "header": "Admin",
     "logout": "Sign out",
@@ -122,7 +156,14 @@
       "dashboard": "Dashboard",
       "services": "Services",
       "portfolio": "Portfolio",
-      "leads": "Leads"
+      "leads": "Leads",
+      "categories": "Categories",
+      "testReports": "Test reports",
+      "partners": "Trusted by",
+      "settings": "Settings"
+    },
+    "common": {
+      "categoryNone": "No category"
     },
     "login": {
       "title": "Admin sign-in",
@@ -170,7 +211,8 @@
           "sortOrder": "Order",
           "features": "What's included",
           "featuresPlaceholder": "Design, responsive, SEO…",
-          "image": "Image"
+          "image": "Image",
+          "category": "Category"
         },
         "publishToggle": "Published",
         "publishHint": "Only published services are visible on the site.",
@@ -208,7 +250,8 @@
           "technologies": "Technologies",
           "technologiesPlaceholder": "React, TypeScript, Postgres…",
           "image": "Image",
-          "sortOrder": "Order"
+          "sortOrder": "Order",
+          "category": "Category"
         },
         "publishToggle": "Published",
         "submitCreate": "Create case",
@@ -216,6 +259,156 @@
         "createSuccess": "Case created",
         "updateSuccess": "Changes saved",
         "deleteSuccess": "Case deleted"
+      }
+    },
+    "categories": {
+      "title": "Categories",
+      "subtitle": "Manage the taxonomy for services and portfolio.",
+      "create": "New category",
+      "empty": "No categories yet. Create the first one.",
+      "loadError": "Could not load categories.",
+      "deleteTitle": "Delete category?",
+      "deleteDescription": "\"{{name}}\" will be removed. Services and cases will lose this category.",
+      "table": {
+        "name": "Name",
+        "sortOrder": "Order"
+      },
+      "form": {
+        "backToList": "Back to list",
+        "newTitle": "New category",
+        "editTitle": "Edit category",
+        "loadError": "Could not load category.",
+        "fields": {
+          "name": "Name",
+          "slug": "Slug",
+          "slugPlaceholder": "category-name",
+          "sortOrder": "Order"
+        },
+        "submitCreate": "Create category",
+        "submitEdit": "Save",
+        "createSuccess": "Category created",
+        "updateSuccess": "Changes saved",
+        "deleteSuccess": "Category deleted"
+      }
+    },
+    "testReports": {
+      "title": "Test reports",
+      "subtitle": "Unit and load test run history.",
+      "create": "New report",
+      "run": {
+        "button": "Run test",
+        "title": "Run a test",
+        "description": "Runs right in the browser; the result is saved automatically.",
+        "start": "Run",
+        "running": "Running…",
+        "unitTitle": "Unit checks",
+        "loadTitle": "Load test",
+        "unitHint": "Will run {{count}} checks (Zod schemas, utilities).",
+        "targetUrl": "Target URL",
+        "totalRequests": "Requests",
+        "concurrency": "Concurrency",
+        "successPassed": "Test passed, result saved",
+        "successFailed": "Test finished with failures, result saved"
+      },
+      "empty": "No reports yet.",
+      "loadError": "Could not load reports.",
+      "deleteTitle": "Delete report?",
+      "deleteDescription": "\"{{title}}\" will be permanently removed.",
+      "table": {
+        "title": "Title",
+        "type": "Type",
+        "status": "Status",
+        "metrics": "Metrics",
+        "runAt": "Run date",
+        "tests": "tests"
+      },
+      "form": {
+        "backToList": "Back to list",
+        "newTitle": "New test report",
+        "editTitle": "Edit report",
+        "loadError": "Could not load report.",
+        "unitMetrics": "Unit test metrics",
+        "loadMetrics": "Load test metrics",
+        "fields": {
+          "title": "Title / Suite",
+          "project": "Project / Client",
+          "projectPlaceholder": "my-app v2.1",
+          "type": "Test type",
+          "status": "Status",
+          "runAt": "Run date",
+          "totalTests": "Total tests",
+          "passedTests": "Passed",
+          "coveragePct": "Coverage",
+          "requestsPerSec": "Requests / sec",
+          "totalRequests": "Total requests",
+          "errorRate": "Error rate",
+          "durationMs": "Duration",
+          "notes": "Notes"
+        },
+        "submitCreate": "Save report",
+        "submitEdit": "Save",
+        "createSuccess": "Report created",
+        "updateSuccess": "Changes saved",
+        "deleteSuccess": "Report deleted"
+      }
+    },
+    "partners": {
+      "title": "Trusted by",
+      "subtitle": "Client company logos shown in the pre-footer band.",
+      "create": "New company",
+      "empty": "No companies yet.",
+      "loadError": "Could not load.",
+      "deleteTitle": "Delete company?",
+      "deleteDescription": "\"{{name}}\" will be removed.",
+      "table": {
+        "company": "Company",
+        "published": "Visible"
+      },
+      "form": {
+        "backToList": "Back to list",
+        "newTitle": "New company",
+        "editTitle": "Edit company",
+        "loadError": "Could not load.",
+        "fields": {
+          "name": "Name",
+          "websiteUrl": "Website",
+          "logo": "Logo",
+          "sortOrder": "Order"
+        },
+        "publishToggle": "Show on site",
+        "submitCreate": "Create",
+        "submitEdit": "Save",
+        "createSuccess": "Company added",
+        "updateSuccess": "Changes saved",
+        "deleteSuccess": "Company deleted"
+      }
+    },
+    "settings": {
+      "title": "Site settings",
+      "subtitle": "Footer content, contacts, payment methods.",
+      "loadError": "Could not load settings.",
+      "save": "Save settings",
+      "saveSuccess": "Settings saved",
+      "footer": {
+        "brand": "Brand",
+        "tagline": "Tagline",
+        "copyright": "Copyright",
+        "copyrightHint": "{{year}} is inserted automatically.",
+        "contacts": "Contacts",
+        "email": "Email",
+        "phone": "Phone",
+        "address": "Address",
+        "columns": "Link columns",
+        "columnTitle": "Column title",
+        "columnTitlePlaceholder": "Studio",
+        "removeColumn": "Remove column",
+        "linkLabel": "Link label",
+        "addLink": "Add link",
+        "addColumn": "Add column",
+        "socials": "Social links",
+        "addSocial": "Add social",
+        "payments": "Payment methods",
+        "paymentsHint": "Pick which icons to show in the footer."
       }
     },
     "leads": {

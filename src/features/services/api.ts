@@ -16,6 +16,7 @@ interface ServiceRow {
   short_description_i18n: LocalizedString | null;
   description_i18n: LocalizedString | null;
   features_i18n: LocalizedStringArray | null;
+  category_id: string | null;
   price_from: number;
   currency: Service['currency'];
   image_url: string | null;
@@ -39,6 +40,7 @@ function rowToService(row: ServiceRow): Service {
         ? { ru: row.description }
         : null,
     features: hydrateArray(row.features_i18n, { ru: row.features ?? [] }),
+    category_id: row.category_id,
     price_from: Number(row.price_from),
     currency: row.currency,
     image_url: row.image_url,
@@ -148,6 +150,7 @@ function buildPayload(values: ServiceFormValues, image_url?: string) {
     short_description: short.ru ?? Object.values(short)[0] ?? '',
     description: desc.ru ?? null,
     features: features.ru ?? [],
+    category_id: values.category_id || null,
     price_from: values.price_from,
     currency: values.currency,
     sort_order: values.sort_order,

@@ -1,10 +1,11 @@
 import { NavLink } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import { LayoutDashboard, Briefcase, Image, Inbox, LogOut } from 'lucide-react';
+import { LayoutDashboard, Briefcase, Image, Inbox, LogOut, Tags, FlaskConical, Building2, Settings } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { supabase } from '@/lib/supabase';
 import { LanguageSwitcher } from '@/i18n/LanguageSwitcher';
 import { useLocalizedPath } from '@/i18n/hooks';
+import { ThemeToggle } from '@/components/theme/ThemeToggle';
 
 export function AdminSidebar() {
   const { t } = useTranslation();
@@ -15,6 +16,10 @@ export function AdminSidebar() {
     { to: '/admin/services', label: t('admin.nav.services'), icon: Briefcase },
     { to: '/admin/portfolio', label: t('admin.nav.portfolio'), icon: Image },
     { to: '/admin/leads', label: t('admin.nav.leads'), icon: Inbox },
+    { to: '/admin/categories', label: t('admin.nav.categories'), icon: Tags },
+    { to: '/admin/test-reports', label: t('admin.nav.testReports'), icon: FlaskConical },
+    { to: '/admin/partners', label: t('admin.nav.partners'), icon: Building2 },
+    { to: '/admin/settings', label: t('admin.nav.settings'), icon: Settings },
   ];
 
   return (
@@ -23,7 +28,10 @@ export function AdminSidebar() {
         <span className="text-sm font-semibold tracking-tight">
           {t('admin.header')}
         </span>
-        <LanguageSwitcher variant="compact" />
+        <div className="flex items-center gap-2">
+          <ThemeToggle />
+          <LanguageSwitcher variant="compact" />
+        </div>
       </div>
       <nav className="flex-1 space-y-1 px-3 py-4">
         {items.map(({ to, label, icon: Icon, end }) => (

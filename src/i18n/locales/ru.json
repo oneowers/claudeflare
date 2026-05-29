@@ -14,7 +14,8 @@
     "yes": "Да",
     "no": "Нет",
     "tryAgain": "Попробовать ещё раз",
-    "languageSwitcher": "Сменить язык"
+    "languageSwitcher": "Сменить язык",
+    "toggleTheme": "Сменить тему"
   },
   "nav": {
     "home": "Главная",
@@ -34,7 +35,11 @@
     "legal": "Правовое",
     "privacy": "Политика конфиденциальности",
     "madeBy": "Сделано в студии",
-    "copyright": "© {{year}} WebStudio"
+    "copyright": "© {{year}} WebStudio",
+    "payments": "Принимаем к оплате"
+  },
+  "trustedBy": {
+    "title": "Нам доверяют"
   },
   "home": {
     "kicker": "Студия веб-разработки",
@@ -50,7 +55,15 @@
     "allCases": "Всё портфолио →",
     "ctaBannerTitle": "Готовы начать проект?",
     "ctaBannerSubtitle": "Опишите задачу — пришлём предварительную оценку и план.",
-    "ctaBannerButton": "Написать"
+    "ctaBannerButton": "Написать",
+    "marquee": [
+      "Дизайн",
+      "Разработка",
+      "Брендинг",
+      "SEO",
+      "Поддержка",
+      "Аналитика"
+    ]
   },
   "services": {
     "kicker": "Услуги",
@@ -115,6 +128,27 @@
     "title": "Страница не найдена",
     "home": "На главную"
   },
+  "errorPage": {
+    "title": "Что-то пошло не так",
+    "description": "Не удалось загрузить страницу. Проверьте соединение и попробуйте ещё раз."
+  },
+  "categories": {
+    "all": "Все категории"
+  },
+  "testType": {
+    "unit": "Юнит-тесты",
+    "load": "Нагрузочные"
+  },
+  "testStatus": {
+    "passed": "Пройдено",
+    "failed": "Провалено",
+    "in_progress": "В процессе",
+    "error": "Ошибка"
+  },
+  "testReports": {
+    "allTypes": "Все типы",
+    "allStatuses": "Все статусы"
+  },
   "admin": {
     "header": "Админка",
     "logout": "Выйти",
@@ -122,7 +156,14 @@
       "dashboard": "Дашборд",
       "services": "Услуги",
       "portfolio": "Портфолио",
-      "leads": "Заявки"
+      "leads": "Заявки",
+      "categories": "Категории",
+      "testReports": "Тест-отчёты",
+      "partners": "Нам доверяют",
+      "settings": "Настройки"
+    },
+    "common": {
+      "categoryNone": "Без категории"
     },
     "login": {
       "title": "Вход в админку",
@@ -170,7 +211,8 @@
           "sortOrder": "Порядок",
           "features": "Что входит",
           "featuresPlaceholder": "Дизайн, адаптив, SEO…",
-          "image": "Картинка"
+          "image": "Картинка",
+          "category": "Категория"
         },
         "publishToggle": "Опубликовано",
         "publishHint": "Только опубликованные услуги видны на сайте.",
@@ -208,7 +250,8 @@
           "technologies": "Технологии",
           "technologiesPlaceholder": "React, TypeScript, Postgres…",
           "image": "Картинка",
-          "sortOrder": "Порядок"
+          "sortOrder": "Порядок",
+          "category": "Категория"
         },
         "publishToggle": "Опубликовано",
         "submitCreate": "Создать кейс",
@@ -216,6 +259,156 @@
         "createSuccess": "Кейс создан",
         "updateSuccess": "Изменения сохранены",
         "deleteSuccess": "Кейс удалён"
+      }
+    },
+    "categories": {
+      "title": "Категории",
+      "subtitle": "Управляйте таксономией услуг и портфолио.",
+      "create": "Новая категория",
+      "empty": "Пока нет категорий. Создайте первую.",
+      "loadError": "Не удалось загрузить категории.",
+      "deleteTitle": "Удалить категорию?",
+      "deleteDescription": "«{{name}}» будет удалена. Услуги и кейсы потеряют привязку к этой категории.",
+      "table": {
+        "name": "Название",
+        "sortOrder": "Порядок"
+      },
+      "form": {
+        "backToList": "К списку",
+        "newTitle": "Новая категория",
+        "editTitle": "Редактирование категории",
+        "loadError": "Не удалось загрузить категорию.",
+        "fields": {
+          "name": "Название",
+          "slug": "Slug",
+          "slugPlaceholder": "nazvanie-kategorii",
+          "sortOrder": "Порядок"
+        },
+        "submitCreate": "Создать категорию",
+        "submitEdit": "Сохранить",
+        "createSuccess": "Категория создана",
+        "updateSuccess": "Изменения сохранены",
+        "deleteSuccess": "Категория удалена"
+      }
+    },
+    "testReports": {
+      "title": "Тест-отчёты",
+      "subtitle": "Результаты юнит и нагрузочных тестов.",
+      "create": "Новый отчёт",
+      "run": {
+        "button": "Запустить тест",
+        "title": "Запуск теста",
+        "description": "Тест выполняется прямо в браузере, результат сохранится автоматически.",
+        "start": "Запустить",
+        "running": "Идёт прогон…",
+        "unitTitle": "Unit-проверки",
+        "loadTitle": "Нагрузочный тест",
+        "unitHint": "Будет выполнено {{count}} проверок (Zod-схемы, утилиты).",
+        "targetUrl": "URL цели",
+        "totalRequests": "Запросов",
+        "concurrency": "Конкуренция",
+        "successPassed": "Тест пройден, результат сохранён",
+        "successFailed": "Тест завершён с ошибками, результат сохранён"
+      },
+      "empty": "Отчётов пока нет.",
+      "loadError": "Не удалось загрузить отчёты.",
+      "deleteTitle": "Удалить отчёт?",
+      "deleteDescription": "«{{title}}» будет удалён без возможности восстановления.",
+      "table": {
+        "title": "Название",
+        "type": "Тип",
+        "status": "Статус",
+        "metrics": "Метрики",
+        "runAt": "Дата запуска",
+        "tests": "тестов"
+      },
+      "form": {
+        "backToList": "К списку",
+        "newTitle": "Новый тест-отчёт",
+        "editTitle": "Редактирование отчёта",
+        "loadError": "Не удалось загрузить отчёт.",
+        "unitMetrics": "Метрики юнит-тестов",
+        "loadMetrics": "Метрики нагрузочного теста",
+        "fields": {
+          "title": "Название / Suite",
+          "project": "Проект / Клиент",
+          "projectPlaceholder": "my-app v2.1",
+          "type": "Тип теста",
+          "status": "Статус",
+          "runAt": "Дата запуска",
+          "totalTests": "Всего тестов",
+          "passedTests": "Прошло",
+          "coveragePct": "Покрытие",
+          "requestsPerSec": "Запросов/сек",
+          "totalRequests": "Всего запросов",
+          "errorRate": "Ошибки",
+          "durationMs": "Длительность",
+          "notes": "Заметки"
+        },
+        "submitCreate": "Сохранить отчёт",
+        "submitEdit": "Сохранить",
+        "createSuccess": "Отчёт создан",
+        "updateSuccess": "Изменения сохранены",
+        "deleteSuccess": "Отчёт удалён"
+      }
+    },
+    "partners": {
+      "title": "Нам доверяют",
+      "subtitle": "Логотипы компаний-клиентов в пред-футере.",
+      "create": "Новая компания",
+      "empty": "Пока нет компаний.",
+      "loadError": "Не удалось загрузить.",
+      "deleteTitle": "Удалить компанию?",
+      "deleteDescription": "«{{name}}» будет удалена.",
+      "table": {
+        "company": "Компания",
+        "published": "Показывать"
+      },
+      "form": {
+        "backToList": "К списку",
+        "newTitle": "Новая компания",
+        "editTitle": "Редактирование",
+        "loadError": "Не удалось загрузить.",
+        "fields": {
+          "name": "Название",
+          "websiteUrl": "Сайт",
+          "logo": "Логотип",
+          "sortOrder": "Порядок"
+        },
+        "publishToggle": "Показывать на сайте",
+        "submitCreate": "Создать",
+        "submitEdit": "Сохранить",
+        "createSuccess": "Компания добавлена",
+        "updateSuccess": "Изменения сохранены",
+        "deleteSuccess": "Компания удалена"
+      }
+    },
+    "settings": {
+      "title": "Настройки сайта",
+      "subtitle": "Содержимое футера, контакты, способы оплаты.",
+      "loadError": "Не удалось загрузить настройки.",
+      "save": "Сохранить настройки",
+      "saveSuccess": "Настройки сохранены",
+      "footer": {
+        "brand": "Бренд",
+        "tagline": "Слоган",
+        "copyright": "Копирайт",
+        "copyrightHint": "{{year}} подставится автоматически.",
+        "contacts": "Контакты",
+        "email": "Email",
+        "phone": "Телефон",
+        "address": "Адрес",
+        "columns": "Колонки ссылок",
+        "columnTitle": "Заголовок колонки",
+        "columnTitlePlaceholder": "Студия",
+        "removeColumn": "Удалить колонку",
+        "linkLabel": "Текст ссылки",
+        "addLink": "Добавить ссылку",
+        "addColumn": "Добавить колонку",
+        "socials": "Соцсети",
+        "addSocial": "Добавить соцсеть",
+        "payments": "Способы оплаты",
+        "paymentsHint": "Выберите, какие иконки показывать в футере."
       }
     },
     "leads": {

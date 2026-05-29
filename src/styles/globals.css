@@ -78,3 +78,48 @@
     scroll-behavior: smooth;
   }
 }
+
+@layer utilities {
+  .bg-grid {
+    background-image:
+      linear-gradient(
+        to right,
+        hsl(var(--foreground) / 0.045) 1px,
+        transparent 1px
+      ),
+      linear-gradient(
+        to bottom,
+        hsl(var(--foreground) / 0.045) 1px,
+        transparent 1px
+      );
+    background-size: 72px 72px;
+  }
+
+  .mask-fade-y {
+    -webkit-mask-image: linear-gradient(
+      to bottom,
+      transparent,
+      black 12%,
+      black 80%,
+      transparent
+    );
+    mask-image: linear-gradient(
+      to bottom,
+      transparent,
+      black 12%,
+      black 80%,
+      transparent
+    );
+  }
+
+  .text-outline {
+    color: transparent;
+    -webkit-text-stroke: 1.5px hsl(var(--foreground) / 0.1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}

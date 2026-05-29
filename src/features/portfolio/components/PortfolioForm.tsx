@@ -20,6 +20,7 @@ import { LocaleTabs } from '@/i18n/LocaleTabs';
 import { LANGUAGE_SHORT, SUPPORTED_LANGUAGES, type Language } from '@/i18n/config';
 import { useAutoTranslate } from '@/features/translation/useAutoTranslate';
 import { AutoTranslateButton } from '@/features/translation/AutoTranslateButton';
+import { CategorySelect } from '@/features/categories/components/CategorySelect';
 
 interface PortfolioFormProps {
   item?: PortfolioItem;
@@ -45,6 +46,7 @@ export function PortfolioForm({ item }: PortfolioFormProps) {
       client: item?.client ?? '',
       project_url: item?.project_url ?? '',
       technologies: item?.technologies ?? [],
+      category_id: item?.category_id ?? '',
       is_published: item?.is_published ?? false,
       sort_order: item?.sort_order ?? 0,
     },
@@ -203,6 +205,11 @@ export function PortfolioForm({ item }: PortfolioFormProps) {
             />
           )}
         />
+      </div>
+
+      <div className="space-y-1.5">
+        <Label htmlFor="portfolio_category_id">{t('admin.portfolio.form.fields.category')}</Label>
+        <CategorySelect id="portfolio_category_id" {...form.register('category_id')} />
       </div>
 
       <div className="space-y-1.5">

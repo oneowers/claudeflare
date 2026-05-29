@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://webstudio.dev/ru</loc><priority>1.0</priority></url>
+  <url><loc>https://webstudio.dev/ru/services</loc><priority>0.8</priority></url>
+  <url><loc>https://webstudio.dev/ru/portfolio</loc><priority>0.8</priority></url>
+  <url><loc>https://webstudio.dev/ru/about</loc><priority>0.6</priority></url>
+  <url><loc>https://webstudio.dev/ru/contact</loc><priority>0.7</priority></url>
+  <url><loc>https://webstudio.dev/en</loc><priority>1.0</priority></url>
+  <url><loc>https://webstudio.dev/en/services</loc><priority>0.8</priority></url>
+  <url><loc>https://webstudio.dev/en/portfolio</loc><priority>0.8</priority></url>
+  <url><loc>https://webstudio.dev/en/about</loc><priority>0.6</priority></url>
+  <url><loc>https://webstudio.dev/en/contact</loc><priority>0.7</priority></url>
+  <url><loc>https://webstudio.dev/uz</loc><priority>1.0</priority></url>
+  <url><loc>https://webstudio.dev/uz/services</loc><priority>0.8</priority></url>
+  <url><loc>https://webstudio.dev/uz/portfolio</loc><priority>0.8</priority></url>
+  <url><loc>https://webstudio.dev/uz/about</loc><priority>0.6</priority></url>
+  <url><loc>https://webstudio.dev/uz/contact</loc><priority>0.7</priority></url>
+</urlset>

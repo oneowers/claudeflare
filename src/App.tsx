@@ -3,12 +3,15 @@ import { RouterProvider } from 'react-router-dom';
 import { Toaster } from 'sonner';
 import { queryClient } from '@/lib/queryClient';
 import { router } from '@/router';
+import { ThemeProvider } from '@/components/theme/ThemeProvider';
 
 export function App() {
   return (
-    <QueryClientProvider client={queryClient}>
-      <RouterProvider router={router} />
-      <Toaster richColors position="top-right" />
-    </QueryClientProvider>
+    <ThemeProvider>
+      <QueryClientProvider client={queryClient}>
+        <RouterProvider router={router} />
+        <Toaster richColors position="top-right" theme="system" />
+      </QueryClientProvider>
+    </ThemeProvider>
   );
 }

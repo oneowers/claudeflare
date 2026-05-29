@@ -4,6 +4,7 @@ import { ExternalLink } from 'lucide-react';
 import { usePortfolioBySlug } from '@/features/portfolio/hooks/usePortfolio';
 import { LocalizedLink, useCurrentLanguage } from '@/i18n/hooks';
 import { pickLocale } from '@/i18n/localized';
+import { Seo } from '@/components/shared/Seo';
 
 export function PortfolioDetailPage() {
   const { slug } = useParams();
@@ -22,15 +23,18 @@ export function PortfolioDetailPage() {
 
   if (error || !item) {
     return (
-      <section className="container py-16">
-        <h1 className="text-3xl font-semibold">{t('portfolio.detail.notFound')}</h1>
-        <LocalizedLink
-          to="/portfolio"
-          className="mt-4 inline-block text-sm text-muted-foreground hover:text-foreground"
-        >
-          {t('portfolio.detail.back')}
-        </LocalizedLink>
-      </section>
+      <>
+        <Seo title={t('portfolio.detail.notFound')} noIndex />
+        <section className="container py-16">
+          <h1 className="text-3xl font-semibold">{t('portfolio.detail.notFound')}</h1>
+          <LocalizedLink
+            to="/portfolio"
+            className="mt-4 inline-block text-sm text-muted-foreground hover:text-foreground"
+          >
+            {t('portfolio.detail.back')}
+          </LocalizedLink>
+        </section>
+      </>
     );
   }
 
@@ -38,7 +42,14 @@ export function PortfolioDetailPage() {
   const description = pickLocale(item.description, lang);
 
   return (
-    <section className="container py-16">
+    <>
+      <Seo
+        title={title}
+        description={description}
+        image={item.image_url}
+        type="article"
+      />
+      <section className="container py-16">
       <header className="max-w-3xl">
         {item.client && (
           <p className="text-sm font-medium text-muted-foreground">{item.client}</p>
@@ -82,6 +93,7 @@ export function PortfolioDetailPage() {
           </a>
         </div>
       )}
-    </section>
+      </section>
+    </>
   );
 }

@@ -9,6 +9,7 @@ export interface Service {
   short_description: LocalizedString;
   description: LocalizedString | null;
   features: LocalizedStringArray;
+  category_id: string | null;
   price_from: number;
   currency: Currency;
   image_url: string | null;

@@ -16,6 +16,7 @@ interface PortfolioRow {
   image_url: string | null;
   project_url: string | null;
   technologies: string[];
+  category_id: string | null;
   is_published: boolean;
   sort_order: number;
   created_at: string;
@@ -35,6 +36,7 @@ function rowToItem(row: PortfolioRow): PortfolioItem {
     image_url: row.image_url,
     project_url: row.project_url,
     technologies: row.technologies ?? [],
+    category_id: row.category_id,
     is_published: row.is_published,
     sort_order: row.sort_order,
     created_at: row.created_at,
@@ -120,6 +122,7 @@ function buildPayload(values: PortfolioFormValues, image_url?: string) {
     client: values.client?.trim() ? values.client.trim() : null,
     project_url: values.project_url?.trim() ? values.project_url.trim() : null,
     technologies: values.technologies,
+    category_id: values.category_id || null,
     sort_order: values.sort_order,
     is_published: values.is_published,
     ...(image_url ? { image_url } : {}),

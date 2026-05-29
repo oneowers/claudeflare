@@ -9,6 +9,7 @@ export interface PortfolioItem {
   image_url: string | null;
   project_url: string | null;
   technologies: string[];
+  category_id: string | null;
   is_published: boolean;
   sort_order: number;
   created_at: string;

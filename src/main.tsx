@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import { HelmetProvider } from 'react-helmet-async';
 import { App } from './App';
 import './i18n';
 import './styles/globals.css';
@@ -9,6 +10,8 @@ if (!root) throw new Error('Root element #root not found');
 
 ReactDOM.createRoot(root).render(
   <React.StrictMode>
-    <App />
+    <HelmetProvider>
+      <App />
+    </HelmetProvider>
   </React.StrictMode>,
 );

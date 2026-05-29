@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+  <title id="title">WebStudio</title>
+  <desc id="desc">Web development studio preview image</desc>
+  <rect width="1200" height="630" fill="#0f172a"/>
+  <rect x="72" y="72" width="1056" height="486" rx="36" fill="#ffffff"/>
+  <path d="M160 209l58 212 70-148 70 148 58-212" fill="none" stroke="#0f172a" stroke-width="28" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="500" y="288" fill="#0f172a" font-family="Inter, Arial, sans-serif" font-size="88" font-weight="800">WebStudio</text>
+  <text x="504" y="358" fill="#475569" font-family="Inter, Arial, sans-serif" font-size="34" font-weight="500">Websites, apps, design, support</text>
+</svg>

@@ -49,6 +49,7 @@ describe('useCreateService', () => {
       price_from: 100,
       currency: 'USD',
       features: { ru: [] },
+      category_id: null,
       image_url: null,
       is_published: false,
       sort_order: 0,

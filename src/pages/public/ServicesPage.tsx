@@ -1,13 +1,28 @@
+import { useMemo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useServices } from '@/features/services/hooks/useServices';
 import { ServiceCard } from '@/features/services/components/ServiceCard';
+import { useCategories, useCategoryMap } from '@/features/categories/hooks/useCategories';
+import { CategoryFilter } from '@/features/categories/components/CategoryFilter';
+import { Seo } from '@/components/shared/Seo';
 
 export function ServicesPage() {
   const { t } = useTranslation();
   const { data, isLoading, error } = useServices(true);
+  const { data: categories } = useCategories();
+  const categoryMap = useCategoryMap();
+  const [activeCategory, setActiveCategory] = useState<string | null>(null);
+
+  const filtered = useMemo(() => {
+    if (!data) return [];
+    if (!activeCategory) return data;
+    return data.filter((s) => s.category_id === activeCategory);
+  }, [data, activeCategory]);
 
   return (
-    <section className="container py-16">
+    <>
+      <Seo title={t('nav.services')} description={t('services.subtitle')} />
+      <section className="container py-16">
       <header className="max-w-2xl">
         <p className="text-sm font-medium text-muted-foreground">
           {t('services.kicker')}
@@ -20,14 +35,24 @@ export function ServicesPage() {
         </p>
       </header>
 
-      <div className="mt-12">
+      {categories && categories.length > 0 && (
+        <div className="mt-10">
+          <CategoryFilter
+            categories={categories}
+            active={activeCategory}
+            onChange={setActiveCategory}
+          />
+        </div>
+      )}
+
+      <div className="mt-10">
         {isLoading && (
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="border-b border-foreground/15">
             {Array.from({ length: 6 }).map((_, i) => (
-              <div
-                key={i}
-                className="h-48 animate-pulse rounded-lg border border-border/60 bg-muted/40"
-              />
+              <div key={i} className="border-t border-foreground/15 py-8">
+                <div className="h-8 w-2/5 animate-pulse rounded bg-muted/50" />
+                <div className="mt-3 h-4 w-3/5 animate-pulse rounded bg-muted/40" />
+              </div>
             ))}
           </div>
         )}
@@ -36,18 +61,24 @@ export function ServicesPage() {
           <p className="text-sm text-destructive">{t('services.loadError')}</p>
         )}
 
-        {data && data.length === 0 && (
+        {data && filtered.length === 0 && (
           <p className="text-sm text-muted-foreground">{t('services.empty')}</p>
         )}
 
-        {data && data.length > 0 && (
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {data.map((service) => (
-              <ServiceCard key={service.id} service={service} />
+        {filtered.length > 0 && (
+          <div className="border-b border-foreground/15">
+            {filtered.map((service, i) => (
+              <ServiceCard
+                key={service.id}
+                service={service}
+                index={i}
+                category={service.category_id ? categoryMap[service.category_id] : undefined}
+              />
             ))}
           </div>
         )}
       </div>
-    </section>
+      </section>
+    </>
   );
 }

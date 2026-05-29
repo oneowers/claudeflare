@@ -15,6 +15,7 @@ export const portfolioSchema = z.object({
   client: z.string().max(120).optional().or(z.literal('')),
   project_url: z.string().url().optional().or(z.literal('')),
   technologies: z.array(z.string().min(1).max(60)).max(30).default([]),
+  category_id: z.string().uuid().optional().or(z.literal('')),
   is_published: z.boolean().default(false),
   sort_order: z.coerce.number().int().min(0).default(0),
   image: z.instanceof(File).optional(),
