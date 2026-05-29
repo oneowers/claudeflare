@@ -2,11 +2,17 @@ import { useMemo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { usePortfolio } from '@/features/portfolio/hooks/usePortfolio';
 import { PortfolioCard } from '@/features/portfolio/components/PortfolioCard';
+import { useCategories, useCategoryMap } from '@/features/categories/hooks/useCategories';
+import { CategoryFilter } from '@/features/categories/components/CategoryFilter';
 import { cn } from '@/lib/utils';
+import { Seo } from '@/components/shared/Seo';
 
 export function PortfolioPage() {
   const { t } = useTranslation();
   const { data, isLoading, error } = usePortfolio(true);
+  const { data: categories } = useCategories();
+  const categoryMap = useCategoryMap();
+  const [activeCategory, setActiveCategory] = useState<string | null>(null);
   const [activeTech, setActiveTech] = useState<string | null>(null);
 
   const techs = useMemo(() => {
@@ -17,12 +23,17 @@ export function PortfolioPage() {
 
   const filtered = useMemo(() => {
     if (!data) return [];
-    if (!activeTech) return data;
-    return data.filter((item) => item.technologies.includes(activeTech));
-  }, [data, activeTech]);
+    return data.filter((item) => {
+      if (activeCategory && item.category_id !== activeCategory) return false;
+      if (activeTech && !item.technologies.includes(activeTech)) return false;
+      return true;
+    });
+  }, [data, activeCategory, activeTech]);
 
   return (
-    <section className="container py-16">
+    <>
+      <Seo title={t('nav.portfolio')} description={t('portfolio.title')} />
+      <section className="container py-16">
       <header className="max-w-2xl">
         <p className="text-sm font-medium text-muted-foreground">
           {t('portfolio.kicker')}
@@ -32,15 +43,28 @@ export function PortfolioPage() {
         </h1>
       </header>
 
+      {categories && categories.length > 0 && (
+        <div className="mt-10">
+          <CategoryFilter
+            categories={categories}
+            active={activeCategory}
+            onChange={(id) => {
+              setActiveCategory(id);
+              setActiveTech(null);
+            }}
+          />
+        </div>
+      )}
+
       {techs.length > 0 && (
-        <div className="mt-10 flex flex-wrap gap-2">
+        <div className="mt-4 flex flex-wrap gap-2">
           <button
             type="button"
             onClick={() => setActiveTech(null)}
             className={cn(
               'rounded-md px-3 py-1.5 text-sm transition-colors',
               activeTech === null
-                ? 'bg-primary text-primary-foreground'
+                ? 'bg-secondary text-secondary-foreground'
                 : 'border border-border/60 text-muted-foreground hover:text-foreground',
             )}
           >
@@ -54,7 +78,7 @@ export function PortfolioPage() {
               className={cn(
                 'rounded-md px-3 py-1.5 text-sm transition-colors',
                 activeTech === tech
-                  ? 'bg-primary text-primary-foreground'
+                  ? 'bg-secondary text-secondary-foreground'
                   : 'border border-border/60 text-muted-foreground hover:text-foreground',
               )}
             >
@@ -83,12 +107,18 @@ export function PortfolioPage() {
 
         {filtered.length > 0 && (
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {filtered.map((item) => (
-              <PortfolioCard key={item.id} item={item} />
+            {filtered.map((item, i) => (
+              <PortfolioCard
+                key={item.id}
+                item={item}
+                index={i + 1}
+                category={item.category_id ? categoryMap[item.category_id] : undefined}
+              />
             ))}
           </div>
         )}
       </div>
-    </section>
+      </section>
+    </>
   );
 }
