@@ -5,6 +5,7 @@ import { usePortfolio } from '@/features/portfolio/hooks/usePortfolio';
 import { ServiceCard } from '@/features/services/components/ServiceCard';
 import { PortfolioCard } from '@/features/portfolio/components/PortfolioCard';
 import { LocalizedLink } from '@/i18n/hooks';
+import { Reveal } from '@/components/shared/Reveal';
 
 function SectionHead({
   title,
@@ -89,14 +90,18 @@ export function HomePage() {
 
       {/* ── SERVICES ── */}
       <section className="container py-20 sm:py-28">
-        <SectionHead
-          title={t('home.servicesTitle')}
-          link="/services"
-          linkLabel={t('home.allServices')}
-        />
+        <Reveal>
+          <SectionHead
+            title={t('home.servicesTitle')}
+            link="/services"
+            linkLabel={t('home.allServices')}
+          />
+        </Reveal>
         <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {(services.data ?? []).slice(0, 6).map((service) => (
-            <ServiceCard key={service.id} service={service} />
+          {(services.data ?? []).slice(0, 6).map((service, i) => (
+            <Reveal key={service.id} delay={i * 70}>
+              <ServiceCard service={service} index={i} />
+            </Reveal>
           ))}
           {services.isLoading &&
             Array.from({ length: 3 }).map((_, i) => (
@@ -110,14 +115,18 @@ export function HomePage() {
 
       {/* ── PORTFOLIO ── */}
       <section className="container pb-20 sm:pb-28">
-        <SectionHead
-          title={t('home.casesTitle')}
-          link="/portfolio"
-          linkLabel={t('home.allCases')}
-        />
+        <Reveal>
+          <SectionHead
+            title={t('home.casesTitle')}
+            link="/portfolio"
+            linkLabel={t('home.allCases')}
+          />
+        </Reveal>
         <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {(portfolio.data ?? []).slice(0, 3).map((item) => (
-            <PortfolioCard key={item.id} item={item} />
+          {(portfolio.data ?? []).slice(0, 3).map((item, i) => (
+            <Reveal key={item.id} delay={i * 70}>
+              <PortfolioCard item={item} />
+            </Reveal>
           ))}
           {portfolio.isLoading &&
             Array.from({ length: 3 }).map((_, i) => (

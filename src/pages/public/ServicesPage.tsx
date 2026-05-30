@@ -2,6 +2,7 @@ import { useTranslation } from 'react-i18next';
 import { useServices } from '@/features/services/hooks/useServices';
 import { ServiceCard } from '@/features/services/components/ServiceCard';
 import { PageHero } from '@/components/shared/PageHero';
+import { Reveal } from '@/components/shared/Reveal';
 
 export function ServicesPage() {
   const { t } = useTranslation();
@@ -37,8 +38,10 @@ export function ServicesPage() {
 
         {data && data.length > 0 && (
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {data.map((service) => (
-              <ServiceCard key={service.id} service={service} />
+            {data.map((service, i) => (
+              <Reveal key={service.id} delay={i * 60}>
+                <ServiceCard service={service} index={i} />
+              </Reveal>
             ))}
           </div>
         )}
