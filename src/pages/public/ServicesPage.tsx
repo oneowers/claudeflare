@@ -1,32 +1,27 @@
 import { useTranslation } from 'react-i18next';
 import { useServices } from '@/features/services/hooks/useServices';
 import { ServiceCard } from '@/features/services/components/ServiceCard';
+import { PageHero } from '@/components/shared/PageHero';
 
 export function ServicesPage() {
   const { t } = useTranslation();
   const { data, isLoading, error } = useServices(true);
 
   return (
-    <section className="container py-16">
-      <header className="max-w-2xl">
-        <p className="text-sm font-medium text-muted-foreground">
-          {t('services.kicker')}
-        </p>
-        <h1 className="mt-2 text-4xl font-bold tracking-tight md:text-5xl">
-          {t('services.title')}
-        </h1>
-        <p className="mt-4 text-base text-muted-foreground">
-          {t('services.subtitle')}
-        </p>
-      </header>
+    <>
+      <PageHero
+        kicker={t('services.kicker')}
+        title={t('services.title')}
+        lead={t('services.subtitle')}
+      />
 
-      <div className="mt-12">
+      <section className="container py-16 sm:py-20">
         {isLoading && (
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {Array.from({ length: 6 }).map((_, i) => (
               <div
                 key={i}
-                className="h-48 animate-pulse rounded-lg border border-border/60 bg-muted/40"
+                className="h-52 animate-pulse rounded-card border border-white/10 bg-surface"
               />
             ))}
           </div>
@@ -37,7 +32,7 @@ export function ServicesPage() {
         )}
 
         {data && data.length === 0 && (
-          <p className="text-sm text-muted-foreground">{t('services.empty')}</p>
+          <p className="text-muted-foreground">{t('services.empty')}</p>
         )}
 
         {data && data.length > 0 && (
@@ -47,7 +42,7 @@ export function ServicesPage() {
             ))}
           </div>
         )}
-      </div>
-    </section>
+      </section>
+    </>
   );
 }

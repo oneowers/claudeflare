@@ -1,6 +1,7 @@
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useTranslation } from 'react-i18next';
+import { Send } from 'lucide-react';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Button } from '@/components/ui/button';
@@ -31,16 +32,19 @@ export function ContactForm() {
 
   if (createLead.isSuccess) {
     return (
-      <div className="rounded-lg border border-border/60 bg-muted/30 p-8">
-        <h3 className="text-xl font-semibold tracking-tight">
+      <div className="rounded-card border border-white/10 bg-surface-elevated p-8 text-center">
+        <span className="mx-auto grid h-12 w-12 place-items-center rounded-full bg-lime text-black">
+          <Send className="h-5 w-5" />
+        </span>
+        <h3 className="mt-5 font-display text-xl font-bold uppercase tracking-tight">
           {t('contact.form.successTitle')}
         </h3>
         <p className="mt-2 text-sm text-muted-foreground">
           {t('contact.form.successMessage')}
         </p>
         <Button
-          variant="outline"
-          className="mt-4"
+          variant="secondary"
+          className="mt-6"
           onClick={() => {
             form.reset();
             createLead.reset();
@@ -120,7 +124,7 @@ export function ContactForm() {
           <Label htmlFor="service_id">{t('contact.form.service')}</Label>
           <select
             id="service_id"
-            className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm"
+            className="flex h-12 w-full rounded-2xl border border-white/10 bg-surface-elevated px-4 text-[15px] text-foreground focus-visible:border-violet/60 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet/40 disabled:opacity-50"
             disabled={services.isLoading}
             {...form.register('service_id')}
           >
