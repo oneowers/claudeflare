@@ -14,7 +14,7 @@ import { ServiceCard } from '@/features/services/components/ServiceCard';
 import { PortfolioCard } from '@/features/portfolio/components/PortfolioCard';
 import { LocalizedLink } from '@/i18n/hooks';
 import { Seo } from '@/components/shared/Seo';
-import { Reveal, Parallax } from '@/components/shared/Motion';
+import { Reveal } from '@/components/shared/Motion';
 
 const EASE = [0.22, 1, 0.36, 1] as const;
 

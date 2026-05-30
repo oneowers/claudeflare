@@ -31,13 +31,7 @@ const rise: Variants = {
 
 /* ─── Section number with counter-parallax ───────────────────── */
 
-function SectionNum({
-  num,
-  side = 'left',
-}: {
-  num: string;
-  side?: 'left' | 'right';
-}) {
+function SectionNum({ num }: { num: string }) {
   const ref = useRef<HTMLDivElement>(null);
   const reduce = useReducedMotion();
   const { scrollYProgress } = useScroll({
@@ -49,9 +43,12 @@ function SectionNum({
   return (
     <div ref={ref} className="relative pointer-events-none select-none overflow-hidden" aria-hidden>
       <motion.span
-        style={reduce ? undefined : { y }}
         className="block font-display font-black leading-none text-foreground/[0.05]"
-        style={{ fontSize: 'clamp(6rem, 20vw, 14rem)', ...(reduce ? {} : { y }) } as React.CSSProperties}
+        style={
+          reduce
+            ? { fontSize: 'clamp(6rem, 20vw, 14rem)' }
+            : { fontSize: 'clamp(6rem, 20vw, 14rem)', y }
+        }
       >
         {num}
       </motion.span>
