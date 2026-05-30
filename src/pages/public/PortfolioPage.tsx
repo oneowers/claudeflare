@@ -4,16 +4,88 @@ import { usePortfolio } from '@/features/portfolio/hooks/usePortfolio';
 import { PortfolioCard } from '@/features/portfolio/components/PortfolioCard';
 import { cn } from '@/lib/utils';
 
+/** Round image-thumbnail filter chip with a label underneath. */
+function CircleFilter({
+  label,
+  image,
+  fallback,
+  active,
+  onClick,
+}: {
+  label: string;
+  image: string | null;
+  fallback: string;
+  active: boolean;
+  onClick: () => void;
+}) {
+  return (
+    <button
+      type="button"
+      onClick={onClick}
+      aria-pressed={active}
+      className="group flex shrink-0 flex-col items-center gap-2.5 outline-none"
+    >
+      <span
+        className={cn(
+          'relative grid h-16 w-16 place-items-center overflow-hidden rounded-full transition-all duration-300 ease-brand',
+          'ring-2 ring-offset-2 ring-offset-background',
+          active
+            ? 'ring-lime'
+            : 'ring-transparent group-hover:ring-white/30 group-focus-visible:ring-white/40',
+        )}
+      >
+        {image ? (
+          <img
+            src={image}
+            alt=""
+            className="h-full w-full object-cover transition-transform duration-500 ease-brand group-hover:scale-110"
+            loading="lazy"
+          />
+        ) : (
+          <span className="flex h-full w-full items-center justify-center bg-violet font-display text-lg font-extrabold uppercase text-white">
+            {fallback}
+          </span>
+        )}
+        {!active && (
+          <span className="absolute inset-0 bg-black/35 transition-opacity duration-300 group-hover:opacity-0" />
+        )}
+      </span>
+      <span
+        className={cn(
+          'max-w-[5rem] truncate text-xs font-medium transition-colors',
+          active ? 'text-foreground' : 'text-foreground/55 group-hover:text-foreground',
+        )}
+      >
+        {label}
+      </span>
+    </button>
+  );
+}
+
 export function PortfolioPage() {
   const { t } = useTranslation();
   const { data, isLoading, error } = usePortfolio(true);
   const [activeTech, setActiveTech] = useState<string | null>(null);
 
+  // Each tech filter carries a thumbnail: the first project image using it.
   const techs = useMemo(() => {
-    const set = new Set<string>();
-    (data ?? []).forEach((item) => item.technologies.forEach((tech) => set.add(tech)));
-    return Array.from(set).sort();
+    const map = new Map<string, string | null>();
+    (data ?? []).forEach((item) =>
+      item.technologies.forEach((tech) => {
+        if (!map.has(tech) || (!map.get(tech) && item.image_url)) {
+          map.set(tech, map.get(tech) || item.image_url);
+        }
+      }),
+    );
+    return Array.from(map.entries())
+      .sort((a, b) => a[0].localeCompare(b[0]))
+      .map(([name, image]) => ({ name, image }));
   }, [data]);
+
+  const allImage = useMemo(
+    () => (data ?? []).find((i) => i.image_url)?.image_url ?? null,
+    [data],
+  );
 
   const filtered = useMemo(() => {
     if (!data) return [];
@@ -34,33 +106,23 @@ export function PortfolioPage() {
       </header>
 
       {techs.length > 0 && (
-        <div className="mt-10 flex flex-wrap gap-2">
-          <button
-            type="button"
+        <div className="mt-10 flex flex-nowrap gap-5 overflow-x-auto pb-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+          <CircleFilter
+            label={t('portfolio.all')}
+            image={allImage}
+            fallback="✳"
+            active={activeTech === null}
             onClick={() => setActiveTech(null)}
-            className={cn(
-              'rounded-full px-4 py-2 text-sm font-medium transition-colors',
-              activeTech === null
-                ? 'bg-primary text-primary-foreground'
-                : 'border border-white/15 text-foreground/65 hover:bg-white/[0.06] hover:text-foreground',
-            )}
-          >
-            {t('portfolio.all')}
-          </button>
+          />
           {techs.map((tech) => (
-            <button
-              key={tech}
-              type="button"
-              onClick={() => setActiveTech(tech)}
-              className={cn(
-                'rounded-full px-4 py-2 text-sm font-medium transition-colors',
-                activeTech === tech
-                  ? 'bg-primary text-primary-foreground'
-                  : 'border border-white/15 text-foreground/65 hover:bg-white/[0.06] hover:text-foreground',
-              )}
-            >
-              {tech}
-            </button>
+            <CircleFilter
+              key={tech.name}
+              label={tech.name}
+              image={tech.image}
+              fallback={tech.name.charAt(0)}
+              active={activeTech === tech.name}
+              onClick={() => setActiveTech(tech.name)}
+            />
           ))}
         </div>
       )}

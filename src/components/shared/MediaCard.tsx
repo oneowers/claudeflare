@@ -10,6 +10,8 @@ interface MediaCardProps {
   badge?: string | null;
   /** Letter/short text shown on the violet fallback when no image. */
   fallbackMark?: string;
+  /** Zoom the media on hover. */
+  hoverZoom?: boolean;
 }
 
 /**
@@ -24,12 +26,12 @@ export function MediaCard({ to, title, description, imageUrl, badge, fallbackMar
       className="group flex h-full flex-col rounded-card bg-surface"
     >
       {/* Media — fully rounded on all four corners */}
-      <div className="relative h-[360px] w-full overflow-hidden rounded-[1.5rem]">
+      <div className="relative h-[230px] w-full overflow-hidden rounded-[1.5rem]">
         {imageUrl ? (
           <img
             src={imageUrl}
             alt={title}
-            className="h-[360px] w-full object-cover object-center"
+            className="h-[230px] w-full object-cover object-center"
             loading="lazy"
           />
         ) : (

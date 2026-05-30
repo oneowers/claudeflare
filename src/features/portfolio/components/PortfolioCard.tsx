@@ -21,6 +21,7 @@ export function PortfolioCard({ item }: PortfolioCardProps) {
       description={description}
       imageUrl={item.image_url}
       badge={item.client}
+      hoverZoom
     />
   );
 }
