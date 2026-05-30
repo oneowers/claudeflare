@@ -21,15 +21,15 @@ export function MediaCard({ to, title, description, imageUrl, badge, fallbackMar
   return (
     <LocalizedLink
       to={to}
-      className="group flex h-full flex-col rounded-card bg-surface p-3"
+      className="group flex h-full flex-col rounded-card bg-surface"
     >
       {/* Media — fully rounded on all four corners */}
-      <div className="relative aspect-[4/3] w-full overflow-hidden rounded-[1.25rem]">
+      <div className="relative h-[360px] w-full overflow-hidden rounded-[1.5rem]">
         {imageUrl ? (
           <img
             src={imageUrl}
             alt={title}
-            className="h-full w-full object-cover"
+            className="h-[360px] w-full object-cover object-center"
             loading="lazy"
           />
         ) : (
@@ -51,7 +51,7 @@ export function MediaCard({ to, title, description, imageUrl, badge, fallbackMar
       </div>
 
       {/* Body */}
-      <div className="flex flex-1 flex-col px-3 pb-3 pt-4">
+      <div className="flex flex-1 flex-col px-7 pb-5 pt-5">
         <h3 className="font-display text-2xl font-bold leading-tight tracking-tight text-balance">
           {title}
         </h3>
