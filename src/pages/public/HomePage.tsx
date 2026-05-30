@@ -40,9 +40,9 @@ export function HomePage() {
 
   return (
     <>
-      {/* ── HERO ── */}
-      <section className="relative overflow-hidden px-3 pt-6 sm:px-4">
-        <div className="relative overflow-hidden rounded-panel bg-surface px-6 py-20 sm:px-12 sm:py-28">
+      {/* ── HERO ── floats with an equal gap on all four sides */}
+      <section className="relative overflow-hidden px-3 pb-3 pt-3 sm:px-4 sm:pb-4 sm:pt-4">
+        <div className="relative overflow-hidden rounded-panel bg-surface px-6 py-16 sm:px-12 sm:py-24">
           <div aria-hidden className="bg-spark pointer-events-none absolute inset-0 opacity-50" />
           <div
             aria-hidden
@@ -55,7 +55,7 @@ export function HomePage() {
               {t('home.kicker')}
             </p>
             <h1
-              className="mt-6 animate-rise-in font-display text-[clamp(2.5rem,6.5vw,5rem)] font-extrabold leading-[1.0] tracking-tight text-balance"
+              className="mt-6 animate-rise-in font-display text-[clamp(2.25rem,5vw,4rem)] font-extrabold leading-[1.05] tracking-tight text-balance"
               style={{ animationDelay: '80ms' }}
             >
               {t('home.title')}

@@ -19,7 +19,7 @@ interface PageHeroProps {
  */
 export function PageHero({ kicker, title, lead, aside, children, className }: PageHeroProps) {
   return (
-    <section className={cn('px-3 pt-6 sm:px-4', className)}>
+    <section className={cn('px-3 pb-3 pt-3 sm:px-4 sm:pb-4 sm:pt-4', className)}>
       <div className="relative overflow-hidden rounded-panel bg-surface px-6 py-14 sm:px-12 sm:py-20">
         <div aria-hidden className="bg-spark pointer-events-none absolute inset-0 opacity-50" />
         <div
