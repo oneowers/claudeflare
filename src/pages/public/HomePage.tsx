@@ -7,30 +7,23 @@ import { PortfolioCard } from '@/features/portfolio/components/PortfolioCard';
 import { LocalizedLink } from '@/i18n/hooks';
 
 function SectionHead({
-  kicker,
   title,
   link,
   linkLabel,
 }: {
-  kicker: string;
   title: string;
   link: string;
   linkLabel: string;
 }) {
   return (
     <div className="flex flex-wrap items-end justify-between gap-4">
-      <div>
-        <p className="flex items-center gap-2 font-mono text-xs uppercase tracking-[0.2em] text-foreground/40">
-          <span className="h-2 w-2 rounded-full bg-lime" />
-          {kicker}
-        </p>
-        <h2 className="mt-3 font-display text-4xl font-extrabold leading-[1.02] tracking-tight text-balance sm:text-5xl">
-          {title}
-        </h2>
-      </div>
+      <h2 className="flex items-center gap-3 font-display text-4xl font-extrabold leading-[1.02] tracking-tight text-balance sm:text-5xl">
+        <span className="h-2.5 w-2.5 shrink-0 rounded-full bg-lime" aria-hidden />
+        {title}
+      </h2>
       <LocalizedLink
         to={link}
-        className="group hidden items-center gap-1.5 text-[15px] font-medium text-foreground/65 transition-colors hover:text-foreground sm:inline-flex"
+        className="group hidden items-center gap-1.5 text-[15px] font-medium text-foreground/70 transition-colors hover:text-foreground sm:inline-flex"
       >
         {linkLabel}
         <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
@@ -56,12 +49,12 @@ export function HomePage() {
           />
 
           <div className="relative max-w-4xl">
-            <p className="flex animate-rise-in items-center gap-2 font-mono text-xs uppercase tracking-[0.22em] text-foreground/45">
+            <p className="flex animate-rise-in items-center gap-2 font-mono text-xs uppercase tracking-[0.22em] text-foreground/60">
               <span className="h-2 w-2 rounded-full bg-lime" />
               {t('home.kicker')}
             </p>
             <h1
-              className="mt-6 animate-rise-in font-display text-[clamp(2.6rem,8vw,6rem)] font-extrabold uppercase leading-[0.98] tracking-tight text-balance"
+              className="mt-6 animate-rise-in font-display text-[clamp(2.5rem,6.5vw,5rem)] font-extrabold leading-[1.0] tracking-tight text-balance"
               style={{ animationDelay: '80ms' }}
             >
               {t('home.title')}
@@ -97,7 +90,6 @@ export function HomePage() {
       {/* ── SERVICES ── */}
       <section className="container py-20 sm:py-28">
         <SectionHead
-          kicker={t('home.servicesKicker')}
           title={t('home.servicesTitle')}
           link="/services"
           linkLabel={t('home.allServices')}
@@ -119,7 +111,6 @@ export function HomePage() {
       {/* ── PORTFOLIO ── */}
       <section className="container pb-20 sm:pb-28">
         <SectionHead
-          kicker={t('home.casesKicker')}
           title={t('home.casesTitle')}
           link="/portfolio"
           linkLabel={t('home.allCases')}

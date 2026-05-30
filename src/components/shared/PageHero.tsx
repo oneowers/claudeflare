@@ -29,7 +29,7 @@ export function PageHero({ kicker, title, lead, aside, children, className }: Pa
         <div className="relative flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
           <div className="max-w-3xl">
             {kicker && (
-              <p className="flex items-center gap-2 font-mono text-xs uppercase tracking-[0.2em] text-foreground/45">
+              <p className="flex items-center gap-2 font-mono text-xs uppercase tracking-[0.2em] text-foreground/60">
                 <span className="h-2 w-2 rounded-full bg-lime" />
                 {kicker}
               </p>

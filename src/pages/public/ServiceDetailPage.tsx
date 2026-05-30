@@ -55,7 +55,7 @@ export function ServiceDetailPage() {
         lead={shortDesc}
         aside={
           <div className="rounded-card border border-white/10 bg-surface-elevated p-6 text-center lg:text-right">
-            <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-foreground/45">
+            <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-foreground/60">
               {t('services.detail.priceFrom')}
             </p>
             <p className="mt-2 font-display text-3xl font-extrabold tabular-nums tracking-tight">

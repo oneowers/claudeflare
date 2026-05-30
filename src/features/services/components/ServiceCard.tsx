@@ -33,7 +33,7 @@ export function ServiceCard({ service }: ServiceCardProps) {
       </p>
 
       <div className="mt-7 flex items-baseline gap-2">
-        <span className="text-xs uppercase tracking-wide text-foreground/40">
+        <span className="text-xs uppercase tracking-wide text-foreground/60">
           {t('common.from')}
         </span>
         <span className="font-display text-xl font-bold tabular-nums">

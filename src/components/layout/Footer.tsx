@@ -65,7 +65,7 @@ export function Footer() {
 
         {/* Bottom row */}
         <div className="mt-12 flex flex-wrap items-center justify-between gap-4 border-t border-white/10 pt-6">
-          <p className="text-sm text-foreground/40">© {year} WebStudio</p>
+          <p className="text-sm text-foreground/60">© {year} WebStudio</p>
           <button
             type="button"
             onClick={scrollTop}

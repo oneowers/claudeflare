@@ -4,7 +4,7 @@ export function AboutPage() {
   const { t } = useTranslation();
   return (
     <section className="container py-20 sm:py-28">
-      <p className="flex items-center gap-2 font-mono text-xs uppercase tracking-[0.2em] text-foreground/40">
+      <p className="flex items-center gap-2 font-mono text-xs uppercase tracking-[0.2em] text-foreground/60">
         <span className="h-2 w-2 rounded-full bg-lime" />
         {t('about.subtitle')}
       </p>
