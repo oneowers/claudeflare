@@ -40,7 +40,7 @@ export function ServicesPage() {
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {data.map((service, i) => (
               <Reveal key={service.id} delay={i * 60}>
-                <ServiceCard service={service} index={i} />
+                <ServiceCard service={service} />
               </Reveal>
             ))}
           </div>

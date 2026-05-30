@@ -42,7 +42,7 @@ export function HomePage() {
     <>
       {/* ── HERO ── fills the viewport, equal gap on all four sides */}
       <section className="relative px-3 pb-3 pt-3 sm:px-4 sm:pb-4 sm:pt-4">
-        <div className="relative flex min-h-[calc(100svh-8rem)] flex-col justify-center overflow-hidden rounded-panel bg-surface px-6 py-16 sm:px-12 sm:py-20">
+        <div className="relative flex min-h-[calc(100svh-7rem)] flex-col justify-center overflow-hidden rounded-panel bg-surface px-6 py-16 sm:px-12 sm:py-20">
           <div aria-hidden className="bg-spark pointer-events-none absolute inset-0 opacity-50" />
           <div
             aria-hidden
@@ -100,7 +100,7 @@ export function HomePage() {
         <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {(services.data ?? []).slice(0, 6).map((service, i) => (
             <Reveal key={service.id} delay={i * 70}>
-              <ServiceCard service={service} index={i} />
+              <ServiceCard service={service} />
             </Reveal>
           ))}
           {services.isLoading &&
