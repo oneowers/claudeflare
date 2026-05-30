@@ -86,6 +86,7 @@
     "title": "Cases and projects",
     "all": "All",
     "noImage": "no image",
+    "viewProject": "View Project",
     "empty": "No cases match the filter.",
     "loadError": "Could not load cases.",
     "detail": {

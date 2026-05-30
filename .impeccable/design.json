@@ -1,0 +1,217 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-05-30T00:00:00Z",
+  "title": "Design System: WebStudio",
+  "extensions": {
+    "colorMeta": {
+      "white": {
+        "role": "neutral",
+        "displayName": "Pure White",
+        "canonical": "oklch(100% 0 0)",
+        "tonalRamp": ["#0F172A", "#1E293B", "#334155", "#475569", "#94A3B8", "#CBD5E1", "#E2E8F0", "#F8FAFC"]
+      },
+      "navy": {
+        "role": "primary",
+        "displayName": "Slate Navy",
+        "canonical": "oklch(11% 0.022 254)",
+        "tonalRamp": ["#020817", "#0F172A", "#1E293B", "#334155", "#475569", "#64748B", "#94A3B8", "#EEF2F8"]
+      },
+      "muted-bg": {
+        "role": "neutral",
+        "displayName": "Cool Surface",
+        "canonical": "oklch(96% 0.006 254)",
+        "tonalRamp": ["#1E293B", "#334155", "#475569", "#64748B", "#94A3B8", "#CBD5E1", "#E2E8F0", "#F1F5F9"]
+      },
+      "muted-text": {
+        "role": "neutral",
+        "displayName": "Slate Mid",
+        "canonical": "oklch(47% 0.015 254)",
+        "tonalRamp": ["#0F172A", "#1E293B", "#334155", "#475569", "#64748B", "#94A3B8", "#CBD5E1", "#F1F5F9"]
+      },
+      "void": {
+        "role": "neutral",
+        "displayName": "Void Navy",
+        "canonical": "oklch(5% 0.022 254)",
+        "tonalRamp": ["#020817", "#070D1E", "#0F172A", "#1E293B", "#334155", "#475569", "#94A3B8", "#F1F5F9"]
+      },
+      "destructive": {
+        "role": "error",
+        "displayName": "Signal Red",
+        "canonical": "oklch(60% 0.20 25)",
+        "tonalRamp": ["#7F1D1D", "#991B1B", "#B91C1C", "#DC2626", "#EF4444", "#F87171", "#FCA5A5", "#FEE2E2"]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "Hero H1 only. Max 4.5rem (72px). Unbounded 700, tight leading. Never on body copy."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Section H2. clamp 1.875rem→3rem. Unbounded 700."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Portfolio card headings and small block titles. Unbounded 700, 15px."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Descriptions and paragraphs. Inter 400, 15–18px. Cap line length at max-w-xl (~65ch)."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Monospace only. Tech stacks, categories, timestamps, index codes. 10–11px, uppercase, tracking 0.14em."
+      }
+    },
+    "shadows": [
+      {
+        "name": "none-default",
+        "value": "none",
+        "purpose": "Cards and components at rest. Border is the only depth signal."
+      },
+      {
+        "name": "focus-ring",
+        "value": "0 0 0 2px hsl(222 47% 11%)",
+        "purpose": "Focus-visible ring on interactive elements. Uses foreground color."
+      }
+    ],
+    "motion": [
+      {
+        "name": "ease-standard",
+        "value": "cubic-bezier(0.22, 1, 0.36, 1)",
+        "purpose": "Default easing for ALL transitions. Expo ease-out. No bounce, no elastic."
+      },
+      {
+        "name": "reveal",
+        "value": "opacity 0→1, translateY 28px→0, duration 0.75s, ease-standard",
+        "purpose": "<Reveal> component: whileInView entrance. prefers-reduced-motion: instant."
+      },
+      {
+        "name": "parallax",
+        "value": "scroll-driven useTransform(scrollYProgress, [0,1], ['0%', `${distance}%`])",
+        "purpose": "<Parallax> component: vertical drift across viewport pass. distance prop controls magnitude."
+      },
+      {
+        "name": "hero-content-exit",
+        "value": "y: 0→40%, opacity: 1→0 across hero scroll range",
+        "purpose": "Hero main content (h1, subtitle, CTAs) parallaxes up and fades as user scrolls past."
+      },
+      {
+        "name": "stagger-children",
+        "value": "staggerChildren: 0.1s, delayChildren: 0.15s",
+        "purpose": "Framer Motion container variant for hero entrance and card lists."
+      },
+      {
+        "name": "footer-wordmark-drift",
+        "value": "translateY(28 - drift)px where drift = scrollProgress * 72",
+        "purpose": "Footer watermark rises as user reaches bottom of page. rAF-based, no framer-motion."
+      }
+    ],
+    "breakpoints": [
+      { "name": "sm", "value": "640px" },
+      { "name": "md", "value": "768px" },
+      { "name": "lg", "value": "1024px" },
+      { "name": "2xl", "value": "1280px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Main CTA. Dark fill in light mode, inverts in dark mode. Arrow icon animates right on hover.",
+      "html": "<a class=\"ds-btn-primary\" href=\"#\">Обсудить проект<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><line x1=\"5\" y1=\"12\" x2=\"19\" y2=\"12\"/><polyline points=\"12 5 19 12 12 19\"/></svg></a>",
+      "css": ".ds-btn-primary { display: inline-flex; align-items: center; gap: 8px; height: 48px; padding: 0 24px; background: #0F172A; color: #F8FAFC; font-family: Inter, ui-sans-serif, sans-serif; font-size: 14px; font-weight: 500; border-radius: 10px; text-decoration: none; transition: background 180ms cubic-bezier(0.22,1,0.36,1), transform 180ms cubic-bezier(0.22,1,0.36,1); border: none; cursor: pointer; } .ds-btn-primary:hover { background: #1E293B; } .ds-btn-primary:hover svg { transform: translateX(3px); } .ds-btn-primary svg { transition: transform 280ms cubic-bezier(0.22,1,0.36,1); }"
+    },
+    {
+      "name": "Ghost Button",
+      "kind": "button",
+      "refersTo": "button-ghost",
+      "description": "Secondary CTA. Border only, transparent background. Subtle hover fill.",
+      "html": "<a class=\"ds-btn-ghost\" href=\"#\">Смотреть работы</a>",
+      "css": ".ds-btn-ghost { display: inline-flex; align-items: center; height: 48px; padding: 0 24px; background: transparent; color: #0F172A; font-family: Inter, ui-sans-serif, sans-serif; font-size: 14px; font-weight: 500; border-radius: 10px; border: 1px solid #E2E8F0; text-decoration: none; transition: background 180ms cubic-bezier(0.22,1,0.36,1), border-color 180ms ease; cursor: pointer; } .ds-btn-ghost:hover { background: #F1F5F9; border-color: #CBD5E1; }"
+    },
+    {
+      "name": "Portfolio Card",
+      "kind": "card",
+      "refersTo": null,
+      "description": "Sharp-corner work card. Grid texture, edge gradients, index number accent, 16/10 image. No border-radius.",
+      "html": "<a class=\"ds-work-card\" href=\"#\"><span class=\"ds-work-card__grid\" aria-hidden></span><span class=\"ds-work-card__edge-top\" aria-hidden></span><span class=\"ds-work-card__edge-left\" aria-hidden></span><div class=\"ds-work-card__head\"><span class=\"ds-work-card__index\">01</span><div><p class=\"ds-work-card__category\">Веб-приложение</p><h3 class=\"ds-work-card__title\">Best Center</h3></div><svg class=\"ds-work-card__arrow\" xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><line x1=\"7\" y1=\"17\" x2=\"17\" y2=\"7\"/><polyline points=\"7 7 17 7 17 17\"/></svg></div><div class=\"ds-work-card__image\"><img src=\"https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=375&fit=crop\" alt=\"Best Center\" /></div><div class=\"ds-work-card__tech\"><span class=\"ds-work-card__tag\">Next.js</span><span class=\"ds-work-card__tag\">React</span><span class=\"ds-work-card__tag\">Tailwind</span></div></a>",
+      "css": ".ds-work-card { display: flex; flex-direction: column; overflow: hidden; border: 1px solid rgba(15,23,42,0.10); background: #fff; text-decoration: none; color: #0F172A; position: relative; transition: border-color 300ms ease; } .ds-work-card:hover { border-color: rgba(15,23,42,0.20); } .ds-work-card__grid { position: absolute; inset: 0; pointer-events: none; opacity: 0.6; background-image: linear-gradient(to right, rgba(15,23,42,0.045) 1px, transparent 1px), linear-gradient(to bottom, rgba(15,23,42,0.045) 1px, transparent 1px); background-size: 72px 72px; } .ds-work-card__edge-top { position: absolute; inset-inline: 0; top: 0; height: 1px; pointer-events: none; background: linear-gradient(to right, rgba(15,23,42,0.25), rgba(15,23,42,0.10), transparent); opacity: 0.7; transition: opacity 300ms ease; } .ds-work-card:hover .ds-work-card__edge-top { opacity: 1; } .ds-work-card__edge-left { position: absolute; inset-block: 0; left: 0; width: 1px; pointer-events: none; background: linear-gradient(to bottom, rgba(15,23,42,0.25), rgba(15,23,42,0.10), transparent); opacity: 0.7; transition: opacity 300ms ease; } .ds-work-card:hover .ds-work-card__edge-left { opacity: 1; } .ds-work-card__head { position: relative; display: flex; align-items: flex-start; gap: 12px; padding: 16px; } .ds-work-card__index { font-family: ui-monospace, SFMono-Regular, monospace; font-size: 28px; font-weight: 600; line-height: 0.8; letter-spacing: -0.02em; color: rgba(15,23,42,0.15); user-select: none; } .ds-work-card__category { font-family: ui-monospace, SFMono-Regular, monospace; font-size: 10px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.14em; color: #64748B; margin-bottom: 6px; } .ds-work-card__title { font-family: Unbounded, Inter, sans-serif; font-size: 15px; font-weight: 700; line-height: 1.2; letter-spacing: -0.02em; color: #0F172A; } .ds-work-card__arrow { margin-top: 2px; flex-shrink: 0; color: #64748B; margin-left: auto; transition: transform 280ms cubic-bezier(0.22,1,0.36,1); } .ds-work-card:hover .ds-work-card__arrow { transform: translate(2px, -2px); color: #0F172A; } .ds-work-card__image { aspect-ratio: 16/10; overflow: hidden; border-top: 1px solid rgba(15,23,42,0.10); border-bottom: 1px solid rgba(15,23,42,0.10); background: #F1F5F9; } .ds-work-card__image img { width: 100%; height: 100%; object-fit: cover; } .ds-work-card__tech { position: relative; display: flex; flex-wrap: wrap; gap: 4px 12px; padding: 16px; } .ds-work-card__tag { font-family: ui-monospace, SFMono-Regular, monospace; font-size: 11px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.1em; color: #64748B; }"
+    },
+    {
+      "name": "Service List Row",
+      "kind": "card",
+      "refersTo": null,
+      "description": "Services render as list rows, not cards. Slide-in padding + background fill on hover.",
+      "html": "<a class=\"ds-service-row\" href=\"#\"><span class=\"ds-service-row__fill\" aria-hidden></span><div class=\"ds-service-row__inner\"><span class=\"ds-service-row__index\">01</span><div class=\"ds-service-row__content\"><div class=\"ds-service-row__main\"><h3 class=\"ds-service-row__title\">Интернет-магазин</h3><p class=\"ds-service-row__desc\">Разрабатываем магазины с каталогом, корзиной и оплатой.</p></div><div class=\"ds-service-row__price-block\"><span class=\"ds-service-row__from\">от</span><span class=\"ds-service-row__price\">$950</span></div></div><svg class=\"ds-service-row__arrow\" xmlns=\"http://www.w3.org/2000/svg\" width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><line x1=\"7\" y1=\"17\" x2=\"17\" y2=\"7\"/><polyline points=\"7 7 17 7 17 17\"/></svg></div></a>",
+      "css": ".ds-service-row { display: block; position: relative; border-top: 1px solid rgba(15,23,42,0.15); padding: 28px 0; text-decoration: none; color: #0F172A; transition: padding-left 500ms cubic-bezier(0.22,1,0.36,1); overflow: hidden; } .ds-service-row:hover { padding-left: 20px; } .ds-service-row__fill { position: absolute; inset-block: 0; left: 0; width: 0; background: rgba(15,23,42,0.04); transition: width 500ms cubic-bezier(0.22,1,0.36,1); } .ds-service-row:hover .ds-service-row__fill { width: 100%; } .ds-service-row__inner { position: relative; display: flex; align-items: flex-start; gap: 16px; } .ds-service-row__index { margin-top: 8px; font-family: Unbounded, Inter, sans-serif; font-size: 11px; font-weight: 600; letter-spacing: 0.1em; color: #64748B; flex-shrink: 0; } .ds-service-row__content { flex: 1; display: flex; flex-direction: column; gap: 16px; } @media (min-width: 640px) { .ds-service-row__content { flex-direction: row; align-items: flex-start; justify-content: space-between; gap: 32px; } } .ds-service-row__title { font-family: Unbounded, Inter, sans-serif; font-size: 24px; font-weight: 600; line-height: 1.1; letter-spacing: -0.025em; } .ds-service-row__desc { margin-top: 12px; font-size: 14px; line-height: 1.6; color: #64748B; max-width: 480px; } .ds-service-row__price-block { display: flex; flex-direction: column; align-items: flex-end; gap: 4px; flex-shrink: 0; } .ds-service-row__from { font-size: 10px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.18em; color: #64748B; } .ds-service-row__price { font-family: Unbounded, Inter, sans-serif; font-size: 18px; font-weight: 500; white-space: nowrap; } .ds-service-row__arrow { margin-top: 6px; flex-shrink: 0; color: #64748B; transition: transform 300ms cubic-bezier(0.22,1,0.36,1), color 300ms ease; display: none; } @media (min-width: 1024px) { .ds-service-row__arrow { display: block; } } .ds-service-row:hover .ds-service-row__arrow { transform: translate(4px, -4px); color: #0F172A; }"
+    },
+    {
+      "name": "Nav Link",
+      "kind": "nav",
+      "refersTo": null,
+      "description": "Desktop navigation pill. Transparent over hero, morphs to glass pill on scroll.",
+      "html": "<nav class=\"ds-nav\"><a class=\"ds-nav__link\" href=\"#\">Услуги</a><a class=\"ds-nav__link ds-nav__link--active\" href=\"#\">Портфолио</a><a class=\"ds-nav__link\" href=\"#\">О нас</a></nav>",
+      "css": ".ds-nav { display: flex; gap: 4px; } .ds-nav__link { padding: 8px 16px; border-radius: 8px; font-family: Inter, ui-sans-serif, sans-serif; font-size: 14px; font-weight: 500; color: #64748B; text-decoration: none; transition: color 200ms ease, background 200ms ease; } .ds-nav__link:hover { color: #0F172A; background: rgba(15,23,42,0.05); } .ds-nav__link--active { color: #0F172A; background: #F1F5F9; }"
+    },
+    {
+      "name": "Mono Label",
+      "kind": "chip",
+      "refersTo": null,
+      "description": "Tech stack or category label. Monospace only, functional data, never as atmosphere.",
+      "html": "<p class=\"ds-mono-label\">Next.js · React · Tailwind CSS</p>",
+      "css": ".ds-mono-label { font-family: ui-monospace, SFMono-Regular, monospace; font-size: 11px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.14em; color: #64748B; }"
+    },
+    {
+      "name": "Section Kicker",
+      "kind": "custom",
+      "refersTo": null,
+      "description": "Numbered section intro: bold display number + uppercase mono label. Used once per content section.",
+      "html": "<p class=\"ds-kicker\"><span class=\"ds-kicker__num\">01</span><span class=\"ds-kicker__label\">Услуги</span></p>",
+      "css": ".ds-kicker { display: flex; align-items: center; gap: 8px; } .ds-kicker__num { font-family: Unbounded, Inter, sans-serif; font-size: 12px; font-weight: 600; color: #0F172A; } .ds-kicker__label { font-family: Inter, ui-sans-serif, sans-serif; font-size: 12px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.2em; color: #64748B; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Technical Portfolio Specimen",
+    "overview": "WebStudio продаёт через демонстрацию — и сам сайт является лучшим кейсом студии. Дизайн читается как технический паспорт, написанный специалистом, который мог бы его исполнить. Каждый типографический выбор — это одновременно и функциональное решение, и доказательство компетентности.\n\nСистема строится на двух шрифтах с максимальным контрастом: Unbounded (геометрический, сжатый, уверенный) несёт всё структурное — заголовки, числовые акценты, watermark. Inter — рабочий шрифт для описаний и тела. Монохромный navy/white цвет отказывается от акцентного цвета: иерархия строится через scale и weight, а не через hue. Портфолио-карточки — острые, без скруглений, с grid-текстурой — читаются как листы технического задания.\n\nПараллакс — в основе кинетики: hero-контент медленно поднимается при скролле, footer-wordmark вплывает снизу, marquee движется против скролла. Это не декор — это сигнал того, как студия работает: всё реагирует.",
+    "keyCharacteristics": [
+      "Monochromatic: primary = foreground; акцентного цвета нет — иерархия через scale и opacity",
+      "Unbounded для всего структурного, Inter для всего рабочего — максимальный шрифтовой контраст",
+      "Портфолио-карточки острые (нет border-radius), с bg-grid-текстурой и edge-gradients",
+      "Услуги как list-rows со slide-in hover — не card grid",
+      "Scroll-driven parallax на 3+ слоях в hero; footer wordmark дрейфует снизу",
+      "Полная dark-mode поддержка через CSS custom properties"
+    ],
+    "rules": [
+      { "name": "The No-Accent Rule", "body": "В системе нет отдельного акцентного цвета. Primary = foreground. Amber, teal, blue-600: запрещены.", "section": "colors" },
+      { "name": "The Adaptive Rule", "body": "Все цвета через CSS custom properties. Tailwind-токены предпочтительнее arbitrary values.", "section": "colors" },
+      { "name": "The Navy-Not-Black Rule", "body": "Тёмный bg — #070D1E, не #000000. Foreground — #0F172A, не #000000.", "section": "colors" },
+      { "name": "The Two-Font Rule", "body": "Только Unbounded + Inter. Третий шрифт — никогда. Mono — системный.", "section": "typography" },
+      { "name": "The Mono-as-Data Rule", "body": "Monospace только для данных: tech-стеки, категории, timestamps. Никогда как атмосфера.", "section": "typography" },
+      { "name": "The Display-for-Structure Rule", "body": "Unbounded: заголовки, section-numbers, watermark, prices. Inter: описания, параграфы, ссылки.", "section": "typography" },
+      { "name": "The Flat-By-Default Rule", "body": "Компоненты в покое: border, без shadow. Тень только для systemic-elevation (modal, dropdown).", "section": "elevation" },
+      { "name": "The Opacity-Layering Rule", "body": "Глубина = opacity. foreground/10 → foreground/15 → foreground/20 → foreground/0.04. Вместо цветовых поверхностей.", "section": "elevation" }
+    ],
+    "dos": [
+      "Do использовать font-display (Unbounded) только для структурных элементов",
+      "Do использовать font-mono исключительно для данных, никогда как атмосфера",
+      "Do делать портфолио-карточки острыми — без rounded-* на контейнере",
+      "Do строить depth через opacity-шкалу: foreground/10 → foreground/20",
+      "Do применять useReducedMotion() перед каждой framer-motion анимацией",
+      "Do использовать ease: [0.22, 1, 0.36, 1] как единственный easing",
+      "Do раскрывать hero background в два слоя минимум: bg-grid + blob-glow",
+      "Do держать тёмный bg как navy void (#070D1E), не чёрным"
+    ],
+    "donts": [
+      "Don't добавлять акцентный цвет (amber, teal, blue-600) — система монохромная",
+      "Don't скруглять портфолио-карточки",
+      "Don't делать grid карточек для услуг — ServiceCard это rows",
+      "Don't использовать box-shadow как декор на картах в default",
+      "Don't применять gradient text (background-clip: text)",
+      "Don't использовать bounce или elastic easing",
+      "Don't использовать amber/yellow (#F5B517) — цвет прошлой версии дизайна",
+      "Don't добавлять uppercase eyebrow без числового акцента (01/02)"
+    ]
+  }
+}

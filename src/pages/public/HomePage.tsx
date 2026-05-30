@@ -230,7 +230,7 @@ export function HomePage() {
           </LocalizedLink>
         </Reveal>
 
-        <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-12 grid grid-cols-2 gap-2 lg:grid-cols-3">
           {(portfolio.data ?? []).slice(0, 3).map((item, i) => (
             <Reveal key={item.id} delay={i * 0.1}>
               <PortfolioCard item={item} index={i + 1} />
@@ -238,38 +238,123 @@ export function HomePage() {
           ))}
           {portfolio.isLoading &&
             Array.from({ length: 3 }).map((_, i) => (
-              <div
-                key={i}
-                className="aspect-[4/3] animate-pulse rounded-lg bg-muted/40"
-              />
+              <div key={i} className="aspect-[4/3] animate-pulse rounded-xl bg-muted/40" />
             ))}
         </div>
       </section>
 
       <section className="container py-24">
-        <Reveal className="relative overflow-hidden rounded-2xl bg-primary px-8 py-20 text-center text-primary-foreground md:px-16 md:py-28">
-          <Parallax
-            distance={-30}
+        <div
+          className="relative overflow-hidden rounded-2xl border border-foreground/[0.08] bg-card"
+          style={{
+            '--mx': '-200px',
+            '--my': '-200px',
+            '--gx': '50%',
+            '--gy': '50%',
+            '--px': '0px',
+            '--py': '0px',
+            '--tilt-x': '0deg',
+            '--tilt-y': '0deg',
+          } as React.CSSProperties}
+          onMouseMove={(e) => {
+            const r = e.currentTarget.getBoundingClientRect();
+            const mx = e.clientX - r.left;
+            const my = e.clientY - r.top;
+            e.currentTarget.style.setProperty('--mx', `${mx}px`);
+            e.currentTarget.style.setProperty('--my', `${my}px`);
+            e.currentTarget.style.setProperty('--gx', `${(mx / r.width) * 100}%`);
+            e.currentTarget.style.setProperty('--gy', `${(my / r.height) * 100}%`);
+            e.currentTarget.style.setProperty('--px', `${(mx - r.width / 2) * 0.04}px`);
+            e.currentTarget.style.setProperty('--py', `${(my - r.height / 2) * 0.04}px`);
+            e.currentTarget.style.setProperty('--tilt-x', `${((my / r.height) - 0.5) * -3}deg`);
+            e.currentTarget.style.setProperty('--tilt-y', `${((mx / r.width) - 0.5) * 3}deg`);
+          }}
+          onMouseLeave={(e) => {
+            e.currentTarget.style.setProperty('--mx', '-200px');
+            e.currentTarget.style.setProperty('--my', '-200px');
+            e.currentTarget.style.setProperty('--gx', '50%');
+            e.currentTarget.style.setProperty('--gy', '50%');
+            e.currentTarget.style.setProperty('--px', '0px');
+            e.currentTarget.style.setProperty('--py', '0px');
+            e.currentTarget.style.setProperty('--tilt-x', '0deg');
+            e.currentTarget.style.setProperty('--tilt-y', '0deg');
+          }}
+        >
+          {/* Cursor spotlight — hsl(220 60% 60%) blue glow */}
+          <div
+            aria-hidden
             className="pointer-events-none absolute inset-0"
+            style={{ background: 'radial-gradient(circle 420px at var(--gx) var(--gy), hsl(220 60% 60% / 0.08) 0%, transparent 70%)' }}
+          />
+          {/* Grid texture */}
+          <div aria-hidden className="bg-grid pointer-events-none absolute inset-0 opacity-30" />
+          {/* Cursor tracking dot */}
+          <div
+            aria-hidden
+            className="pointer-events-none absolute h-8 w-8 -translate-x-1/2 -translate-y-1/2 rounded-full blur-md"
+            style={{ left: 'var(--mx)', top: 'var(--my)', background: 'hsl(220 70% 65% / 0.32)' }}
+          />
+          {/* Top edge highlight */}
+          <div aria-hidden className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-foreground/12 to-transparent" />
+          {/* Left edge */}
+          <div aria-hidden className="pointer-events-none absolute inset-y-0 left-0 w-px bg-gradient-to-b from-foreground/12 via-foreground/6 to-transparent" />
+
+          {/* 3D tilt wrapper — subtle max 3deg */}
+          <div
+            style={{
+              transform: 'perspective(1200px) rotateX(var(--tilt-x)) rotateY(var(--tilt-y))',
+              transition: 'transform 300ms cubic-bezier(0.22, 1, 0.36, 1)',
+              willChange: 'transform',
+            } as React.CSSProperties}
           >
-            <span className="absolute -right-10 top-1/2 -translate-y-1/2 select-none font-display text-[14rem] font-extrabold leading-none text-primary-foreground opacity-[0.08]">
-              →
-            </span>
-          </Parallax>
-          <h2 className="relative mx-auto max-w-2xl font-display text-3xl font-bold tracking-tight md:text-5xl">
-            {t('home.ctaBannerTitle')}
-          </h2>
-          <p className="relative mx-auto mt-5 max-w-lg text-primary-foreground/80">
-            {t('home.ctaBannerSubtitle')}
-          </p>
-          <LocalizedLink
-            to="/contact"
-            className="group relative mt-9 inline-flex h-12 items-center gap-2 rounded-md bg-background px-6 text-sm font-medium text-foreground transition-colors hover:bg-background/90"
-          >
-            {t('home.ctaBannerButton')}
-            <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-          </LocalizedLink>
-        </Reveal>
+            <Reveal className="relative px-8 py-24 text-center md:px-16 md:py-32">
+              {/* Arrow watermark — strongest parallax, moves opposite */}
+              <span
+                aria-hidden
+                className="pointer-events-none absolute -right-4 top-1/2 select-none font-display text-[11rem] font-extrabold leading-none text-foreground/[0.05] md:text-[15rem]"
+                style={{ transform: 'translateY(-50%) translate(calc(var(--px) * -3.5), calc(var(--py) * -3.5))' }}
+              >
+                →
+              </span>
+              {/* Corner accents */}
+              <span
+                aria-hidden
+                className="pointer-events-none absolute left-8 top-8 font-mono text-sm text-foreground/10"
+                style={{ transform: 'translate(calc(var(--px) * 2), calc(var(--py) * 2))' }}
+              >
+                ×
+              </span>
+              <span
+                aria-hidden
+                className="pointer-events-none absolute bottom-8 right-8 font-mono text-sm text-foreground/10"
+                style={{ transform: 'translate(calc(var(--px) * -2), calc(var(--py) * -2))' }}
+              >
+                ×
+              </span>
+
+              <h2
+                className="relative mx-auto max-w-2xl font-display text-3xl font-bold tracking-tight text-foreground md:text-5xl"
+                style={{ transform: 'translate(calc(var(--px) * 0.4), calc(var(--py) * 0.4))' }}
+              >
+                {t('home.ctaBannerTitle')}
+              </h2>
+              <p
+                className="relative mx-auto mt-5 max-w-lg text-muted-foreground"
+                style={{ transform: 'translate(calc(var(--px) * 0.7), calc(var(--py) * 0.7))' }}
+              >
+                {t('home.ctaBannerSubtitle')}
+              </p>
+              <LocalizedLink
+                to="/contact"
+                className="group/cta mt-9 inline-flex h-12 items-center gap-2 rounded-md border border-foreground/15 px-6 text-sm font-medium text-foreground transition-colors hover:border-foreground/30 hover:bg-foreground/[0.05]"
+                style={{ transform: 'translate(calc(var(--px) * 1.2), calc(var(--py) * 1.2))' }}
+              >
+                {t('home.ctaBannerButton')}
+                <ArrowRight className="h-4 w-4 transition-transform group-hover/cta:translate-x-1" />
+              </LocalizedLink>
+            </Reveal>
+          </div>
+        </div>
       </section>
     </>
   );

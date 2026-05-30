@@ -37,16 +37,16 @@ export function Header() {
         className={cn(
           'mx-auto flex w-full items-center justify-between transition-all duration-500 ease-out motion-reduce:transition-none',
           scrolled
-            ? 'h-14 max-w-6xl rounded-2xl border border-border/60 bg-background/70 px-6 shadow-xl shadow-foreground/[0.06] backdrop-blur-xl supports-[backdrop-filter]:bg-background/55'
-            : 'container h-16 bg-background/80 backdrop-blur supports-[backdrop-filter]:bg-background/60',
+            ? 'h-16 max-w-6xl rounded-2xl border border-border/60 bg-background/70 px-8 shadow-xl shadow-foreground/[0.06] backdrop-blur-xl supports-[backdrop-filter]:bg-background/55'
+            : 'container h-20 bg-background/80 backdrop-blur supports-[backdrop-filter]:bg-background/60',
         )}
       >
-        <LocalizedLink to="/" className="flex items-baseline gap-1.5">
-          <span className="text-xl font-bold tracking-tight">WebStudio</span>
-          <span className="h-1.5 w-1.5 rounded-full bg-primary" />
+        <LocalizedLink to="/" className="flex items-baseline gap-2">
+          <span className="text-2xl font-black tracking-tight">WebStudio</span>
+          <span className="h-2 w-2 rounded-full bg-primary" />
         </LocalizedLink>
 
-        <nav className="hidden gap-1 md:flex">
+        <nav className="hidden gap-2 md:flex">
           {nav.map((item) => (
             <NavLink
               key={item.to}
@@ -54,10 +54,10 @@ export function Header() {
               end={item.end}
               className={({ isActive }) =>
                 cn(
-                  'whitespace-nowrap rounded-md px-3 py-2 text-sm font-medium transition-colors',
+                  'whitespace-nowrap rounded-md px-4 py-2.5 text-sm font-medium transition-colors',
                   isActive
-                    ? 'text-foreground'
-                    : 'text-muted-foreground hover:text-foreground',
+                    ? 'bg-foreground/[0.06] text-foreground'
+                    : 'text-muted-foreground hover:bg-foreground/[0.04] hover:text-foreground',
                 )
               }
             >
@@ -66,12 +66,12 @@ export function Header() {
           ))}
         </nav>
 
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-5">
           <ThemeToggle />
           <LanguageSwitcher className="hidden sm:inline-flex" />
           <LocalizedLink
             to="/contact"
-            className="inline-flex h-9 items-center whitespace-nowrap rounded-md bg-primary px-4 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
+            className="inline-flex h-11 items-center whitespace-nowrap rounded-md bg-primary px-6 text-sm font-semibold text-primary-foreground transition-colors hover:bg-primary/90"
           >
             {t('nav.discussProject')}
           </LocalizedLink>

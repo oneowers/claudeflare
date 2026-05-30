@@ -2,97 +2,93 @@ import { useTranslation } from 'react-i18next';
 import { ArrowUpRight } from 'lucide-react';
 import { LocalizedLink, useCurrentLanguage } from '@/i18n/hooks';
 import { pickLocale } from '@/i18n/localized';
+import { cn } from '@/lib/utils';
 import type { PortfolioItem } from '../types';
 import type { Category } from '@/features/categories/types';
 
 interface PortfolioCardProps {
   item: PortfolioItem;
   category?: Category;
-  /** 1-based position in the list — rendered as a "02" index accent. */
   index?: number;
+  className?: string;
 }
 
-export function PortfolioCard({ item, category, index }: PortfolioCardProps) {
+export function PortfolioCard({ item, category, index, className }: PortfolioCardProps) {
   const { t } = useTranslation();
   const lang = useCurrentLanguage();
   const title = pickLocale(item.title, lang) ?? '';
+  const description = item.description ? pickLocale(item.description, lang) : null;
   const categoryLabel = category ? pickLocale(category.name, lang) ?? category.slug : null;
   const number = index != null ? String(index).padStart(2, '0') : null;
-  // Avoid a redundant client line when it just repeats the project title.
-  const client =
-    item.client && item.client.trim().toLowerCase() !== title.trim().toLowerCase()
-      ? item.client
-      : null;
 
   return (
     <LocalizedLink
       to={`/portfolio/${item.slug}`}
-      className="group relative flex flex-col overflow-hidden border border-foreground/10 bg-card outline-none transition-colors duration-300 ease-out hover:border-foreground/20 focus-visible:border-foreground/25"
-    >
-      {/* Faint grid texture — "table / sheet" feel */}
-      <span aria-hidden className="bg-grid pointer-events-none absolute inset-0 opacity-60" />
-      {/* Gradient highlight along the top & left edges */}
-      <span
-        aria-hidden
-        className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-foreground/25 via-foreground/10 to-transparent opacity-70 transition-opacity duration-300 group-hover:opacity-100"
-      />
-      <span
-        aria-hidden
-        className="pointer-events-none absolute inset-y-0 left-0 w-px bg-gradient-to-b from-foreground/25 via-foreground/10 to-transparent opacity-70 transition-opacity duration-300 group-hover:opacity-100"
-      />
-
-      {/* Head: index accent + meta */}
-      <div className="relative flex items-start gap-3 p-4 pb-3">
-        {number && (
-          <span className="select-none font-mono text-[28px] font-semibold leading-[0.8] tracking-tight text-foreground/15 tabular-nums">
-            {number}
-          </span>
-        )}
-        <div className="min-w-0 flex-1">
-          {categoryLabel && (
-            <p className="mb-1.5 font-mono text-[10px] uppercase tracking-[0.14em] text-muted-foreground">
-              {categoryLabel}
-            </p>
-          )}
-          <h3 className="font-display text-[15px] font-bold leading-tight tracking-tight">
-            {title}
-          </h3>
-          {client && (
-            <p className="mt-1 text-xs text-muted-foreground">{client}</p>
-          )}
-        </div>
-        <ArrowUpRight className="mt-0.5 h-4 w-4 shrink-0 text-muted-foreground transition-[transform,color] duration-300 ease-out group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-foreground motion-reduce:transition-none" />
-      </div>
-
-      {/* Cover */}
-      <div className="relative aspect-[16/10] overflow-hidden border-y border-foreground/10 bg-muted">
-        {item.image_url ? (
-          <img
-            src={item.image_url}
-            alt={title}
-            className="h-full w-full object-cover"
-            loading="lazy"
-          />
-        ) : (
-          <div className="flex h-full w-full items-center justify-center text-xs text-muted-foreground">
-            {t('portfolio.noImage')}
-          </div>
-        )}
-      </div>
-
-      {/* Tech footer */}
-      {item.technologies.length > 0 && (
-        <div className="relative flex flex-wrap gap-x-3 gap-y-1.5 p-4">
-          {item.technologies.slice(0, 5).map((tech) => (
-            <span
-              key={tech}
-              className="font-mono text-[11px] font-medium uppercase tracking-wide text-muted-foreground"
-            >
-              {tech}
-            </span>
-          ))}
-        </div>
+      className={cn(
+        'group relative block aspect-[4/3] overflow-hidden rounded-xl bg-muted',
+        'outline-none focus-visible:ring-2 focus-visible:ring-foreground/40 focus-visible:ring-offset-2',
+        className,
       )}
+    >
+      {/* Image: block-level fill so aspect-ratio drives height correctly.
+          scale-[1.02] permanently overscans ~2% per edge to crop thin
+          white letterbox lines that may be baked into the image content. */}
+      {item.image_url ? (
+        <img
+          src={item.image_url}
+          alt={title}
+          className="block h-full w-full scale-[1.02] object-cover transition-[filter] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:blur-[5px]"
+          loading="lazy"
+        />
+      ) : (
+        <div className="h-full w-full bg-grid opacity-30" />
+      )}
+
+      {/* Index + category badges — fade out on hover */}
+      {number && (
+        <span className="absolute left-3.5 top-3.5 font-mono text-[10px] font-semibold tracking-[0.12em] text-foreground/30 transition-opacity duration-200 group-hover:opacity-0">
+          {number}
+        </span>
+      )}
+      {categoryLabel && (
+        <span className="absolute right-3.5 top-3.5 font-mono text-[10px] uppercase tracking-[0.14em] text-foreground/20 transition-opacity duration-200 group-hover:opacity-0">
+          {categoryLabel}
+        </span>
+      )}
+
+      {/* Hover overlay: mid-gray, not dark not light */}
+      <div
+        className="absolute inset-0 flex flex-col justify-end p-5 opacity-0 backdrop-blur-[2px] transition-opacity duration-300 group-hover:opacity-75"
+        style={{ background: 'rgb(120 120 120 / 0.75)' }}
+      >
+        {/* Content slides up on hover */}
+        <div className="translate-y-3 space-y-3 transition-transform duration-400 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:translate-y-0">
+          {/* Title */}
+          <div>
+            <h3 className="font-display text-lg font-bold leading-tight tracking-tight text-white [text-wrap:balance]">
+              {title}
+            </h3>
+            {description && (
+              <p className="mt-1.5 line-clamp-2 text-sm leading-relaxed text-white/70">
+                {description}
+              </p>
+            )}
+          </div>
+
+          {/* Footer: view link + tech */}
+          <div className="flex items-center justify-between gap-3 border-t border-white/20 pt-3">
+            <span className="flex items-center gap-1.5 text-sm font-medium text-white">
+              {t('portfolio.viewProject')}
+              <ArrowUpRight className="h-4 w-4 shrink-0 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+            </span>
+            {item.technologies.length > 0 && (
+              <p className="shrink-0 text-right font-mono text-[10px] uppercase tracking-[0.1em] text-white/55">
+                {item.technologies.slice(0, 3).join(' · ')}
+              </p>
+            )}
+          </div>
+        </div>
+      </div>
     </LocalizedLink>
   );
 }

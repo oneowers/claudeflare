@@ -90,9 +90,9 @@ export function PortfolioPage() {
 
       <div className="mt-10">
         {isLoading && (
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="grid grid-cols-2 gap-2 lg:grid-cols-3">
             {Array.from({ length: 6 }).map((_, i) => (
-              <div key={i} className="aspect-[4/3] animate-pulse rounded-lg bg-muted/40" />
+              <div key={i} className="aspect-[4/3] animate-pulse rounded-xl bg-muted/40" />
             ))}
           </div>
         )}
@@ -106,7 +106,7 @@ export function PortfolioPage() {
         )}
 
         {filtered.length > 0 && (
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="grid grid-cols-2 gap-2 lg:grid-cols-3">
             {filtered.map((item, i) => (
               <PortfolioCard
                 key={item.id}

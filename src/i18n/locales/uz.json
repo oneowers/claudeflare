@@ -85,7 +85,8 @@
     "kicker": "Portfolio",
     "title": "Keyslar va loyihalar",
     "all": "Barchasi",
-    "noImage": "rasm yo‘q",
+    "noImage": "rasm yo’q",
+    "viewProject": "Loyihani ko’rish",
     "empty": "Filtr bo‘yicha keyslar yo‘q.",
     "loadError": "Keyslarni yuklab bo‘lmadi.",
     "detail": {
