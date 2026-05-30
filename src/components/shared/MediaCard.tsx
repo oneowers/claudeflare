@@ -21,15 +21,15 @@ export function MediaCard({ to, title, description, imageUrl, badge, fallbackMar
   return (
     <LocalizedLink
       to={to}
-      className="group flex h-full flex-col overflow-hidden rounded-card bg-surface"
+      className="group flex h-full flex-col rounded-card bg-surface"
     >
-      {/* Media — flush to the card; top corners clipped by the card itself */}
-      <div className="relative h-[360px] w-full">
+      {/* Media — fully rounded on all four corners */}
+      <div className="relative h-[360px] w-full overflow-hidden rounded-[1.5rem]">
         {imageUrl ? (
           <img
             src={imageUrl}
             alt={title}
-            className="block h-[360px] w-full object-cover object-center"
+            className="h-[360px] w-full object-cover object-center"
             loading="lazy"
           />
         ) : (
