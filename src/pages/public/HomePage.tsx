@@ -41,7 +41,7 @@ export function HomePage() {
   return (
     <>
       {/* ── HERO ── fills the viewport, equal gap on all four sides */}
-      <section className="relative px-3 pb-3 pt-3 sm:px-4 sm:pb-4">
+      <section className="relative px-3 pb-3 pt-3 sm:px-4 sm:pb-4 sm:pt-4">
         <div className="relative flex min-h-[calc(100svh-5rem)] flex-col justify-center overflow-hidden rounded-panel bg-surface px-6 py-16 sm:px-12 sm:py-20">
           <div aria-hidden className="bg-spark pointer-events-none absolute inset-0 opacity-50" />
           <div
