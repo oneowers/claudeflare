@@ -23,8 +23,8 @@ export function MediaCard({ to, title, description, imageUrl, badge, fallbackMar
       to={to}
       className="group flex h-full flex-col overflow-hidden rounded-card border border-white/10 bg-surface transition-all duration-300 ease-brand hover:-translate-y-1 hover:border-white/20"
     >
-      {/* Media */}
-      <div className="relative m-2 aspect-[4/3] overflow-hidden rounded-[1.125rem]">
+      {/* Media — flush to the card's top/left/right edges, full width */}
+      <div className="relative aspect-[4/3] w-full overflow-hidden">
         {imageUrl ? (
           <img
             src={imageUrl}
@@ -49,14 +49,14 @@ export function MediaCard({ to, title, description, imageUrl, badge, fallbackMar
         )}
 
         {badge && (
-          <span className="badge-pill absolute left-3 top-3 bg-black/35 text-white backdrop-blur-md">
+          <span className="badge-pill absolute left-4 top-4 bg-black/35 text-white backdrop-blur-md">
             {badge}
           </span>
         )}
       </div>
 
       {/* Body */}
-      <div className="flex flex-1 flex-col px-5 pb-6 pt-3">
+      <div className="flex flex-1 flex-col p-6">
         <h3 className="font-display text-2xl font-bold leading-tight tracking-tight text-balance">
           {title}
         </h3>
