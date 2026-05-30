@@ -2,67 +2,61 @@
 @tailwind components;
 @tailwind utilities;
 
+/* ============================================================
+   «ПРОСТО» — dark-first design system
+   Чёрная база, фиолетовый + кислотно-лаймовый акценты.
+   Все значения сняты из DESIGN.md (раздел 20).
+   ============================================================ */
+
 @layer base {
-  :root {
-    --background: 0 0% 100%;
-    --foreground: 222 47% 11%;
-
-    --card: 0 0% 100%;
-    --card-foreground: 222 47% 11%;
-
-    --popover: 0 0% 100%;
-    --popover-foreground: 222 47% 11%;
-
-    --primary: 222 47% 11%;
-    --primary-foreground: 210 40% 98%;
-
-    --secondary: 210 40% 96%;
-    --secondary-foreground: 222 47% 11%;
-
-    --muted: 210 40% 96%;
-    --muted-foreground: 215 16% 47%;
-
-    --accent: 210 40% 96%;
-    --accent-foreground: 222 47% 11%;
-
-    --destructive: 0 84% 60%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 214 32% 91%;
-    --input: 214 32% 91%;
-    --ring: 222 47% 11%;
-
-    --radius: 0.75rem;
-  }
-
+  :root,
   .dark {
-    --background: 222 47% 5%;
-    --foreground: 210 40% 98%;
+    /* — Semantic (shadcn) tokens mapped to PROSTO — */
+    --background: 0 0% 0%; /* #000 */
+    --foreground: 0 0% 100%; /* #fff */
 
-    --card: 222 47% 7%;
-    --card-foreground: 210 40% 98%;
+    --card: 0 0% 8%; /* #151515 surface */
+    --card-foreground: 0 0% 100%;
 
-    --popover: 222 47% 7%;
-    --popover-foreground: 210 40% 98%;
+    --popover: 0 0% 12%; /* #1F1F1F elevated */
+    --popover-foreground: 0 0% 100%;
 
-    --primary: 210 40% 98%;
-    --primary-foreground: 222 47% 11%;
+    --primary: 260 100% 66%; /* #8C52FF violet */
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 217 33% 17%;
-    --secondary-foreground: 210 40% 98%;
+    --secondary: 0 0% 12%; /* elevated surface buttons */
+    --secondary-foreground: 0 0% 100%;
 
-    --muted: 217 33% 17%;
-    --muted-foreground: 215 20% 65%;
+    --muted: 0 0% 8%;
+    --muted-foreground: 0 0% 64%; /* #A2A2A2 text-secondary */
 
-    --accent: 217 33% 17%;
-    --accent-foreground: 210 40% 98%;
+    --accent: 0 0% 12%;
+    --accent-foreground: 0 0% 100%;
 
-    --destructive: 0 63% 31%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 84% 62%;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 217 33% 17%;
-    --input: 217 33% 17%;
-    --ring: 212 27% 84%;
+    --border: 0 0% 16%; /* ≈ rgba(255,255,255,.08) over black */
+    --input: 0 0% 16%;
+    --ring: 260 100% 66%; /* violet focus */
+
+    /* — PROSTO brand tokens (raw, opt-in) — */
+    --violet: 260 100% 66%; /* #8C52FF */
+    --violet-deep: 257 68% 50%; /* #5B2BD6 */
+    --lime: 75 100% 56%; /* #C8FF1E */
+    --cream: 43 20% 93%; /* #F1EFEA */
+    --ink: 0 0% 8%; /* #141414 ink-on-light */
+    --surface: 0 0% 8%;
+    --surface-elevated: 0 0% 12%;
+    --text-secondary: 0 0% 64%;
+    --text-muted: 0 0% 42%; /* #6B6B6B */
+
+    /* — Radii (DESIGN.md §5) — */
+    --radius: 0.875rem; /* 14px buttons */
+    --radius-card: 1.5rem; /* 24px */
+    --radius-panel: 1.75rem; /* 28px */
+
+    --ease: cubic-bezier(0.22, 1, 0.36, 1);
   }
 }
 
@@ -72,9 +66,81 @@
   }
   body {
     @apply bg-background text-foreground antialiased;
-    font-feature-settings: 'cv11', 'ss01', 'ss03';
+    font-family: 'Onest', 'Inter', ui-sans-serif, system-ui, sans-serif;
+    font-feature-settings: 'ss01', 'cv01';
   }
   html {
     scroll-behavior: smooth;
+  }
+  /* Display headings carry the brand: heavy Unbounded.
+     Public surfaces add UPPERCASE per-component; admin keeps natural case. */
+  h1,
+  h2 {
+    font-family: 'Unbounded', 'Onest', ui-sans-serif, sans-serif;
+    letter-spacing: -0.02em;
+  }
+  ::selection {
+    background: hsl(var(--lime));
+    color: #000;
+  }
+}
+
+@layer components {
+  /* Floating dark surface panel — the PROSTO "плавучесть" feel */
+  .panel {
+    background: hsl(var(--surface));
+    border: 1px solid hsl(var(--border));
+    border-radius: var(--radius-panel);
+  }
+
+  /* Pill badge */
+  .badge-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.375rem;
+    border-radius: 999px;
+    padding: 0.25rem 0.75rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    line-height: 1.2;
+  }
+}
+
+@layer utilities {
+  /* Display font utility (Unbounded) */
+  .font-display {
+    font-family: 'Unbounded', 'Onest', ui-sans-serif, sans-serif;
+  }
+  .font-body {
+    font-family: 'Onest', 'Inter', ui-sans-serif, sans-serif;
+  }
+
+  /* Dotted brand grid backdrop (subtle, on black) */
+  .bg-spark {
+    background-image: radial-gradient(
+      hsl(var(--foreground) / 0.05) 1px,
+      transparent 1px
+    );
+    background-size: 28px 28px;
+  }
+
+  /* Violet glow halo */
+  .glow-violet {
+    box-shadow: 0 0 80px -20px hsl(var(--violet) / 0.55);
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
   }
 }

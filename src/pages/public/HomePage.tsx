@@ -6,6 +6,39 @@ import { ServiceCard } from '@/features/services/components/ServiceCard';
 import { PortfolioCard } from '@/features/portfolio/components/PortfolioCard';
 import { LocalizedLink } from '@/i18n/hooks';
 
+function SectionHead({
+  kicker,
+  title,
+  link,
+  linkLabel,
+}: {
+  kicker: string;
+  title: string;
+  link: string;
+  linkLabel: string;
+}) {
+  return (
+    <div className="flex flex-wrap items-end justify-between gap-4">
+      <div>
+        <p className="flex items-center gap-2 font-mono text-xs uppercase tracking-[0.2em] text-foreground/40">
+          <span className="h-2 w-2 rounded-full bg-lime" />
+          {kicker}
+        </p>
+        <h2 className="mt-3 font-display text-4xl font-extrabold leading-[1.02] tracking-tight text-balance sm:text-5xl">
+          {title}
+        </h2>
+      </div>
+      <LocalizedLink
+        to={link}
+        className="group hidden items-center gap-1.5 text-[15px] font-medium text-foreground/65 transition-colors hover:text-foreground sm:inline-flex"
+      >
+        {linkLabel}
+        <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+      </LocalizedLink>
+    </div>
+  );
+}
+
 export function HomePage() {
   const { t } = useTranslation();
   const services = useServices(true);
@@ -13,51 +46,62 @@ export function HomePage() {
 
   return (
     <>
-      <section className="container py-24 md:py-32">
-        <p className="text-sm font-medium text-muted-foreground">
-          {t('home.kicker')}
-        </p>
-        <h1 className="mt-4 max-w-3xl text-5xl font-bold leading-[1.05] tracking-tight md:text-7xl">
-          {t('home.title')}
-        </h1>
-        <p className="mt-6 max-w-xl text-lg text-muted-foreground">
-          {t('home.subtitle')}
-        </p>
-        <div className="mt-10 flex flex-wrap gap-3">
-          <LocalizedLink
-            to="/contact"
-            className="inline-flex h-12 items-center gap-2 rounded-md bg-primary px-6 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
-          >
-            {t('home.ctaDiscuss')}
-            <ArrowRight className="h-4 w-4" />
-          </LocalizedLink>
-          <LocalizedLink
-            to="/portfolio"
-            className="inline-flex h-12 items-center rounded-md border border-input bg-background px-6 text-sm font-medium transition-colors hover:bg-accent"
-          >
-            {t('home.ctaPortfolio')}
-          </LocalizedLink>
+      {/* ── HERO ── */}
+      <section className="relative overflow-hidden px-3 pt-6 sm:px-4">
+        <div className="relative overflow-hidden rounded-panel bg-surface px-6 py-20 sm:px-12 sm:py-28">
+          <div aria-hidden className="bg-spark pointer-events-none absolute inset-0 opacity-50" />
+          <div
+            aria-hidden
+            className="glow-violet pointer-events-none absolute -right-20 -top-20 h-72 w-72 rounded-full bg-violet/20 blur-3xl"
+          />
+
+          <div className="relative max-w-4xl">
+            <p className="flex animate-rise-in items-center gap-2 font-mono text-xs uppercase tracking-[0.22em] text-foreground/45">
+              <span className="h-2 w-2 rounded-full bg-lime" />
+              {t('home.kicker')}
+            </p>
+            <h1
+              className="mt-6 animate-rise-in font-display text-[clamp(2.6rem,8vw,6rem)] font-extrabold uppercase leading-[0.98] tracking-tight text-balance"
+              style={{ animationDelay: '80ms' }}
+            >
+              {t('home.title')}
+            </h1>
+            <p
+              className="mt-7 max-w-xl animate-rise-in text-lg leading-relaxed text-muted-foreground sm:text-xl"
+              style={{ animationDelay: '160ms' }}
+            >
+              {t('home.subtitle')}
+            </p>
+            <div
+              className="mt-10 flex animate-rise-in flex-wrap gap-3"
+              style={{ animationDelay: '240ms' }}
+            >
+              <LocalizedLink
+                to="/contact"
+                className="group inline-flex h-[52px] items-center gap-2 rounded-full bg-primary px-8 text-base font-semibold text-primary-foreground transition-all duration-200 ease-brand hover:-translate-y-0.5 hover:bg-violet-deep"
+              >
+                {t('home.ctaDiscuss')}
+                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+              </LocalizedLink>
+              <LocalizedLink
+                to="/portfolio"
+                className="inline-flex h-[52px] items-center rounded-full border border-white/20 px-8 text-base font-semibold text-foreground transition-colors hover:bg-white/[0.06]"
+              >
+                {t('home.ctaPortfolio')}
+              </LocalizedLink>
+            </div>
+          </div>
         </div>
       </section>
 
-      <section className="container border-t border-border/60 py-20">
-        <div className="flex items-end justify-between gap-4">
-          <div>
-            <p className="text-sm font-medium text-muted-foreground">
-              {t('home.servicesKicker')}
-            </p>
-            <h2 className="mt-2 text-3xl font-bold tracking-tight md:text-4xl">
-              {t('home.servicesTitle')}
-            </h2>
-          </div>
-          <LocalizedLink
-            to="/services"
-            className="hidden text-sm font-medium text-muted-foreground hover:text-foreground sm:inline-flex"
-          >
-            {t('home.allServices')}
-          </LocalizedLink>
-        </div>
-
+      {/* ── SERVICES ── */}
+      <section className="container py-20 sm:py-28">
+        <SectionHead
+          kicker={t('home.servicesKicker')}
+          title={t('home.servicesTitle')}
+          link="/services"
+          linkLabel={t('home.allServices')}
+        />
         <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {(services.data ?? []).slice(0, 6).map((service) => (
             <ServiceCard key={service.id} service={service} />
@@ -66,56 +110,31 @@ export function HomePage() {
             Array.from({ length: 3 }).map((_, i) => (
               <div
                 key={i}
-                className="h-48 animate-pulse rounded-lg border border-border/60 bg-muted/40"
+                className="h-52 animate-pulse rounded-card border border-white/10 bg-surface"
               />
             ))}
         </div>
       </section>
 
-      <section className="container border-t border-border/60 py-20">
-        <div className="flex items-end justify-between gap-4">
-          <div>
-            <p className="text-sm font-medium text-muted-foreground">
-              {t('home.casesKicker')}
-            </p>
-            <h2 className="mt-2 text-3xl font-bold tracking-tight md:text-4xl">
-              {t('home.casesTitle')}
-            </h2>
-          </div>
-          <LocalizedLink
-            to="/portfolio"
-            className="hidden text-sm font-medium text-muted-foreground hover:text-foreground sm:inline-flex"
-          >
-            {t('home.allCases')}
-          </LocalizedLink>
-        </div>
-
-        <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      {/* ── PORTFOLIO ── */}
+      <section className="container pb-20 sm:pb-28">
+        <SectionHead
+          kicker={t('home.casesKicker')}
+          title={t('home.casesTitle')}
+          link="/portfolio"
+          linkLabel={t('home.allCases')}
+        />
+        <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {(portfolio.data ?? []).slice(0, 3).map((item) => (
             <PortfolioCard key={item.id} item={item} />
           ))}
           {portfolio.isLoading &&
             Array.from({ length: 3 }).map((_, i) => (
-              <div key={i} className="aspect-[4/3] animate-pulse rounded-lg bg-muted/40" />
+              <div
+                key={i}
+                className="aspect-[4/3] animate-pulse rounded-card border border-white/10 bg-surface"
+              />
             ))}
-        </div>
-      </section>
-
-      <section className="container border-t border-border/60 py-20">
-        <div className="rounded-lg bg-primary px-8 py-16 text-center text-primary-foreground md:px-16 md:py-20">
-          <h2 className="mx-auto max-w-2xl text-3xl font-bold tracking-tight md:text-4xl">
-            {t('home.ctaBannerTitle')}
-          </h2>
-          <p className="mx-auto mt-4 max-w-lg text-primary-foreground/80">
-            {t('home.ctaBannerSubtitle')}
-          </p>
-          <LocalizedLink
-            to="/contact"
-            className="mt-8 inline-flex h-12 items-center gap-2 rounded-md bg-background px-6 text-sm font-medium text-foreground transition-colors hover:bg-background/90"
-          >
-            {t('home.ctaBannerButton')}
-            <ArrowRight className="h-4 w-4" />
-          </LocalizedLink>
         </div>
       </section>
     </>

@@ -1,51 +1,79 @@
 import { useTranslation } from 'react-i18next';
+import { ArrowRight, ArrowUp } from 'lucide-react';
 import { LocalizedLink } from '@/i18n/hooks';
-import { LanguageSwitcher } from '@/i18n/LanguageSwitcher';
 
 export function Footer() {
   const { t } = useTranslation();
+  const year = new Date().getFullYear();
+
+  const scrollTop = () =>
+    window.scrollTo({ top: 0, behavior: 'smooth' });
 
   return (
-    <footer className="border-t border-border/60 bg-muted/30">
-      <div className="container flex flex-col gap-6 py-12 md:flex-row md:items-start md:justify-between">
-        <div className="max-w-sm">
-          <LocalizedLink to="/" className="text-lg font-bold tracking-tight">
-            WebStudio
-          </LocalizedLink>
-          <p className="mt-2 text-sm text-muted-foreground">{t('footer.tagline')}</p>
-          <div className="mt-4 sm:hidden">
-            <LanguageSwitcher />
+    <footer className="px-3 pb-3 sm:px-4 sm:pb-4">
+      {/* — Big CTA band — */}
+      <section className="relative overflow-hidden rounded-panel bg-violet px-6 py-16 text-center sm:px-12 sm:py-24">
+        <div aria-hidden className="bg-spark pointer-events-none absolute inset-0 opacity-40" />
+        <p className="relative font-mono text-xs uppercase tracking-[0.2em] text-white/70">
+          {t('home.ctaBannerSubtitle')}
+        </p>
+        <h2 className="relative mx-auto mt-4 max-w-3xl font-display text-4xl font-extrabold uppercase leading-[1.02] tracking-tight text-white text-balance sm:text-6xl">
+          {t('home.ctaBannerTitle')}
+        </h2>
+        <LocalizedLink
+          to="/contact"
+          className="group relative mt-9 inline-flex h-[52px] items-center gap-2 rounded-full bg-white px-8 text-base font-semibold text-ink transition-all duration-200 ease-brand hover:-translate-y-0.5"
+        >
+          {t('home.ctaBannerButton')}
+          <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+        </LocalizedLink>
+      </section>
+
+      {/* — Footer proper — */}
+      <div className="relative mt-3 overflow-hidden rounded-panel bg-surface px-6 py-12 sm:px-12 sm:py-16">
+        <div className="flex flex-col gap-12 lg:flex-row lg:justify-between">
+          {/* Brand */}
+          <div className="max-w-sm">
+            <LocalizedLink
+              to="/"
+              className="inline-flex items-center gap-1.5 font-display text-2xl font-extrabold uppercase tracking-tight"
+            >
+              WebStudio
+              <span className="h-2 w-2 rounded-full bg-lime" />
+            </LocalizedLink>
+            <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
+              {t('footer.tagline')}
+            </p>
           </div>
+
+          {/* Nav columns */}
+          <nav className="grid grid-cols-2 gap-x-12 gap-y-3 text-[15px] sm:grid-cols-3">
+            <LocalizedLink to="/services" className="text-foreground/70 transition-colors hover:text-foreground">
+              {t('nav.services')}
+            </LocalizedLink>
+            <LocalizedLink to="/portfolio" className="text-foreground/70 transition-colors hover:text-foreground">
+              {t('nav.portfolio')}
+            </LocalizedLink>
+            <LocalizedLink to="/about" className="text-foreground/70 transition-colors hover:text-foreground">
+              {t('nav.about')}
+            </LocalizedLink>
+            <LocalizedLink to="/contact" className="text-foreground/70 transition-colors hover:text-foreground">
+              {t('nav.contact')}
+            </LocalizedLink>
+          </nav>
         </div>
 
-        <div className="grid grid-cols-2 gap-8 text-sm md:grid-cols-3">
-          <div>
-            <p className="mb-3 font-medium">{t('footer.studio')}</p>
-            <ul className="space-y-2 text-muted-foreground">
-              <li><LocalizedLink to="/about" className="hover:text-foreground">{t('footer.aboutUs')}</LocalizedLink></li>
-              <li><LocalizedLink to="/portfolio" className="hover:text-foreground">{t('footer.works')}</LocalizedLink></li>
-              <li><LocalizedLink to="/services" className="hover:text-foreground">{t('nav.services')}</LocalizedLink></li>
-            </ul>
-          </div>
-          <div>
-            <p className="mb-3 font-medium">{t('footer.contacts')}</p>
-            <ul className="space-y-2 text-muted-foreground">
-              <li><LocalizedLink to="/contact" className="hover:text-foreground">{t('footer.write')}</LocalizedLink></li>
-              <li><a href="mailto:hello@webstudio.dev" className="hover:text-foreground">hello@webstudio.dev</a></li>
-            </ul>
-          </div>
-          <div className="col-span-2 md:col-span-1">
-            <p className="mb-3 font-medium">{t('footer.legal')}</p>
-            <ul className="space-y-2 text-muted-foreground">
-              <li><a href="#" className="hover:text-foreground">{t('footer.privacy')}</a></li>
-            </ul>
-          </div>
-        </div>
-      </div>
-      <div className="border-t border-border/60">
-        <div className="container flex items-center justify-between py-4 text-xs text-muted-foreground">
-          <span>{t('footer.copyright', { year: new Date().getFullYear() })}</span>
-          <span>{t('footer.madeBy')}</span>
+        {/* Bottom row */}
+        <div className="mt-12 flex flex-wrap items-center justify-between gap-4 border-t border-white/10 pt-6">
+          <p className="text-sm text-foreground/40">© {year} WebStudio</p>
+          <button
+            type="button"
+            onClick={scrollTop}
+            aria-label="Up"
+            className="grid h-11 w-11 place-items-center rounded-full bg-white/[0.06] text-foreground transition-colors hover:bg-white/[0.12]"
+          >
+            <ArrowUp className="h-5 w-5" />
+          </button>
         </div>
       </div>
     </footer>

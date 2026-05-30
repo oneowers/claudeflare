@@ -12,25 +12,31 @@ interface ServiceCardProps {
 export function ServiceCard({ service }: ServiceCardProps) {
   const { t } = useTranslation();
   const lang = useCurrentLanguage();
+  const title = pickLocale(service.name, lang) ?? '';
+
   return (
     <LocalizedLink
       to={`/services/${service.slug}`}
-      className="group relative flex h-full flex-col rounded-lg border border-border/60 bg-background p-6 transition-colors hover:border-foreground/30"
+      className="group flex flex-col rounded-card border border-white/10 bg-surface p-7 transition-all duration-300 ease-brand hover:-translate-y-1 hover:border-white/20"
     >
-      <div className="flex items-start justify-between gap-4">
-        <h3 className="text-lg font-semibold tracking-tight">
-          {pickLocale(service.name, lang)}
+      <div className="flex items-start justify-between gap-3">
+        <h3 className="font-display text-2xl font-bold leading-[1.1] tracking-tight text-balance">
+          {title}
         </h3>
-        <ArrowUpRight className="h-4 w-4 shrink-0 text-muted-foreground transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-foreground" />
+        <span className="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-white/[0.06] text-foreground/70 transition-all duration-300 group-hover:bg-violet group-hover:text-white">
+          <ArrowUpRight className="h-4 w-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+        </span>
       </div>
-      <p className="mt-2 text-sm text-muted-foreground">
+
+      <p className="mt-3 flex-1 text-[15px] leading-relaxed text-muted-foreground">
         {pickLocale(service.short_description, lang)}
       </p>
-      <div className="mt-auto flex items-end justify-between pt-6">
-        <span className="text-xs uppercase tracking-wider text-muted-foreground">
+
+      <div className="mt-7 flex items-baseline gap-2">
+        <span className="text-xs uppercase tracking-wide text-foreground/40">
           {t('common.from')}
         </span>
-        <span className="text-base font-medium">
+        <span className="font-display text-xl font-bold tabular-nums">
           {formatPrice(service.price_from, service.currency)}
         </span>
       </div>

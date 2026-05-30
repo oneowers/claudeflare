@@ -22,12 +22,13 @@ export function PortfolioPage() {
   }, [data, activeTech]);
 
   return (
-    <section className="container py-16">
-      <header className="max-w-2xl">
-        <p className="text-sm font-medium text-muted-foreground">
+    <section className="container py-20 sm:py-28">
+      <header className="max-w-3xl">
+        <p className="flex items-center gap-2 font-mono text-xs uppercase tracking-[0.2em] text-foreground/40">
+          <span className="h-2 w-2 rounded-full bg-lime" />
           {t('portfolio.kicker')}
         </p>
-        <h1 className="mt-2 text-4xl font-bold tracking-tight md:text-5xl">
+        <h1 className="mt-5 font-display text-[clamp(2.4rem,7vw,5rem)] font-extrabold uppercase leading-[0.98] tracking-tight text-balance">
           {t('portfolio.title')}
         </h1>
       </header>
@@ -38,10 +39,10 @@ export function PortfolioPage() {
             type="button"
             onClick={() => setActiveTech(null)}
             className={cn(
-              'rounded-md px-3 py-1.5 text-sm transition-colors',
+              'rounded-full px-4 py-2 text-sm font-medium transition-colors',
               activeTech === null
                 ? 'bg-primary text-primary-foreground'
-                : 'border border-border/60 text-muted-foreground hover:text-foreground',
+                : 'border border-white/15 text-foreground/65 hover:bg-white/[0.06] hover:text-foreground',
             )}
           >
             {t('portfolio.all')}
@@ -52,10 +53,10 @@ export function PortfolioPage() {
               type="button"
               onClick={() => setActiveTech(tech)}
               className={cn(
-                'rounded-md px-3 py-1.5 text-sm transition-colors',
+                'rounded-full px-4 py-2 text-sm font-medium transition-colors',
                 activeTech === tech
                   ? 'bg-primary text-primary-foreground'
-                  : 'border border-border/60 text-muted-foreground hover:text-foreground',
+                  : 'border border-white/15 text-foreground/65 hover:bg-white/[0.06] hover:text-foreground',
               )}
             >
               {tech}
@@ -66,9 +67,9 @@ export function PortfolioPage() {
 
       <div className="mt-10">
         {isLoading && (
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {Array.from({ length: 6 }).map((_, i) => (
-              <div key={i} className="aspect-[4/3] animate-pulse rounded-lg bg-muted/40" />
+              <div key={i} className="aspect-[4/3] animate-pulse rounded-card border border-white/10 bg-surface" />
             ))}
           </div>
         )}
@@ -82,7 +83,7 @@ export function PortfolioPage() {
         )}
 
         {filtered.length > 0 && (
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {filtered.map((item) => (
               <PortfolioCard key={item.id} item={item} />
             ))}
