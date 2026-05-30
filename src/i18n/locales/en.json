@@ -22,7 +22,8 @@
     "portfolio": "Portfolio",
     "about": "About",
     "contact": "Contact",
-    "discussProject": "Start a project"
+    "discussProject": "Start a project",
+    "menu": "Menu"
   },
   "footer": {
     "tagline": "We build websites and web apps that move business goals.",
