@@ -23,7 +23,7 @@ export function Header() {
   return (
     <header className="sticky top-0 z-50 px-3 pt-3 sm:px-4 sm:pt-4">
       {/* Floating dark nav panel — PROSTO signature */}
-      <div className="mx-auto flex h-16 max-w-[1240px] items-center justify-between gap-4 rounded-panel border border-white/10 bg-surface/85 px-4 backdrop-blur-xl sm:px-6">
+      <div className="mx-auto flex h-16 max-w-[1240px] items-center justify-between gap-4 rounded-panel bg-surface/65 px-4 backdrop-blur-xl sm:px-6">
         {/* Logo */}
         <LocalizedLink
           to="/"
