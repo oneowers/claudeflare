@@ -21,24 +21,19 @@ export function MediaCard({ to, title, description, imageUrl, badge, fallbackMar
   return (
     <LocalizedLink
       to={to}
-      className="group flex h-full flex-col overflow-hidden rounded-card border border-white/10 bg-surface transition-all duration-300 ease-brand hover:-translate-y-1 hover:border-white/20"
+      className="group flex h-full flex-col rounded-card bg-surface p-3"
     >
-      {/* Media — flush to the card's top/left/right edges, full width */}
-      <div className="relative aspect-[4/3] w-full overflow-hidden">
+      {/* Media — fully rounded on all four corners */}
+      <div className="relative aspect-[4/3] w-full overflow-hidden rounded-[1.25rem]">
         {imageUrl ? (
           <img
             src={imageUrl}
             alt={title}
-            className="h-full w-full object-cover transition-transform duration-500 ease-brand group-hover:scale-[1.04]"
+            className="h-full w-full object-cover"
             loading="lazy"
           />
         ) : (
-          <div
-            className={cn(
-              'flex h-full w-full items-center justify-center bg-violet',
-              'transition-transform duration-500 ease-brand group-hover:scale-[1.04]',
-            )}
-          >
+          <div className={cn('flex h-full w-full items-center justify-center bg-violet')}>
             <span
               aria-hidden
               className="font-display text-6xl font-extrabold uppercase text-white/85"
@@ -49,14 +44,14 @@ export function MediaCard({ to, title, description, imageUrl, badge, fallbackMar
         )}
 
         {badge && (
-          <span className="badge-pill absolute left-4 top-4 bg-black/35 text-white backdrop-blur-md">
+          <span className="badge-pill absolute left-4 top-4 bg-black/35 px-4 py-1.5 text-sm text-white backdrop-blur-md">
             {badge}
           </span>
         )}
       </div>
 
       {/* Body */}
-      <div className="flex flex-1 flex-col p-6">
+      <div className="flex flex-1 flex-col px-3 pb-3 pt-4">
         <h3 className="font-display text-2xl font-bold leading-tight tracking-tight text-balance">
           {title}
         </h3>
