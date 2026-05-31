@@ -3,9 +3,10 @@ import { ArrowRight } from 'lucide-react';
 import { useServices } from '@/features/services/hooks/useServices';
 import { usePortfolio } from '@/features/portfolio/hooks/usePortfolio';
 import { ServiceCard } from '@/features/services/components/ServiceCard';
-import { PortfolioCard } from '@/features/portfolio/components/PortfolioCard';
-import { LocalizedLink } from '@/i18n/hooks';
+import { LocalizedLink, useCurrentLanguage } from '@/i18n/hooks';
+import { pickLocale } from '@/i18n/localized';
 import { Reveal } from '@/components/shared/Reveal';
+import { LogoMarquee } from '@/components/shared/LogoMarquee';
 
 function SectionHead({
   title,
@@ -35,8 +36,16 @@ function SectionHead({
 
 export function HomePage() {
   const { t } = useTranslation();
+  const lang = useCurrentLanguage();
   const services = useServices(true);
   const portfolio = usePortfolio(true);
+
+  const partners = (portfolio.data ?? []).map((item) => ({
+    id: item.id,
+    to: `/portfolio/${item.slug}`,
+    label: item.client ?? pickLocale(item.title, lang) ?? '',
+    logoUrl: item.logo_url,
+  }));
 
   return (
     <>
@@ -113,29 +122,34 @@ export function HomePage() {
         </div>
       </section>
 
-      {/* ── PORTFOLIO ── */}
-      <section className="container pb-20 sm:pb-28">
-        <Reveal>
-          <SectionHead
-            title={t('home.casesTitle')}
-            link="/portfolio"
-            linkLabel={t('home.allCases')}
-          />
-        </Reveal>
-        <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {(portfolio.data ?? []).slice(0, 3).map((item, i) => (
-            <Reveal key={item.id} delay={i * 70}>
-              <PortfolioCard item={item} />
-            </Reveal>
-          ))}
-          {portfolio.isLoading &&
-            Array.from({ length: 3 }).map((_, i) => (
+      {/* ── PARTNERS / PORTFOLIO ── full-bleed logo marquee */}
+      <section className="pb-20 sm:pb-28">
+        <div className="container">
+          <Reveal>
+            <SectionHead
+              title={t('home.partnersTitle')}
+              link="/portfolio"
+              linkLabel={t('home.allCases')}
+            />
+          </Reveal>
+        </div>
+
+        {partners.length > 0 && (
+          <Reveal className="mt-12">
+            <LogoMarquee items={partners} />
+          </Reveal>
+        )}
+
+        {portfolio.isLoading && (
+          <div className="mask-fade-x mt-12 flex gap-4 overflow-hidden px-5">
+            {Array.from({ length: 6 }).map((_, i) => (
               <div
                 key={i}
-                className="aspect-[4/3] animate-pulse rounded-card border border-white/10 bg-surface"
+                className="h-[88px] w-[200px] shrink-0 animate-pulse rounded-full border border-white/10 bg-surface"
               />
             ))}
-        </div>
+          </div>
+        )}
       </section>
     </>
   );

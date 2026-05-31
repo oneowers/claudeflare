@@ -25,13 +25,13 @@ export function MediaCard({ to, title, description, imageUrl, badge, fallbackMar
       to={to}
       className="group flex h-full flex-col rounded-card bg-surface"
     >
-      {/* Media — fully rounded on all four corners */}
-      <div className="relative h-[230px] w-full overflow-hidden rounded-[1.5rem]">
+      {/* Media — landscape rectangle on every width (no square on mobile) */}
+      <div className="relative aspect-[16/10] w-full overflow-hidden rounded-[1.5rem]">
         {imageUrl ? (
           <img
             src={imageUrl}
             alt={title}
-            className="h-[230px] w-full object-cover object-center"
+            className="h-full w-full object-cover object-center"
             loading="lazy"
           />
         ) : (

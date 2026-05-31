@@ -1,0 +1,30 @@
+{
+  "surface": "public-site",
+  "score": 72,
+  "verdict": "Strong, committed PROSTO identity in the foundation and key pages, held back by eyebrow-on-every-section grammar, an all-caps long hero sentence, borderline muted-text contrast, and detail pages that only inherit tokens.",
+  "findings": [
+    { "severity": "P1", "dimension": "Typography", "finding": "Hero H1 renders the full sentence home.title in UPPERCASE (font-display uppercase, clamp up to 6rem). A long sentence in caps reads slower and louder than intended.", "fix": "Reserve uppercase for short headings/labels. Drop `uppercase` on the hero sentence (keep weight/scale for impact), or shorten the title to <=4 words if caps are wanted." },
+    { "severity": "P1", "dimension": "Craft / detail", "finding": "Mono uppercase tracked kicker (eyebrow) appears above nearly every section head (Home services + cases, Portfolio, About) via SectionHead + page headers. This is the saturated 'eyebrow on every section' AI grammar.", "fix": "Keep at most one named kicker as a deliberate device; replace the rest with a different cadence (a lead sentence, a number only where a real sequence exists, or nothing)." },
+    { "severity": "P1", "dimension": "Accessibility", "finding": "Muted small text dips below WCAG AA 4.5:1: --text-muted #6B6B6B (~3.9:1 on black) and the footer copyright at text-foreground/40 (~3.9:1). DESIGN.md itself flags this.", "fix": "Use --text-secondary #A2A2A2 (~8:1) for any body-size muted text; reserve #6B6B6B / /40 only for >=18px or decorative text." },
+    { "severity": "P1", "dimension": "First impression / brand fit", "finding": "Detail/secondary pages (Services, ServiceDetail, PortfolioDetail, Contact, ContactForm, admin) only inherit the dark+violet tokens; they have no bespoke PROSTO composition, so they read flatter than Home/Portfolio.", "fix": "Give each a hero header + the floating-panel rhythm; style ServiceDetail/ContactForm with surface-elevated fields and the violet CTA already in the system." },
+    { "severity": "P2", "dimension": "Color & contrast", "finding": "PROSTO's signature dark/colored card alternation (violet + cream cards in the feed) is unused; all cards are dark surface, so the lime and cream brand tokens barely appear.", "fix": "Alternate card backgrounds (every Nth card violet or cream) in the services/portfolio grids; use lime sparingly as a graphic stroke." },
+    { "severity": "P2", "dimension": "Layout & spacing", "finding": "Services and Portfolio are near-identical uniform 3-col card grids, leaning on the 'identical card grid' reflex.", "fix": "Vary tile sizes (a featured 2-col tile, mixed aspect ratios) or interleave a colored statement card to break the grid." },
+    { "severity": "P2", "dimension": "Copy & microcopy", "finding": "Copy is the inherited neutral studio voice; PROSTO's tone is warm, on 'ты', slightly ironic. The voice does not yet match the visual brand.", "fix": "Rewrite CTAs and section heads in the 'ты' invitation voice (verb + object), per DESIGN.md section 19." },
+    { "severity": "P2", "dimension": "Motion & interaction", "finding": "Only the hero animates (load-only rise-in). Below-fold sections appear with no entrance, so the page feels lively at top and static after.", "fix": "Add an intersection-observer reveal (enhancing an already-visible default) to section heads and card rows, with the existing reduced-motion guard." },
+    { "severity": "P2", "dimension": "First impression / brand fit", "finding": "The big violet CTA band lives in the Footer, so it repeats on every route including Contact (where it sits right above the contact form). Slightly redundant on transactional pages.", "fix": "Suppress the footer CTA band on /contact, or swap it for a lighter sign-off there." }
+  ],
+  "dimensionScores": {
+    "first-impression": 4,
+    "visual-hierarchy": 4,
+    "typography": 3.5,
+    "color-contrast": 3.5,
+    "layout-spacing": 4,
+    "motion-interaction": 3.5,
+    "copy-microcopy": 3,
+    "accessibility": 3,
+    "responsive": 3.5,
+    "craft-detail": 3
+  },
+  "ts": "2026-05-30T00:00:00Z",
+  "note": "Code-based critique. Dev server up but no Playwright/browser available this session, so the surface was not visually rendered at 375/768/1440; visual-only issues (overflow, optical alignment) may be missed."
+}

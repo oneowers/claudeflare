@@ -51,7 +51,9 @@
     "allCases": "Всё портфолио →",
     "ctaBannerTitle": "Готовы начать проект?",
     "ctaBannerSubtitle": "Опишите задачу — пришлём предварительную оценку и план.",
-    "ctaBannerButton": "Написать"
+    "ctaBannerButton": "Написать",
+    "partnersKicker": "Нам доверяют",
+    "partnersTitle": "С нами работают"
   },
   "services": {
     "kicker": "Услуги",
@@ -123,7 +125,8 @@
       "dashboard": "Дашборд",
       "services": "Услуги",
       "portfolio": "Портфолио",
-      "leads": "Заявки"
+      "leads": "Заявки",
+      "settings": "Настройки"
     },
     "login": {
       "title": "Вход в админку",
@@ -209,7 +212,8 @@
           "technologies": "Технологии",
           "technologiesPlaceholder": "React, TypeScript, Postgres…",
           "image": "Картинка",
-          "sortOrder": "Порядок"
+          "sortOrder": "Порядок",
+          "logo": "Логотип"
         },
         "publishToggle": "Опубликовано",
         "submitCreate": "Создать кейс",
@@ -246,6 +250,38 @@
         "deleteDescription": "Действие нельзя отменить.",
         "updateSuccess": "Обновлено",
         "deleteSuccess": "Заявка удалена"
+      }
+    },
+    "settings": {
+      "title": "Настройки сайта",
+      "subtitle": "Футер, контакты и реквизиты — едины для всех страниц.",
+      "loadError": "Не удалось загрузить настройки.",
+      "saveSuccess": "Настройки сохранены.",
+      "save": "Сохранить",
+      "sections": {
+        "general": "Общее",
+        "contacts": "Контакты",
+        "columns": "Колонки футера",
+        "socials": "Соцсети",
+        "payments": "Способы оплаты"
+      },
+      "fields": {
+        "tagline": "Описание (тэглайн)",
+        "copyright": "Копирайт",
+        "copyrightHint": "{{year}} подставится автоматически.",
+        "email": "Email",
+        "emailInvalid": "Некорректный email",
+        "phone": "Телефон",
+        "address": "Адрес",
+        "columnTitle": "Заголовок колонки",
+        "addColumn": "Добавить колонку",
+        "linkLabel": "Текст ссылки",
+        "linkUrl": "URL (/about или https://…)",
+        "addLink": "Добавить ссылку",
+        "platform": "Платформа",
+        "socialUrlInvalid": "Проверьте ссылки соцсетей (нужен полный URL).",
+        "addSocial": "Добавить соцсеть",
+        "paymentPlaceholder": "visa, mastercard, payme…"
       }
     }
   },

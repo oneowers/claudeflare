@@ -25,6 +25,7 @@ import { PortfolioListPage } from '@/pages/admin/PortfolioListPage';
 import { PortfolioFormPage } from '@/pages/admin/PortfolioFormPage';
 import { LeadsPage } from '@/pages/admin/LeadsPage';
 import { LeadDetailPage } from '@/pages/admin/LeadDetailPage';
+import { SettingsPage } from '@/pages/admin/SettingsPage';
 
 export const router = createBrowserRouter([
   { path: '/', element: <LanguageRedirect /> },
@@ -61,6 +62,7 @@ export const router = createBrowserRouter([
               { path: 'portfolio/:id/edit', element: <PortfolioFormPage /> },
               { path: 'leads', element: <LeadsPage /> },
               { path: 'leads/:id', element: <LeadDetailPage /> },
+              { path: 'settings', element: <SettingsPage /> },
             ],
           },
         ],

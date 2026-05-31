@@ -205,18 +205,33 @@ export function PortfolioForm({ item }: PortfolioFormProps) {
         />
       </div>
 
-      <div className="space-y-1.5">
-        <Label>{t('admin.portfolio.form.fields.image')}</Label>
-        <Controller
-          control={form.control}
-          name="image"
-          render={({ field }) => (
-            <ImageDropzone
-              initialUrl={item?.image_url ?? undefined}
-              onFile={(file) => field.onChange(file)}
-            />
-          )}
-        />
+      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+        <div className="space-y-1.5">
+          <Label>{t('admin.portfolio.form.fields.image')}</Label>
+          <Controller
+            control={form.control}
+            name="image"
+            render={({ field }) => (
+              <ImageDropzone
+                initialUrl={item?.image_url ?? undefined}
+                onFile={(file) => field.onChange(file)}
+              />
+            )}
+          />
+        </div>
+        <div className="space-y-1.5">
+          <Label>{t('admin.portfolio.form.fields.logo')}</Label>
+          <Controller
+            control={form.control}
+            name="logo"
+            render={({ field }) => (
+              <ImageDropzone
+                initialUrl={item?.logo_url ?? undefined}
+                onFile={(file) => field.onChange(file)}
+              />
+            )}
+          />
+        </div>
       </div>
 
       <div className="grid grid-cols-2 gap-4">

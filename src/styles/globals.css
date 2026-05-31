@@ -132,6 +132,24 @@
   .text-balance {
     text-wrap: balance;
   }
+
+  /* Soft horizontal fade-out at both edges (marquee / scrolling strips) */
+  .mask-fade-x {
+    -webkit-mask-image: linear-gradient(
+      to right,
+      transparent,
+      #000 7%,
+      #000 93%,
+      transparent
+    );
+    mask-image: linear-gradient(
+      to right,
+      transparent,
+      #000 7%,
+      #000 93%,
+      transparent
+    );
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {

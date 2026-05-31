@@ -18,6 +18,7 @@ export const portfolioSchema = z.object({
   is_published: z.boolean().default(false),
   sort_order: z.coerce.number().int().min(0).default(0),
   image: z.instanceof(File).optional(),
+  logo: z.instanceof(File).optional(),
 });
 
 export type PortfolioFormValues = z.infer<typeof portfolioSchema>;

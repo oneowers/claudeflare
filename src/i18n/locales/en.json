@@ -51,7 +51,9 @@
     "allCases": "Full portfolio →",
     "ctaBannerTitle": "Ready to start?",
     "ctaBannerSubtitle": "Tell us about the task — we'll come back with an estimate and a plan.",
-    "ctaBannerButton": "Get in touch"
+    "ctaBannerButton": "Get in touch",
+    "partnersKicker": "Trusted by",
+    "partnersTitle": "Our partners"
   },
   "services": {
     "kicker": "Services",
@@ -123,7 +125,8 @@
       "dashboard": "Dashboard",
       "services": "Services",
       "portfolio": "Portfolio",
-      "leads": "Leads"
+      "leads": "Leads",
+      "settings": "Settings"
     },
     "login": {
       "title": "Admin sign-in",
@@ -209,7 +212,8 @@
           "technologies": "Technologies",
           "technologiesPlaceholder": "React, TypeScript, Postgres…",
           "image": "Image",
-          "sortOrder": "Order"
+          "sortOrder": "Order",
+          "logo": "Logo"
         },
         "publishToggle": "Published",
         "submitCreate": "Create case",
@@ -246,6 +250,38 @@
         "deleteDescription": "This cannot be undone.",
         "updateSuccess": "Updated",
         "deleteSuccess": "Lead deleted"
+      }
+    },
+    "settings": {
+      "title": "Site settings",
+      "subtitle": "Footer, contacts and details — shared across all pages.",
+      "loadError": "Failed to load settings.",
+      "saveSuccess": "Settings saved.",
+      "save": "Save",
+      "sections": {
+        "general": "General",
+        "contacts": "Contacts",
+        "columns": "Footer columns",
+        "socials": "Socials",
+        "payments": "Payment methods"
+      },
+      "fields": {
+        "tagline": "Tagline",
+        "copyright": "Copyright",
+        "copyrightHint": "{{year}} is inserted automatically.",
+        "email": "Email",
+        "emailInvalid": "Invalid email",
+        "phone": "Phone",
+        "address": "Address",
+        "columnTitle": "Column title",
+        "addColumn": "Add column",
+        "linkLabel": "Link text",
+        "linkUrl": "URL (/about or https://…)",
+        "addLink": "Add link",
+        "platform": "Platform",
+        "socialUrlInvalid": "Check social links (full URL required).",
+        "addSocial": "Add social",
+        "paymentPlaceholder": "visa, mastercard, payme…"
       }
     }
   },

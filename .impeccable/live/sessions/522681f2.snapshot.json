@@ -1,0 +1,27 @@
+{
+  "id": "522681f2",
+  "phase": "discarded",
+  "pageUrl": "/en",
+  "sourceFile": "src/pages/public/HomePage.tsx",
+  "expectedVariants": 3,
+  "arrivedVariants": 3,
+  "visibleVariant": 2,
+  "paramValues": {
+    "frame": true
+  },
+  "pendingEventSeq": null,
+  "pendingEvent": null,
+  "deliveryLease": null,
+  "checkpointRevision": 20,
+  "activeOwner": "d8b7e103",
+  "sourceMarkers": {},
+  "fallbackMode": null,
+  "annotationArtifacts": [],
+  "diagnostics": [
+    {
+      "error": "stale_checkpoint_ignored",
+      "revision": 1
+    }
+  ],
+  "updatedAt": "2026-05-29T21:02:12.634Z"
+}

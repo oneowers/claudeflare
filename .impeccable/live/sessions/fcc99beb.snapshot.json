@@ -1,0 +1,25 @@
+{
+  "id": "fcc99beb",
+  "phase": "discarded",
+  "pageUrl": "/en",
+  "sourceFile": "src/components/layout/Header.tsx",
+  "expectedVariants": 2,
+  "arrivedVariants": 2,
+  "visibleVariant": 2,
+  "paramValues": {},
+  "pendingEventSeq": null,
+  "pendingEvent": null,
+  "deliveryLease": null,
+  "checkpointRevision": 8,
+  "activeOwner": "3b994200",
+  "sourceMarkers": {},
+  "fallbackMode": null,
+  "annotationArtifacts": [],
+  "diagnostics": [
+    {
+      "error": "stale_checkpoint_ignored",
+      "revision": 6
+    }
+  ],
+  "updatedAt": "2026-05-29T20:40:54.062Z"
+}

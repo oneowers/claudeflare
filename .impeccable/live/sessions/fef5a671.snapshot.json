@@ -1,0 +1,111 @@
+{
+  "id": "fef5a671",
+  "phase": "completed",
+  "pageUrl": "/en",
+  "sourceFile": "src/components/layout/Header.tsx",
+  "expectedVariants": 3,
+  "arrivedVariants": 3,
+  "visibleVariant": 3,
+  "paramValues": {
+    "height": 0.5
+  },
+  "pendingEventSeq": null,
+  "pendingEvent": null,
+  "deliveryLease": null,
+  "checkpointRevision": 9,
+  "activeOwner": "5a725c9a",
+  "sourceMarkers": {},
+  "fallbackMode": null,
+  "annotationArtifacts": [],
+  "diagnostics": [
+    {
+      "error": "stale_checkpoint_ignored",
+      "revision": 1
+    },
+    {
+      "error": "stale_checkpoint_ignored",
+      "revision": 2
+    },
+    {
+      "error": "stale_checkpoint_ignored",
+      "revision": 3
+    },
+    {
+      "error": "stale_checkpoint_ignored",
+      "revision": 4
+    },
+    {
+      "error": "stale_checkpoint_ignored",
+      "revision": 5
+    },
+    {
+      "error": "stale_checkpoint_ignored",
+      "revision": 6
+    },
+    {
+      "error": "stale_checkpoint_ignored",
+      "revision": 7
+    },
+    {
+      "error": "stale_checkpoint_ignored",
+      "revision": 1
+    },
+    {
+      "error": "stale_checkpoint_ignored",
+      "revision": 2
+    },
+    {
+      "error": "stale_checkpoint_ignored",
+      "revision": 3
+    },
+    {
+      "error": "stale_checkpoint_ignored",
+      "revision": 1
+    },
+    {
+      "error": "stale_checkpoint_ignored",
+      "revision": 2
+    },
+    {
+      "error": "stale_checkpoint_ignored",
+      "revision": 3
+    },
+    {
+      "error": "stale_checkpoint_ignored",
+      "revision": 1
+    },
+    {
+      "error": "stale_checkpoint_ignored",
+      "revision": 1
+    },
+    {
+      "error": "stale_checkpoint_ignored",
+      "revision": 1
+    },
+    {
+      "error": "stale_checkpoint_ignored",
+      "revision": 1
+    },
+    {
+      "error": "stale_checkpoint_ignored",
+      "revision": 1
+    },
+    {
+      "error": "stale_checkpoint_ignored",
+      "revision": 1
+    },
+    {
+      "error": "stale_checkpoint_ignored",
+      "revision": 1
+    },
+    {
+      "error": "stale_checkpoint_ignored",
+      "revision": 1
+    },
+    {
+      "error": "stale_checkpoint_ignored",
+      "revision": 1
+    }
+  ],
+  "updatedAt": "2026-05-29T21:02:12.349Z"
+}

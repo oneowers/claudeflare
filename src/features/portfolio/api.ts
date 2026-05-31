@@ -14,6 +14,7 @@ interface PortfolioRow {
   title_i18n: LocalizedString | null;
   description_i18n: LocalizedString | null;
   image_url: string | null;
+  logo_url: string | null;
   project_url: string | null;
   technologies: string[];
   is_published: boolean;
@@ -33,6 +34,7 @@ function rowToItem(row: PortfolioRow): PortfolioItem {
         ? { ru: row.description }
         : null,
     image_url: row.image_url,
+    logo_url: row.logo_url,
     project_url: row.project_url,
     technologies: row.technologies ?? [],
     is_published: row.is_published,
@@ -96,7 +98,7 @@ export async function getPortfolioById(id: string): Promise<PortfolioItem> {
   return rowToItem(data as PortfolioRow);
 }
 
-async function uploadPortfolioImage(file: File): Promise<string> {
+async function uploadPortfolioFile(file: File): Promise<string> {
   const ext = file.name.split('.').pop()?.toLowerCase() ?? 'jpg';
   const path = `${crypto.randomUUID()}.${ext}`;
   const { error } = await supabase.storage
@@ -107,7 +109,11 @@ async function uploadPortfolioImage(file: File): Promise<string> {
   return data.publicUrl;
 }
 
-function buildPayload(values: PortfolioFormValues, image_url?: string) {
+function buildPayload(
+  values: PortfolioFormValues,
+  image_url?: string,
+  logo_url?: string,
+) {
   const title = cleanLocalized(values.title);
   const desc = cleanLocalized(values.description);
   return {
@@ -123,6 +129,7 @@ function buildPayload(values: PortfolioFormValues, image_url?: string) {
     sort_order: values.sort_order,
     is_published: values.is_published,
     ...(image_url ? { image_url } : {}),
+    ...(logo_url ? { logo_url } : {}),
   };
 }
 
@@ -130,9 +137,12 @@ export async function createPortfolio(
   values: PortfolioFormValues,
 ): Promise<PortfolioItem> {
   const image_url = values.image
-    ? await uploadPortfolioImage(values.image)
+    ? await uploadPortfolioFile(values.image)
     : undefined;
-  const payload = buildPayload(values, image_url);
+  const logo_url = values.logo
+    ? await uploadPortfolioFile(values.logo)
+    : undefined;
+  const payload = buildPayload(values, image_url, logo_url);
   const { data, error } = await supabase
     .from('portfolio')
     .insert(payload)
@@ -147,9 +157,12 @@ export async function updatePortfolio(
   values: PortfolioFormValues,
 ): Promise<PortfolioItem> {
   const image_url = values.image
-    ? await uploadPortfolioImage(values.image)
+    ? await uploadPortfolioFile(values.image)
     : undefined;
-  const payload = buildPayload(values, image_url);
+  const logo_url = values.logo
+    ? await uploadPortfolioFile(values.logo)
+    : undefined;
+  const payload = buildPayload(values, image_url, logo_url);
   const { data, error } = await supabase
     .from('portfolio')
     .update(payload)

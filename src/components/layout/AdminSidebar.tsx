@@ -1,6 +1,6 @@
 import { NavLink } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import { LayoutDashboard, Briefcase, Image, Inbox, LogOut } from 'lucide-react';
+import { LayoutDashboard, Briefcase, Image, Inbox, Settings, LogOut } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { supabase } from '@/lib/supabase';
 import { LanguageSwitcher } from '@/i18n/LanguageSwitcher';
@@ -15,6 +15,7 @@ export function AdminSidebar() {
     { to: '/admin/services', label: t('admin.nav.services'), icon: Briefcase },
     { to: '/admin/portfolio', label: t('admin.nav.portfolio'), icon: Image },
     { to: '/admin/leads', label: t('admin.nav.leads'), icon: Inbox },
+    { to: '/admin/settings', label: t('admin.nav.settings'), icon: Settings },
   ];
 
   return (

@@ -51,7 +51,9 @@
     "allCases": "Butun portfolio →",
     "ctaBannerTitle": "Loyihani boshlashga tayyormisiz?",
     "ctaBannerSubtitle": "Vazifani tasvirlab bering — taxminiy baho va reja yuboramiz.",
-    "ctaBannerButton": "Yozish"
+    "ctaBannerButton": "Yozish",
+    "partnersKicker": "Bizga ishonishadi",
+    "partnersTitle": "Hamkorlarimiz"
   },
   "services": {
     "kicker": "Xizmatlar",
@@ -123,7 +125,8 @@
       "dashboard": "Boshqaruv paneli",
       "services": "Xizmatlar",
       "portfolio": "Portfolio",
-      "leads": "Arizalar"
+      "leads": "Arizalar",
+      "settings": "Sozlamalar"
     },
     "login": {
       "title": "Adminga kirish",
@@ -209,7 +212,8 @@
           "technologies": "Texnologiyalar",
           "technologiesPlaceholder": "React, TypeScript, Postgres…",
           "image": "Rasm",
-          "sortOrder": "Tartib"
+          "sortOrder": "Tartib",
+          "logo": "Logotip"
         },
         "publishToggle": "Chop etilgan",
         "submitCreate": "Keysni yaratish",
@@ -246,6 +250,38 @@
         "deleteDescription": "Buni qaytarib bo‘lmaydi.",
         "updateSuccess": "Yangilandi",
         "deleteSuccess": "Ariza o‘chirildi"
+      }
+    },
+    "settings": {
+      "title": "Sayt sozlamalari",
+      "subtitle": "Futer, kontaktlar va rekvizitlar — barcha sahifalar uchun umumiy.",
+      "loadError": "Sozlamalarni yuklab bo‘lmadi.",
+      "saveSuccess": "Sozlamalar saqlandi.",
+      "save": "Saqlash",
+      "sections": {
+        "general": "Umumiy",
+        "contacts": "Kontaktlar",
+        "columns": "Futer ustunlari",
+        "socials": "Ijtimoiy tarmoqlar",
+        "payments": "To‘lov usullari"
+      },
+      "fields": {
+        "tagline": "Tavsif (taglayn)",
+        "copyright": "Mualliflik huquqi",
+        "copyrightHint": "{{year}} avtomatik qo‘yiladi.",
+        "email": "Email",
+        "emailInvalid": "Noto‘g‘ri email",
+        "phone": "Telefon",
+        "address": "Manzil",
+        "columnTitle": "Ustun sarlavhasi",
+        "addColumn": "Ustun qo‘shish",
+        "linkLabel": "Havola matni",
+        "linkUrl": "URL (/about yoki https://…)",
+        "addLink": "Havola qo‘shish",
+        "platform": "Platforma",
+        "socialUrlInvalid": "Ijtimoiy havolalarni tekshiring (to‘liq URL kerak).",
+        "addSocial": "Ijtimoiy tarmoq qo‘shish",
+        "paymentPlaceholder": "visa, mastercard, payme…"
       }
     }
   },

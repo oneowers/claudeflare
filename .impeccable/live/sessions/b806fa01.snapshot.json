@@ -1,0 +1,20 @@
+{
+  "id": "b806fa01",
+  "phase": "discarded",
+  "pageUrl": "/en",
+  "sourceFile": "src/pages/public/HomePage.tsx",
+  "expectedVariants": 3,
+  "arrivedVariants": 3,
+  "visibleVariant": 1,
+  "paramValues": {},
+  "pendingEventSeq": null,
+  "pendingEvent": null,
+  "deliveryLease": null,
+  "checkpointRevision": 15,
+  "activeOwner": "e12ed6b4",
+  "sourceMarkers": {},
+  "fallbackMode": null,
+  "annotationArtifacts": [],
+  "diagnostics": [],
+  "updatedAt": "2026-05-29T18:56:31.039Z"
+}

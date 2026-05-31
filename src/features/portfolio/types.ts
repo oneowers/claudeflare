@@ -7,6 +7,8 @@ export interface PortfolioItem {
   client: string | null;
   description: LocalizedString | null;
   image_url: string | null;
+  /** Client/brand mark shown in the public partners marquee. */
+  logo_url: string | null;
   project_url: string | null;
   technologies: string[];
   is_published: boolean;
