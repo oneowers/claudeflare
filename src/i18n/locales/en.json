@@ -134,7 +134,46 @@
       "email": "Email",
       "password": "Password",
       "submit": "Sign in",
-      "submitting": "Signing in…"
+      "submitting": "Signing in…",
+      "passwordFallback": {
+        "title": "Use your password",
+        "subtitle": "Sign in with your corporate email and password.",
+        "usePasskey": "Use a passkey instead"
+      },
+      "passkey": {
+        "secureLabel": "Secure sign-in",
+        "title": "Welcome back",
+        "subtitle": "Use Face ID, fingerprint, or device PIN to continue",
+        "continue": "Continue with Passkey",
+        "signingIn": "Waiting for your device…",
+        "usePassword": "Use password instead",
+        "unsupported": "This browser does not support passkeys. Use your password to continue.",
+        "privacy": "Your biometric data stays on your device. WebStudio receives only a signed passkey response.",
+        "enroll": {
+          "optional": "Optional setup",
+          "title": "Make your next sign-in faster",
+          "subtitle": "Create a passkey to use Face ID, fingerprint, Windows Hello, or your device PIN.",
+          "enable": "Enable Face ID / Fingerprint login",
+          "registering": "Waiting for your device…",
+          "skip": "Skip for now",
+          "success": "Passkey enabled"
+        },
+        "errors": {
+          "unsupported": "Passkeys are not supported in this browser.",
+          "insecureContext": "Passkeys require HTTPS. Use a secure connection and try again.",
+          "invalidCredential": "Your device returned an invalid passkey response.",
+          "missingSession": "The passkey was verified, but no session was created.",
+          "cancelled": "Passkey sign-in was cancelled or timed out.",
+          "expired": "The passkey request expired. Try again.",
+          "notRegistered": "No matching passkey was found. Use your password instead.",
+          "disabled": "Passkey login is not enabled for this Supabase project yet. Use your password for now.",
+          "verification": "The passkey could not be verified. Try again.",
+          "alreadyRegistered": "This passkey is already registered.",
+          "tooMany": "This account has reached its passkey limit.",
+          "accountUnavailable": "This account cannot use passkey sign-in. Use your password instead.",
+          "generic": "Passkey sign-in failed. Try again or use your password."
+        }
+      }
     },
     "dashboard": {
       "title": "Dashboard",

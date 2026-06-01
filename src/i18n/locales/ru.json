@@ -134,7 +134,46 @@
       "email": "Email",
       "password": "Пароль",
       "submit": "Войти",
-      "submitting": "Входим…"
+      "submitting": "Входим…",
+      "passwordFallback": {
+        "title": "Вход по паролю",
+        "subtitle": "Введите корпоративный email и пароль.",
+        "usePasskey": "Войти с помощью Passkey"
+      },
+      "passkey": {
+        "secureLabel": "Безопасный вход",
+        "title": "С возвращением",
+        "subtitle": "Используйте Face ID, отпечаток пальца или PIN-код устройства",
+        "continue": "Продолжить с Passkey",
+        "signingIn": "Ожидаем подтверждение…",
+        "usePassword": "Войти по паролю",
+        "unsupported": "Этот браузер не поддерживает Passkey. Войдите по паролю.",
+        "privacy": "Биометрические данные остаются на устройстве. WebStudio получает только подписанный ответ Passkey.",
+        "enroll": {
+          "optional": "Необязательная настройка",
+          "title": "Ускорьте следующий вход",
+          "subtitle": "Создайте Passkey, чтобы входить через Face ID, отпечаток пальца, Windows Hello или PIN-код устройства.",
+          "enable": "Включить вход по Face ID / отпечатку",
+          "registering": "Ожидаем подтверждение…",
+          "skip": "Пропустить",
+          "success": "Passkey подключён"
+        },
+        "errors": {
+          "unsupported": "Этот браузер не поддерживает Passkey.",
+          "insecureContext": "Для Passkey нужен HTTPS. Откройте сайт по защищённому соединению.",
+          "invalidCredential": "Устройство вернуло некорректный ответ Passkey.",
+          "missingSession": "Passkey подтверждён, но сессия не создана.",
+          "cancelled": "Вход по Passkey отменён или время ожидания истекло.",
+          "expired": "Запрос Passkey истёк. Попробуйте ещё раз.",
+          "notRegistered": "Подходящий Passkey не найден. Войдите по паролю.",
+          "disabled": "Вход по Passkey ещё не включён в Supabase для этого проекта. Пока войдите по паролю.",
+          "verification": "Не удалось подтвердить Passkey. Попробуйте ещё раз.",
+          "alreadyRegistered": "Этот Passkey уже зарегистрирован.",
+          "tooMany": "Для этого аккаунта достигнут лимит Passkey.",
+          "accountUnavailable": "Для этого аккаунта вход по Passkey недоступен. Войдите по паролю.",
+          "generic": "Не удалось войти по Passkey. Попробуйте ещё раз или используйте пароль."
+        }
+      }
     },
     "dashboard": {
       "title": "Дашборд",

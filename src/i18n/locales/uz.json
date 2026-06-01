@@ -134,7 +134,46 @@
       "email": "Email",
       "password": "Parol",
       "submit": "Kirish",
-      "submitting": "Kirilmoqda…"
+      "submitting": "Kirilmoqda…",
+      "passwordFallback": {
+        "title": "Parol bilan kirish",
+        "subtitle": "Korporativ email va parolingizni kiriting.",
+        "usePasskey": "Passkey bilan kirish"
+      },
+      "passkey": {
+        "secureLabel": "Xavfsiz kirish",
+        "title": "Xush kelibsiz",
+        "subtitle": "Face ID, barmoq izi yoki qurilma PIN-kodidan foydalaning",
+        "continue": "Passkey bilan davom etish",
+        "signingIn": "Qurilma tasdig‘i kutilmoqda…",
+        "usePassword": "Parol bilan kirish",
+        "unsupported": "Bu brauzer Passkey’ni qo‘llab-quvvatlamaydi. Parol bilan kiring.",
+        "privacy": "Biometrik ma’lumotlar qurilmangizda qoladi. WebStudio faqat imzolangan Passkey javobini oladi.",
+        "enroll": {
+          "optional": "Ixtiyoriy sozlama",
+          "title": "Keyingi kirishni tezlashtiring",
+          "subtitle": "Face ID, barmoq izi, Windows Hello yoki qurilma PIN-kodi orqali kirish uchun Passkey yarating.",
+          "enable": "Face ID / barmoq izi bilan kirishni yoqish",
+          "registering": "Qurilma tasdig‘i kutilmoqda…",
+          "skip": "Hozircha o‘tkazib yuborish",
+          "success": "Passkey yoqildi"
+        },
+        "errors": {
+          "unsupported": "Bu brauzer Passkey’ni qo‘llab-quvvatlamaydi.",
+          "insecureContext": "Passkey uchun HTTPS kerak. Xavfsiz ulanishdan foydalaning.",
+          "invalidCredential": "Qurilma noto‘g‘ri Passkey javobini qaytardi.",
+          "missingSession": "Passkey tasdiqlandi, ammo seans yaratilmadi.",
+          "cancelled": "Passkey orqali kirish bekor qilindi yoki kutish vaqti tugadi.",
+          "expired": "Passkey so‘rovi muddati tugadi. Qayta urinib ko‘ring.",
+          "notRegistered": "Mos Passkey topilmadi. Parol bilan kiring.",
+          "disabled": "Bu Supabase loyihasida Passkey orqali kirish hali yoqilmagan. Hozircha parol bilan kiring.",
+          "verification": "Passkey’ni tasdiqlab bo‘lmadi. Qayta urinib ko‘ring.",
+          "alreadyRegistered": "Bu Passkey avval ro‘yxatdan o‘tgan.",
+          "tooMany": "Bu akkaunt uchun Passkey limiti tugagan.",
+          "accountUnavailable": "Bu akkaunt uchun Passkey orqali kirish mavjud emas. Parol bilan kiring.",
+          "generic": "Passkey orqali kirib bo‘lmadi. Qayta urinib ko‘ring yoki paroldan foydalaning."
+        }
+      }
     },
     "dashboard": {
       "title": "Boshqaruv paneli",
